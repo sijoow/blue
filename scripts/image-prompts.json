@@ -1,0 +1,1781 @@
+{
+  "total": 106,
+  "credits": 55.5,
+  "refs": [
+    "refs/gen/bluey.png",
+    "refs/gen/family.png",
+    "refs/gen/bingo.png",
+    "refs/gen/bandit.png",
+    "refs/gen/chilli.png"
+  ],
+  "items": [
+    {
+      "key": "guide",
+      "what": "안내 친구 — 손 흔들며 인사",
+      "file": "img/guide/happy.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. She is waving hello with one paw, big friendly smile. Standing, full body, front three-quarter view. Only Bluey. No other characters anywhere. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "guide:cheer",
+      "what": "안내 친구 — 두 팔 들고 신난 모습",
+      "file": "img/guide/cheer.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. She is both arms up, cheering, very happy, jumping a little. Standing, full body, front three-quarter view. Only Bluey. No other characters anywhere. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "guide:wow",
+      "what": "안내 친구 — 깜짝 놀란 모습",
+      "file": "img/guide/wow.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. She is surprised, mouth open in an O, arms out. Standing, full body, front three-quarter view. Only Bluey. No other characters anywhere. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "family:hello",
+      "what": "블루이 가족 넷 — 나란히 손 흔들며 인사",
+      "file": "img/family/hello.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. They are standing together side by side and waving hello, big friendly smiles, Bluey and Bingo in front of Mum and Dad. Full bodies, front view. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "family:cheer",
+      "what": "블루이 가족 넷 — 함께 신나게 축하",
+      "file": "img/family/cheer.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. They are cheering together: Bluey and Bingo jumping with arms up, Dad and Mum clapping behind them, very happy. Full bodies, front view. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "name:bingo",
+      "what": "이름 만들기 그림 — 빙고 한 명, 손 흔들며 인사",
+      "file": "img/names/bingo.webp",
+      "refs": [
+        "refs/gen/bingo.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. She is waving hello with one paw, big friendly smile. Standing, full body, front three-quarter view. Only Bingo. No other characters anywhere. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "name:mum",
+      "what": "이름 만들기 그림 — 엄마 한 명, 손 흔들며 인사",
+      "file": "img/names/mum.webp",
+      "refs": [
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. She is waving hello with one paw, warm smile. Standing, full body, front three-quarter view. Only Mum. No other characters anywhere. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "name:dad",
+      "what": "이름 만들기 그림 — 아빠 한 명, 손 흔들며 인사",
+      "file": "img/names/dad.webp",
+      "refs": [
+        "refs/gen/bandit.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. He is waving hello with one paw, big grin. Standing, full body, front three-quarter view. Only Dad. No other characters anywhere. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:apple",
+      "what": "대표 단어 A: apple (사과)",
+      "file": "img/words/apple.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a shiny red apple with a green leaf, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:ant",
+      "what": "대표 단어 A: ant (개미)",
+      "file": "img/words/ant.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute small red ant, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:ball",
+      "what": "대표 단어 B: ball (공)",
+      "file": "img/words/ball.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a colourful striped beach ball, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:banana",
+      "what": "대표 단어 B: banana (바나나)",
+      "file": "img/words/banana.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a yellow banana, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:cat",
+      "what": "대표 단어 C: cat (고양이)",
+      "file": "img/words/cat.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute grey striped kitten sitting, with a round cat face, small triangle ears, whiskers and a long thin tail (clearly a cat, not a dog, not orange), cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:cake",
+      "what": "대표 단어 C: cake (케이크)",
+      "file": "img/words/cake.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a birthday cake with pink icing and candles, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:dog",
+      "what": "대표 단어 D: dog (강아지)",
+      "file": "img/words/dog.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute small brown-and-white puppy sitting (not Bluey, not Bingo, not a heeler), cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:duck",
+      "what": "대표 단어 D: duck (오리)",
+      "file": "img/words/duck.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a yellow duck, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:egg",
+      "what": "대표 단어 E: egg (달걀)",
+      "file": "img/words/egg.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a white egg, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:elephant",
+      "what": "대표 단어 E: elephant (코끼리)",
+      "file": "img/words/elephant.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute grey elephant, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:fish",
+      "what": "대표 단어 F: fish (물고기)",
+      "file": "img/words/fish.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a little orange fish, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:frog",
+      "what": "대표 단어 F: frog (개구리)",
+      "file": "img/words/frog.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute green frog, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:goat",
+      "what": "대표 단어 G: goat (염소)",
+      "file": "img/words/goat.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute white goat, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:grapes",
+      "what": "대표 단어 G: grapes (포도)",
+      "file": "img/words/grapes.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a bunch of purple grapes, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:hat",
+      "what": "대표 단어 H: hat (모자)",
+      "file": "img/words/hat.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a straw sun hat with a ribbon, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:horse",
+      "what": "대표 단어 H: horse (말)",
+      "file": "img/words/horse.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute brown horse, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:igloo",
+      "what": "대표 단어 I: igloo (이글루)",
+      "file": "img/words/igloo.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a small white igloo made of ice blocks, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:iguana",
+      "what": "대표 단어 I: iguana (이구아나)",
+      "file": "img/words/iguana.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute green iguana, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:juice",
+      "what": "대표 단어 J: juice (주스)",
+      "file": "img/words/juice.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a juice box with a bendy straw, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:jellyfish",
+      "what": "대표 단어 J: jellyfish (해파리)",
+      "file": "img/words/jellyfish.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute pink jellyfish, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:kite",
+      "what": "대표 단어 K: kite (연)",
+      "file": "img/words/kite.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a colourful diamond kite with a tail, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:key",
+      "what": "대표 단어 K: key (열쇠)",
+      "file": "img/words/key.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a golden key, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:lion",
+      "what": "대표 단어 L: lion (사자)",
+      "file": "img/words/lion.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute lion with a big fluffy mane, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:leaf",
+      "what": "대표 단어 L: leaf (나뭇잎)",
+      "file": "img/words/leaf.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a green leaf, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:moon",
+      "what": "대표 단어 M: moon (달)",
+      "file": "img/words/moon.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a yellow crescent moon, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:monkey",
+      "what": "대표 단어 M: monkey (원숭이)",
+      "file": "img/words/monkey.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute brown monkey, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:nest",
+      "what": "대표 단어 N: nest (둥지)",
+      "file": "img/words/nest.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a bird nest with three blue eggs, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:nose",
+      "what": "대표 단어 N: nose (코)",
+      "file": "img/words/nose.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a friendly brown teddy bear face seen up close, with a big round shiny dark-brown nose right in the middle that is clearly the focus, small round ears (a teddy bear, not a dog), cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:octopus",
+      "what": "대표 단어 O: octopus (문어)",
+      "file": "img/words/octopus.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute purple octopus, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:orange",
+      "what": "대표 단어 O: orange (오렌지)",
+      "file": "img/words/orange.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of an orange fruit with a leaf, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:pig",
+      "what": "대표 단어 P: pig (돼지)",
+      "file": "img/words/pig.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute pink pig, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:pizza",
+      "what": "대표 단어 P: pizza (피자)",
+      "file": "img/words/pizza.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a slice of pizza, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:queen",
+      "what": "대표 단어 Q: queen (여왕)",
+      "file": "img/words/queen.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a friendly cartoon queen dog wearing a golden crown and a royal red robe (not Bluey, not Bingo), cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:quilt",
+      "what": "대표 단어 Q: quilt (누비이불)",
+      "file": "img/words/quilt.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a folded colourful patchwork quilt, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:rabbit",
+      "what": "대표 단어 R: rabbit (토끼)",
+      "file": "img/words/rabbit.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute white rabbit, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:rainbow",
+      "what": "대표 단어 R: rainbow (무지개)",
+      "file": "img/words/rainbow.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a rainbow arching over two small clouds, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:sun",
+      "what": "대표 단어 S: sun (해)",
+      "file": "img/words/sun.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a bright yellow sun, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:sock",
+      "what": "대표 단어 S: sock (양말)",
+      "file": "img/words/sock.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a striped sock, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:tiger",
+      "what": "대표 단어 T: tiger (호랑이)",
+      "file": "img/words/tiger.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute tiger cub with orange fur, bold black stripes, small round ears, a white muzzle and a striped tail (clearly a tiger, not a dog), cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:tree",
+      "what": "대표 단어 T: tree (나무)",
+      "file": "img/words/tree.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a leafy green tree, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:umbrella",
+      "what": "대표 단어 U: umbrella (우산)",
+      "file": "img/words/umbrella.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of an open red umbrella, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:unicorn",
+      "what": "대표 단어 U: unicorn (유니콘)",
+      "file": "img/words/unicorn.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute white unicorn with a rainbow mane, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:van",
+      "what": "대표 단어 V: van (승합차)",
+      "file": "img/words/van.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a small blue family van, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:violin",
+      "what": "대표 단어 V: violin (바이올린)",
+      "file": "img/words/violin.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a wooden violin with its bow, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:watermelon",
+      "what": "대표 단어 W: watermelon (수박)",
+      "file": "img/words/watermelon.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a slice of watermelon, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:worm",
+      "what": "대표 단어 W: worm (지렁이)",
+      "file": "img/words/worm.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute pink earthworm, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:box",
+      "what": "대표 단어 X: box (상자)",
+      "file": "img/words/box.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a closed cardboard box, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:fox",
+      "what": "대표 단어 X: fox (여우)",
+      "file": "img/words/fox.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute red fox with a narrow pointed snout, a white chest and a big bushy tail with a white tip, sitting (clearly a fox, not a dog, not Bingo), cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:yo-yo",
+      "what": "대표 단어 Y: yo-yo (요요)",
+      "file": "img/words/yo-yo.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a red yo-yo with its string, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:yogurt",
+      "what": "대표 단어 Y: yogurt (요거트)",
+      "file": "img/words/yogurt.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cup of yogurt with a spoon, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:zebra",
+      "what": "대표 단어 Z: zebra (얼룩말)",
+      "file": "img/words/zebra.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a cute zebra, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "word:zipper",
+      "what": "대표 단어 Z: zipper (지퍼)",
+      "file": "img/words/zipper.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. One picture of a big shiny zipper, half open, cute and simple, easy for a 4-year-old to recognise. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:menu:free",
+      "what": "메뉴 아이콘: 놀이터",
+      "file": "img/icons/menu-free.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). A small app icon: Bluey happily sliding down a small red playground slide. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Only Bluey. No other characters anywhere. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:menu:games",
+      "what": "메뉴 아이콘: 영어 놀이",
+      "file": "img/icons/menu-games.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). A small app icon: Bluey happily holding up a big white dice with red dots. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Only Bluey. No other characters anywhere. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:menu:songs",
+      "what": "메뉴 아이콘: 노래",
+      "file": "img/icons/menu-songs.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). A small app icon: Bluey singing happily with her mouth open, a few colourful musical notes floating around her. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Only Bluey. No other characters anywhere. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:menu:books",
+      "what": "메뉴 아이콘: 그림책",
+      "file": "img/icons/menu-books.webp",
+      "refs": [
+        "refs/gen/bingo.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). A small app icon: Bingo sitting and reading an open picture book, smiling. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Only Bingo. No other characters anywhere. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:menu:letters",
+      "what": "메뉴 아이콘: 단어장",
+      "file": "img/icons/menu-letters.webp",
+      "refs": [
+        "refs/gen/bingo.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). A small app icon: Bingo hugging a small stack of colourful picture cards (the cards show only simple shapes, no letters). Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Only Bingo. No other characters anywhere. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:menu:write",
+      "what": "메뉴 아이콘: 글자 쓰기",
+      "file": "img/icons/menu-write.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). A small app icon: Bluey holding a big orange crayon, drawing a wavy line. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Only Bluey. No other characters anywhere. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:sticker",
+      "what": "모으는 스티커 하나 — 보상",
+      "file": "img/icons/sticker.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a shiny round gold star sticker with a white border, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:ui:lock",
+      "what": "잠금",
+      "file": "img/icons/ui-lock.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a small golden padlock, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:ui:party",
+      "what": "축하",
+      "file": "img/icons/ui-party.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a party popper bursting with confetti, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:ui:sparkle",
+      "what": "반짝",
+      "file": "img/icons/ui-sparkle.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: three shiny yellow sparkles, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:ui:star",
+      "what": "별(도장)",
+      "file": "img/icons/ui-star.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a shiny gold star, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:ui:clap",
+      "what": "손뼉 치는 손",
+      "file": "img/icons/ui-clap.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: two cartoon dog paws clapping, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:ui:home",
+      "what": "집(돌아가기)",
+      "file": "img/icons/ui-home.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a small Queenslander house on stilts with a red roof, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:ui:moon",
+      "what": "내일 또(달)",
+      "file": "img/icons/ui-moon.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a yellow crescent moon with a small star, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:ui:crown",
+      "what": "왕관(마스터)",
+      "file": "img/icons/ui-crown.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a small golden crown, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:play:find-letter",
+      "what": "놀이 아이콘: 글자 찾기",
+      "file": "img/icons/play-find-letter.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a friendly cartoon ear with small curved sound waves, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:play:match-case",
+      "what": "놀이 아이콘: 짝꿍 찾기",
+      "file": "img/icons/play-match-case.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: two jigsaw puzzle pieces, one blue and one orange, fitting together, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:play:missing-letter",
+      "what": "놀이 아이콘: 빈칸 글자",
+      "file": "img/icons/play-missing-letter.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a single bright yellow jigsaw puzzle piece, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:play:pop",
+      "what": "놀이 아이콘: 글자 방울",
+      "file": "img/icons/play-pop.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: three shiny floating soap bubbles, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:play:next-letter",
+      "what": "놀이 아이콘: 다음 글자",
+      "file": "img/icons/play-next-letter.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a chunky rounded green arrow pointing right, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:play:song",
+      "what": "놀이 아이콘: 노래",
+      "file": "img/icons/play-song.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: two colourful musical notes, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:play:book",
+      "what": "놀이 아이콘: 그림책",
+      "file": "img/icons/play-book.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: an open colourful picture book, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:play:say",
+      "what": "놀이 아이콘: 따라 말하기",
+      "file": "img/icons/play-say.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a friendly toy microphone, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:play:quiz",
+      "what": "놀이 아이콘: 도장 퀴즈",
+      "file": "img/icons/play-quiz.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a small shiny gold trophy cup, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:medal:gold",
+      "what": "금메달",
+      "file": "img/icons/medal-gold.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a shiny gold medal on a red ribbon, with a simple star in the middle, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:medal:silver",
+      "what": "은메달",
+      "file": "img/icons/medal-silver.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a shiny silver medal on a blue ribbon, with a simple star in the middle, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:medal:bronze",
+      "what": "동메달",
+      "file": "img/icons/medal-bronze.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a shiny bronze medal on a green ribbon, with a simple star in the middle, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "scene:free:find-letter",
+      "what": "놀이터 카드 장면: 글자 찾기",
+      "file": "img/scenes/free-find-letter.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "4:3",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Dad whispering into Bluey's ear while she listens carefully with a paw cupped behind her ear; Mum and Bingo giggle nearby. The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "scene:free:match-case",
+      "what": "놀이터 카드 장면: 짝꿍 찾기",
+      "file": "img/scenes/free-match-case.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "4:3",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Bluey and Bingo giving each other a high five while Dad and Mum clap behind them. The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "scene:free:word-pick",
+      "what": "놀이터 카드 장면: 그림 고르기",
+      "file": "img/scenes/free-word-pick.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "4:3",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Mum holding up a red apple, Bingo pointing at it, Bluey holding a beach ball, Dad smiling. The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "scene:free:missing-letter",
+      "what": "놀이터 카드 장면: 빈칸 글자",
+      "file": "img/scenes/free-missing-letter.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "4:3",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Bluey and Bingo fitting big yellow jigsaw puzzle pieces into a puzzle on the grass while Mum and Dad kneel beside them. The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "scene:free:pop",
+      "what": "놀이터 카드 장면: 글자 방울",
+      "file": "img/scenes/free-pop.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "4:3",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Dad blowing big shiny soap bubbles while Bluey and Bingo jump to pop them and Mum laughs. The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "scene:free:next-letter",
+      "what": "놀이터 카드 장면: 다음 글자",
+      "file": "img/scenes/free-next-letter.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "4:3",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). The family walking in a line along garden stepping stones: Dad first, then Bluey, Bingo and Mum, Bluey pointing ahead. The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "scene:free:say",
+      "what": "놀이터 카드 장면: 따라 말하기",
+      "file": "img/scenes/free-say.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "4:3",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Bluey speaking happily into a toy microphone while Bingo, Mum and Dad listen and clap. The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "scene:games:bingo",
+      "what": "영어 놀이 카드 장면: 빙고랑 빙고!",
+      "file": "img/scenes/games-bingo.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "4:3",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). The family sitting around a garden table playing a picture bingo game with plain cards and round blue chips (the cards show only simple pictures); Bingo jumps up cheering with both arms raised. The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "scene:games:mail",
+      "what": "영어 놀이 카드 장면: 우편 배달",
+      "file": "img/scenes/games-mail.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "4:3",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Dad as a cheerful postman with a mail bag hands a plain envelope to Bluey, who is about to put it into a red letterbox with a yellow flag; Bingo and Mum wave from the verandah. The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "scene:games:name",
+      "what": "영어 놀이 카드 장면: 내 이름 HAON",
+      "file": "img/scenes/games-name.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "4:3",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Bluey and Bingo on the verandah floor lining up big plain colourful toy blocks in a row (the blocks are blank), while Mum and Dad watch and smile. The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "scene:games:hide",
+      "what": "영어 놀이 카드 장면: 숨바꼭질",
+      "file": "img/scenes/games-hide.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "4:3",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Hide and seek in the backyard: Dad covering his eyes by a tree, Bluey peeking out from behind a round green bush, Bingo hiding behind another bush, Mum giggling behind the house corner. The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "scene:games:fish",
+      "what": "영어 놀이 카드 장면: 글자 낚시",
+      "file": "img/scenes/games-fish.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "4:3",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). The family at a small backyard pond: Bluey holding a toy fishing rod, Bingo pointing at colourful toy fish in the water, Mum and Dad cheering. The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "scene:games:board",
+      "what": "영어 놀이 카드 장면: 주사위 말판",
+      "file": "img/scenes/games-board.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "4:3",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). The family sitting on a picnic rug playing a big colourful board game with picture squares; Bluey rolls a big white dice with red dots while Bingo, Mum and Dad cheer. The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "bg:home",
+      "what": "첫 화면 바탕(가운데는 비워 둠)",
+      "file": "img/bg/home.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "16:9",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A wide background: the backyard lawn with the Queenslander house far at the left and leafy trees at the right. No characters, no people, no dogs. Keep the middle area calm and mostly empty so cards can sit on top. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "bg:play",
+      "what": "오늘의 영어 바탕",
+      "file": "img/bg/play.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "16:9",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A wide background: a sunny garden with soft green grass and a few flowers along the bottom edge. No characters, no people, no dogs. Keep the middle area calm and mostly empty so cards can sit on top. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "bg:free",
+      "what": "놀이터 바탕",
+      "file": "img/bg/free.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "16:9",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A wide background: a backyard playground with a swing at the far left and a slide at the far right. No characters, no people, no dogs. Keep the middle area calm and mostly empty so cards can sit on top. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "bg:letters",
+      "what": "알파벳 카드 바탕",
+      "file": "img/bg/letters.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "16:9",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A wide background: the shady verandah of the Queenslander house with toy boxes at the far sides. No characters, no people, no dogs. Keep the middle area calm and mostly empty so cards can sit on top. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "bg:write",
+      "what": "알파벳 쓰기 바탕",
+      "file": "img/bg/write.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "16:9",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A wide background: a sunny verandah with a small table and crayons at the far right. No characters, no people, no dogs. Keep the middle area calm and mostly empty so cards can sit on top. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "app-icon",
+      "what": "앱 아이콘 — 안내 친구 얼굴 (512×512)",
+      "file": "img/app-icon.png",
+      "refs": [
+        "refs/gen/bluey.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). App icon: the smiling face of Bluey filling a rounded square, plain soft sky-blue background. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Only Bluey. No other characters anywhere. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    }
+  ]
+}

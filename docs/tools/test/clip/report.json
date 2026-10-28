@@ -1,0 +1,46 @@
+[
+ {
+  "size": "412x780",
+  "name": "play-word",
+  "n": 0,
+  "page": {
+   "scrollH": 780,
+   "H": 780,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "412x780",
+  "name": "play-quiz-q",
+  "n": 0,
+  "page": {
+   "scrollH": 780,
+   "H": 780,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "900x412",
+  "name": "play-word",
+  "n": 0,
+  "page": {
+   "scrollH": 412,
+   "H": 412,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "900x412",
+  "name": "play-quiz-q",
+  "n": 0,
+  "page": {
+   "scrollH": 412,
+   "H": 412,
+   "docScrolls": false
+  },
+  "items": []
+ }
+]

@@ -1,0 +1,655 @@
+{
+  "total": 106,
+  "guide": [
+    {
+      "key": "guide",
+      "kind": "guide",
+      "now": "ABC 카드",
+      "what": "안내 친구 — 손 흔들며 인사"
+    },
+    {
+      "key": "guide:cheer",
+      "kind": "guide",
+      "now": "ABC 카드",
+      "what": "안내 친구 — 두 팔 들고 신난 모습"
+    },
+    {
+      "key": "guide:wow",
+      "kind": "guide",
+      "now": "ABC 카드",
+      "what": "안내 친구 — 깜짝 놀란 모습"
+    }
+  ],
+  "family": [
+    {
+      "key": "family:hello",
+      "kind": "family",
+      "now": "ABC 카드",
+      "what": "블루이 가족 넷 — 나란히 손 흔들며 인사"
+    },
+    {
+      "key": "family:cheer",
+      "kind": "family",
+      "now": "ABC 카드",
+      "what": "블루이 가족 넷 — 함께 신나게 축하"
+    }
+  ],
+  "names": [
+    {
+      "key": "name:bingo",
+      "kind": "name",
+      "now": "가족 그림",
+      "what": "이름 만들기 그림 — 빙고 한 명, 손 흔들며 인사"
+    },
+    {
+      "key": "name:mum",
+      "kind": "name",
+      "now": "가족 그림",
+      "what": "이름 만들기 그림 — 엄마 한 명, 손 흔들며 인사"
+    },
+    {
+      "key": "name:dad",
+      "kind": "name",
+      "now": "가족 그림",
+      "what": "이름 만들기 그림 — 아빠 한 명, 손 흔들며 인사"
+    }
+  ],
+  "words": [
+    {
+      "key": "word:apple",
+      "kind": "word",
+      "now": "🍎",
+      "what": "대표 단어 A: apple (사과)"
+    },
+    {
+      "key": "word:ant",
+      "kind": "word",
+      "now": "🐜",
+      "what": "대표 단어 A: ant (개미)"
+    },
+    {
+      "key": "word:ball",
+      "kind": "word",
+      "now": "⚽",
+      "what": "대표 단어 B: ball (공)"
+    },
+    {
+      "key": "word:banana",
+      "kind": "word",
+      "now": "🍌",
+      "what": "대표 단어 B: banana (바나나)"
+    },
+    {
+      "key": "word:cat",
+      "kind": "word",
+      "now": "🐱",
+      "what": "대표 단어 C: cat (고양이)"
+    },
+    {
+      "key": "word:cake",
+      "kind": "word",
+      "now": "🍰",
+      "what": "대표 단어 C: cake (케이크)"
+    },
+    {
+      "key": "word:dog",
+      "kind": "word",
+      "now": "🐶",
+      "what": "대표 단어 D: dog (강아지)"
+    },
+    {
+      "key": "word:duck",
+      "kind": "word",
+      "now": "🦆",
+      "what": "대표 단어 D: duck (오리)"
+    },
+    {
+      "key": "word:egg",
+      "kind": "word",
+      "now": "🥚",
+      "what": "대표 단어 E: egg (달걀)"
+    },
+    {
+      "key": "word:elephant",
+      "kind": "word",
+      "now": "🐘",
+      "what": "대표 단어 E: elephant (코끼리)"
+    },
+    {
+      "key": "word:fish",
+      "kind": "word",
+      "now": "🐟",
+      "what": "대표 단어 F: fish (물고기)"
+    },
+    {
+      "key": "word:frog",
+      "kind": "word",
+      "now": "🐸",
+      "what": "대표 단어 F: frog (개구리)"
+    },
+    {
+      "key": "word:goat",
+      "kind": "word",
+      "now": "🐐",
+      "what": "대표 단어 G: goat (염소)"
+    },
+    {
+      "key": "word:grapes",
+      "kind": "word",
+      "now": "🍇",
+      "what": "대표 단어 G: grapes (포도)"
+    },
+    {
+      "key": "word:hat",
+      "kind": "word",
+      "now": "👒",
+      "what": "대표 단어 H: hat (모자)"
+    },
+    {
+      "key": "word:horse",
+      "kind": "word",
+      "now": "🐴",
+      "what": "대표 단어 H: horse (말)"
+    },
+    {
+      "key": "word:igloo",
+      "kind": "word",
+      "now": "🛖",
+      "what": "대표 단어 I: igloo (이글루)"
+    },
+    {
+      "key": "word:iguana",
+      "kind": "word",
+      "now": "🦎",
+      "what": "대표 단어 I: iguana (이구아나)"
+    },
+    {
+      "key": "word:juice",
+      "kind": "word",
+      "now": "🧃",
+      "what": "대표 단어 J: juice (주스)"
+    },
+    {
+      "key": "word:jellyfish",
+      "kind": "word",
+      "now": "🪼",
+      "what": "대표 단어 J: jellyfish (해파리)"
+    },
+    {
+      "key": "word:kite",
+      "kind": "word",
+      "now": "🪁",
+      "what": "대표 단어 K: kite (연)"
+    },
+    {
+      "key": "word:key",
+      "kind": "word",
+      "now": "🔑",
+      "what": "대표 단어 K: key (열쇠)"
+    },
+    {
+      "key": "word:lion",
+      "kind": "word",
+      "now": "🦁",
+      "what": "대표 단어 L: lion (사자)"
+    },
+    {
+      "key": "word:leaf",
+      "kind": "word",
+      "now": "🍃",
+      "what": "대표 단어 L: leaf (나뭇잎)"
+    },
+    {
+      "key": "word:moon",
+      "kind": "word",
+      "now": "🌙",
+      "what": "대표 단어 M: moon (달)"
+    },
+    {
+      "key": "word:monkey",
+      "kind": "word",
+      "now": "🐵",
+      "what": "대표 단어 M: monkey (원숭이)"
+    },
+    {
+      "key": "word:nest",
+      "kind": "word",
+      "now": "🪺",
+      "what": "대표 단어 N: nest (둥지)"
+    },
+    {
+      "key": "word:nose",
+      "kind": "word",
+      "now": "👃",
+      "what": "대표 단어 N: nose (코)"
+    },
+    {
+      "key": "word:octopus",
+      "kind": "word",
+      "now": "🐙",
+      "what": "대표 단어 O: octopus (문어)"
+    },
+    {
+      "key": "word:orange",
+      "kind": "word",
+      "now": "🍊",
+      "what": "대표 단어 O: orange (오렌지)"
+    },
+    {
+      "key": "word:pig",
+      "kind": "word",
+      "now": "🐷",
+      "what": "대표 단어 P: pig (돼지)"
+    },
+    {
+      "key": "word:pizza",
+      "kind": "word",
+      "now": "🍕",
+      "what": "대표 단어 P: pizza (피자)"
+    },
+    {
+      "key": "word:queen",
+      "kind": "word",
+      "now": "👸",
+      "what": "대표 단어 Q: queen (여왕)"
+    },
+    {
+      "key": "word:quilt",
+      "kind": "word",
+      "now": "🛏️",
+      "what": "대표 단어 Q: quilt (누비이불)"
+    },
+    {
+      "key": "word:rabbit",
+      "kind": "word",
+      "now": "🐰",
+      "what": "대표 단어 R: rabbit (토끼)"
+    },
+    {
+      "key": "word:rainbow",
+      "kind": "word",
+      "now": "🌈",
+      "what": "대표 단어 R: rainbow (무지개)"
+    },
+    {
+      "key": "word:sun",
+      "kind": "word",
+      "now": "☀️",
+      "what": "대표 단어 S: sun (해)"
+    },
+    {
+      "key": "word:sock",
+      "kind": "word",
+      "now": "🧦",
+      "what": "대표 단어 S: sock (양말)"
+    },
+    {
+      "key": "word:tiger",
+      "kind": "word",
+      "now": "🐯",
+      "what": "대표 단어 T: tiger (호랑이)"
+    },
+    {
+      "key": "word:tree",
+      "kind": "word",
+      "now": "🌳",
+      "what": "대표 단어 T: tree (나무)"
+    },
+    {
+      "key": "word:umbrella",
+      "kind": "word",
+      "now": "☂️",
+      "what": "대표 단어 U: umbrella (우산)"
+    },
+    {
+      "key": "word:unicorn",
+      "kind": "word",
+      "now": "🦄",
+      "what": "대표 단어 U: unicorn (유니콘)"
+    },
+    {
+      "key": "word:van",
+      "kind": "word",
+      "now": "🚐",
+      "what": "대표 단어 V: van (승합차)"
+    },
+    {
+      "key": "word:violin",
+      "kind": "word",
+      "now": "🎻",
+      "what": "대표 단어 V: violin (바이올린)"
+    },
+    {
+      "key": "word:watermelon",
+      "kind": "word",
+      "now": "🍉",
+      "what": "대표 단어 W: watermelon (수박)"
+    },
+    {
+      "key": "word:worm",
+      "kind": "word",
+      "now": "🪱",
+      "what": "대표 단어 W: worm (지렁이)"
+    },
+    {
+      "key": "word:box",
+      "kind": "word",
+      "now": "📦",
+      "what": "대표 단어 X: box (상자)"
+    },
+    {
+      "key": "word:fox",
+      "kind": "word",
+      "now": "🦊",
+      "what": "대표 단어 X: fox (여우)"
+    },
+    {
+      "key": "word:yo-yo",
+      "kind": "word",
+      "now": "🪀",
+      "what": "대표 단어 Y: yo-yo (요요)"
+    },
+    {
+      "key": "word:yogurt",
+      "kind": "word",
+      "now": "🥛",
+      "what": "대표 단어 Y: yogurt (요거트)"
+    },
+    {
+      "key": "word:zebra",
+      "kind": "word",
+      "now": "🦓",
+      "what": "대표 단어 Z: zebra (얼룩말)"
+    },
+    {
+      "key": "word:zipper",
+      "kind": "word",
+      "now": "🤐",
+      "what": "대표 단어 Z: zipper (지퍼)"
+    }
+  ],
+  "icons": [
+    {
+      "key": "icon:menu:free",
+      "kind": "icon",
+      "now": "🎮",
+      "what": "메뉴 아이콘: 놀이터"
+    },
+    {
+      "key": "icon:menu:games",
+      "kind": "icon",
+      "now": "🎲",
+      "what": "메뉴 아이콘: 영어 놀이"
+    },
+    {
+      "key": "icon:menu:songs",
+      "kind": "icon",
+      "now": "🎵",
+      "what": "메뉴 아이콘: 노래"
+    },
+    {
+      "key": "icon:menu:books",
+      "kind": "icon",
+      "now": "📖",
+      "what": "메뉴 아이콘: 그림책"
+    },
+    {
+      "key": "icon:menu:letters",
+      "kind": "icon",
+      "now": "🔤",
+      "what": "메뉴 아이콘: 단어장"
+    },
+    {
+      "key": "icon:menu:write",
+      "kind": "icon",
+      "now": "✏️",
+      "what": "메뉴 아이콘: 글자 쓰기"
+    },
+    {
+      "key": "icon:sticker",
+      "kind": "icon",
+      "now": "별 스티커(SVG)",
+      "what": "모으는 스티커 하나 — 보상"
+    },
+    {
+      "key": "icon:ui:lock",
+      "kind": "icon",
+      "now": "🔒",
+      "what": "잠금"
+    },
+    {
+      "key": "icon:ui:party",
+      "kind": "icon",
+      "now": "🎉",
+      "what": "축하"
+    },
+    {
+      "key": "icon:ui:sparkle",
+      "kind": "icon",
+      "now": "✨",
+      "what": "반짝"
+    },
+    {
+      "key": "icon:ui:star",
+      "kind": "icon",
+      "now": "⭐",
+      "what": "별(도장)"
+    },
+    {
+      "key": "icon:ui:clap",
+      "kind": "icon",
+      "now": "👏",
+      "what": "손뼉 치는 손"
+    },
+    {
+      "key": "icon:ui:home",
+      "kind": "icon",
+      "now": "🏠",
+      "what": "집(돌아가기)"
+    },
+    {
+      "key": "icon:ui:moon",
+      "kind": "icon",
+      "now": "🌙",
+      "what": "내일 또(달)"
+    },
+    {
+      "key": "icon:ui:crown",
+      "kind": "icon",
+      "now": "👑",
+      "what": "왕관(마스터)"
+    },
+    {
+      "key": "icon:play:find-letter",
+      "kind": "icon",
+      "now": "👂",
+      "what": "놀이 아이콘: 글자 찾기"
+    },
+    {
+      "key": "icon:play:match-case",
+      "kind": "icon",
+      "now": "🤝",
+      "what": "놀이 아이콘: 짝꿍 찾기"
+    },
+    {
+      "key": "icon:play:missing-letter",
+      "kind": "icon",
+      "now": "🧩",
+      "what": "놀이 아이콘: 빈칸 글자"
+    },
+    {
+      "key": "icon:play:pop",
+      "kind": "icon",
+      "now": "🎈",
+      "what": "놀이 아이콘: 글자 방울"
+    },
+    {
+      "key": "icon:play:next-letter",
+      "kind": "icon",
+      "now": "➡️",
+      "what": "놀이 아이콘: 다음 글자"
+    },
+    {
+      "key": "icon:play:song",
+      "kind": "icon",
+      "now": "🎵",
+      "what": "놀이 아이콘: 노래"
+    },
+    {
+      "key": "icon:play:book",
+      "kind": "icon",
+      "now": "📖",
+      "what": "놀이 아이콘: 그림책"
+    },
+    {
+      "key": "icon:play:say",
+      "kind": "icon",
+      "now": "🎤",
+      "what": "놀이 아이콘: 따라 말하기"
+    },
+    {
+      "key": "icon:play:quiz",
+      "kind": "icon",
+      "now": "🏅",
+      "what": "놀이 아이콘: 도장 퀴즈"
+    },
+    {
+      "key": "icon:medal:gold",
+      "kind": "icon",
+      "now": "🥇",
+      "what": "금메달"
+    },
+    {
+      "key": "icon:medal:silver",
+      "kind": "icon",
+      "now": "🥈",
+      "what": "은메달"
+    },
+    {
+      "key": "icon:medal:bronze",
+      "kind": "icon",
+      "now": "🥉",
+      "what": "동메달"
+    }
+  ],
+  "scenes": [
+    {
+      "key": "scene:free:find-letter",
+      "kind": "scene",
+      "now": "👂",
+      "what": "놀이터 카드 장면: 글자 찾기"
+    },
+    {
+      "key": "scene:free:match-case",
+      "kind": "scene",
+      "now": "🤝",
+      "what": "놀이터 카드 장면: 짝꿍 찾기"
+    },
+    {
+      "key": "scene:free:word-pick",
+      "kind": "scene",
+      "now": "🍎",
+      "what": "놀이터 카드 장면: 그림 고르기"
+    },
+    {
+      "key": "scene:free:missing-letter",
+      "kind": "scene",
+      "now": "🧩",
+      "what": "놀이터 카드 장면: 빈칸 글자"
+    },
+    {
+      "key": "scene:free:pop",
+      "kind": "scene",
+      "now": "🎈",
+      "what": "놀이터 카드 장면: 글자 방울"
+    },
+    {
+      "key": "scene:free:next-letter",
+      "kind": "scene",
+      "now": "➡️",
+      "what": "놀이터 카드 장면: 다음 글자"
+    },
+    {
+      "key": "scene:free:say",
+      "kind": "scene",
+      "now": "🎤",
+      "what": "놀이터 카드 장면: 따라 말하기"
+    },
+    {
+      "key": "scene:games:bingo",
+      "kind": "scene",
+      "now": "🎯",
+      "what": "영어 놀이 카드 장면: 빙고랑 빙고!"
+    },
+    {
+      "key": "scene:games:mail",
+      "kind": "scene",
+      "now": "✉️",
+      "what": "영어 놀이 카드 장면: 우편 배달"
+    },
+    {
+      "key": "scene:games:name",
+      "kind": "scene",
+      "now": "🔤",
+      "what": "영어 놀이 카드 장면: 내 이름 HAON"
+    },
+    {
+      "key": "scene:games:hide",
+      "kind": "scene",
+      "now": "🌳",
+      "what": "영어 놀이 카드 장면: 숨바꼭질"
+    },
+    {
+      "key": "scene:games:fish",
+      "kind": "scene",
+      "now": "🐟",
+      "what": "영어 놀이 카드 장면: 글자 낚시"
+    },
+    {
+      "key": "scene:games:board",
+      "kind": "scene",
+      "now": "🎲",
+      "what": "영어 놀이 카드 장면: 주사위 말판"
+    }
+  ],
+  "bgs": [
+    {
+      "key": "bg:home",
+      "kind": "bg",
+      "now": "CSS 구름",
+      "what": "첫 화면 바탕(가운데는 비워 둠)"
+    },
+    {
+      "key": "bg:play",
+      "kind": "bg",
+      "now": "CSS 구름",
+      "what": "오늘의 영어 바탕"
+    },
+    {
+      "key": "bg:free",
+      "kind": "bg",
+      "now": "CSS 구름",
+      "what": "놀이터 바탕"
+    },
+    {
+      "key": "bg:letters",
+      "kind": "bg",
+      "now": "CSS 구름",
+      "what": "알파벳 카드 바탕"
+    },
+    {
+      "key": "bg:write",
+      "kind": "bg",
+      "now": "CSS 구름",
+      "what": "알파벳 쓰기 바탕"
+    }
+  ],
+  "app": [
+    {
+      "key": "app-icon",
+      "kind": "app",
+      "now": "ABC (임시 PNG)",
+      "what": "앱 아이콘 — 안내 친구 얼굴 (512×512)"
+    }
+  ]
+}
