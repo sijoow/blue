@@ -19,6 +19,11 @@ npm run image:upload                      # public/img → 회사 Cafe24 /app/im
 
 `.env.example` 을 `.env.local` 로 복사해 채운다 — 값은 숫자놀이와 같고 `MONGO_DB=haonenglish` · `CAFE24_UPLOAD_DIR=/app/img/lsh/eng/` 만 다르다.
 Vercel 환경변수: `MONGODB_URI` · `MONGO_DB` · `HANGUL_DB` · `ACCOUNTS` · `AUTH_SECRET` · `CAFE24_PUBLIC_BASE_URL` · `CAFE24_UPLOAD_DIR` (그림 주소는 빌드 때 정해지니 값을 넣고 다시 배포).
+배포: https://blue-vefu.vercel.app (2026-10-28, 사용자가 직접).
+
+### 안드로이드 시험판(APK)
+`docs/tools/apk/build.cjs` — 패키지 `kr.haon.yeongeo`, 앱 이름 「영어교실」, 서명 키는 저장소 밖 `C:\Users\Yogibo Design\haon-apk\yeongeo`(잃으면 다음 APK 가 기존 앱 위에 안 깔린다 — 백업). 키 지문은 `src/app/.well-known/assetlinks.json/route.ts` 에 넣었다(배포해야 주소창 없이 뜬다).
+`node docs/tools/apk/build.cjs https://blue-vefu.vercel.app` → `release/haon-english-test.apk` + `.zip`(메신저가 apk 를 막을 때). 앱 화면·그림이 바뀌어도 배포만 하면 되고 APK 는 다시 안 만들어도 된다(앱 이름·아이콘·주소를 바꿀 때만).
 
 ## 과정 — 토도영어 레벨 A·B (`src/curriculum/course.ts`)
 
