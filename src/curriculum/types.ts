@@ -5,6 +5,8 @@
  * 순수 파일 — node --test 가 그대로 읽는다.
  */
 
+import type { OriginalId } from "./originals.ts";
+
 /** 보기 글자를 대문자로·소문자로·섞어서 */
 export type CaseShow = "upper" | "lower" | "mix";
 
@@ -32,14 +34,18 @@ export type ActivitySpec =
   /** 다음 글자 — A B C ? (letters 는 알파벳 차례로 이어진 글자들) */
   | { kind: "next-letter"; letters: readonly string[]; rounds: number }
   /** 따라 쓰기 — 쓸 글자 차례("A", "a") */
-  | { kind: "trace"; chars: readonly string[] };
+  | { kind: "trace"; chars: readonly string[] }
+  /** 영어 놀이 한 판 — 오늘의 길에 끼는 칸(점수 없음). letters 는 그날까지 만난 글자 */
+  | { kind: "game"; id: OriginalId; letters: readonly string[] };
 
 export type ActivityKind = ActivitySpec["kind"];
 
 export interface DayPlan {
   chapter: number;
-  /** 장 안에서 몇째 날 (1부터) */
+  /** 장 안에서 몇째 미션 (1부터) */
   day: number;
+  /** 장 안 단계 — ★ 1 · ★★ 2 · ★★★ 3 (curriculum/level). 도장 퀴즈는 1 */
+  stage: number;
   title: string;
   /** 장 끝 도장 놀이 날 — 점수 놀이만, 첫 시도만 채점 */
   stamp: boolean;

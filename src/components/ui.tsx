@@ -63,7 +63,7 @@ export function SquishButton({ tone = "card", className = "", style, children, .
   );
 }
 
-export type UiIconName = "prev" | "next" | "play" | "check" | "portrait" | "landscape" | "print" | "home" | "close";
+export type UiIconName = "prev" | "next" | "play" | "check" | "portrait" | "landscape" | "print" | "home" | "close" | "map";
 
 /** 고르기 표시 — 고른 것은 대표색 동그라미 안 하얀 체크, 아니면 빈 동그라미 */
 export function CheckMark({ on, className = "" }: { on: boolean; className?: string }) {
@@ -137,6 +137,13 @@ export function UiIcon({ name, className = "" }: { name: UiIconName; className?:
           <path d="M18.5 11v2" />
         </svg>
       );
+    case "map":
+      return (
+        <svg {...line} strokeWidth={2.2}>
+          <path d="M3.5 6.5 9 4l6 2.5L20.5 4v13.5L15 20l-6-2.5L3.5 20z" />
+          <path d="M9 4v13.5M15 6.5V20" />
+        </svg>
+      );
     case "print":
       return (
         <svg {...line} strokeWidth={2.2}>
@@ -145,6 +152,15 @@ export function UiIcon({ name, className = "" }: { name: UiIconName; className?:
         </svg>
       );
   }
+}
+
+/** 미션 단계 별 — ★ · ★★ · ★★★ */
+export function LevelStars({ n }: { n: number }) {
+  return (
+    <span aria-label={`별 ${n}개`} className="tracking-tighter text-butter-deep">
+      {"★".repeat(n)}
+    </span>
+  );
 }
 
 /** 시작 ▶ — 시작 버튼 안의 하얀 동그라미에 */

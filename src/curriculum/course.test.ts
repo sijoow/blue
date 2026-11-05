@@ -2,7 +2,9 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import { ALPHABET, inOrder, LETTERS, letterOf, letterSpot, WORDS } from "./alphabet.ts";
-import { CHAPTERS, DAYS_PER_CHAPTER, dayPlan, firstSeen, lettersBefore, meetsOn, practicePlan, QUIZ_ROUNDS, TOTAL_DAYS } from "./course.ts";
+import { CHAPTERS, DAY_MISSIONS, DAYS_PER_CHAPTER, dayPlan, firstSeen, lettersBefore, meetsOn, passRateOf, PRACTICE_DAYS, practicePlan, QUIZ_ROUNDS, stageOf, TOTAL_DAYS } from "./course.ts";
+import { LANDS, landOf } from "./lands.ts";
+import { hardenSpec } from "./level.ts";
 import { GAMES, playLetters } from "./games.ts";
 import { allLineTexts, englishTexts, LINES } from "./lines.ts";
 import type { ActivitySpec } from "./types.ts";
@@ -28,9 +30,10 @@ test("알파벳 — 26자, 글자마다 대표 단어 둘(배우는 글자가 �
   assert.deepEqual(inOrder(["C", "A", "C", "zz", "B"]), ["A", "B", "C"]);
 });
 
-test("과정표 — 토도영어 레벨 A 유닛 1~4 → 레벨 B 유닛 1~4, 장마다 6일", () => {
+test("과정표 — 토도영어 레벨 A 유닛 1~4 → 레벨 B 유닛 1~4, 장마다 미션 13개 · 미션마다 10칸", () => {
   assert.equal(CHAPTERS.length, 8);
-  assert.equal(TOTAL_DAYS, 48);
+  assert.equal(DAYS_PER_CHAPTER, 13);
+  assert.equal(TOTAL_DAYS, 104);
   assert.deepEqual(
     CHAPTERS.map((c) => c.code),
     ["A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4"],
@@ -41,9 +44,11 @@ test("과정표 — 토도영어 레벨 A 유닛 1~4 → 레벨 B 유닛 1~4, �
     assert.equal(c.days.length, DAYS_PER_CHAPTER, `${c.no}장 날 수`);
     c.days.forEach((acts, d) => {
       if (d + 1 === DAYS_PER_CHAPTER) return;
-      assert.ok(acts.length >= 5 && acts.length <= 6, `${c.no}장 ${d + 1}일 놀이 수 ${acts.length}`);
-      // 업체 하루처럼 노래(영상 자리)가 맨 앞
-      assert.equal(acts[0].kind, "song", `${c.no}장 ${d + 1}일 첫 놀이`);
+      assert.equal(acts.length, DAY_MISSIONS, `${c.no}장 미션 ${d + 1} 칸 수`);
+      // 업체 하루처럼 영상 자리(노래)나 책이 맨 앞 — ★★★ 는 그림책으로 시작
+      assert.ok(acts[0].kind === "song" || acts[0].kind === "book", `${c.no}장 미션 ${d + 1} 첫 칸 ${acts[0].kind}`);
+      // 바로 앞 칸과 같은 놀이가 이어지지 않는다
+      acts.forEach((a, i) => assert.ok(i === 0 || a.kind !== acts[i - 1].kind, `${c.no}장 미션 ${d + 1} ${i + 1}칸 ${a.kind} 연달아`));
     });
   });
 });
@@ -84,7 +89,7 @@ test("놀이마다 아직 안 만난 글자를 묻지 않는다 — 노래·그�
   }
 });
 
-test("6일째는 10문항 도장 퀴즈 하나 — 추가 학습은 그 장 1~5일을 다시", () => {
+test("마지막은 10문항 도장 퀴즈 하나 — 추가 학습은 그 장 ★ 네 미션을 다시", () => {
   for (const c of CHAPTERS) {
     const stamp = dayPlan(c.no, DAYS_PER_CHAPTER);
     assert.ok(stamp?.stamp);
@@ -92,16 +97,74 @@ test("6일째는 10문항 도장 퀴즈 하나 — 추가 학습은 그 장 1~5�
     assert.equal(stamp.activities.length, 1);
     const quiz = stamp.activities[0];
     assert.ok(quiz.kind === "quiz" && quiz.rounds === QUIZ_ROUNDS && isScored(quiz.kind));
-    for (let d = 1; d < DAYS_PER_CHAPTER; d++) {
+    for (let d = 1; d <= PRACTICE_DAYS; d++) {
       const practice = practicePlan(c.no, d);
       assert.equal(practice?.stamp, false);
       assert.equal(practice?.title, `추가 학습 ${d}일째`);
       assert.deepEqual(practice?.activities, dayPlan(c.no, d)?.activities);
     }
-    assert.equal(practicePlan(c.no, DAYS_PER_CHAPTER), null);
+    assert.equal(practicePlan(c.no, PRACTICE_DAYS + 1), null);
   }
   assert.equal(dayPlan(1, 1)?.title, "오늘의 글자 A");
-  assert.equal(dayPlan(1, 5)?.title, "A B C D 모아서 복습");
+  assert.equal(dayPlan(1, 5)?.title, "A B C D ★★");
+  assert.equal(dayPlan(6, 4)?.title, "U V W 모아 보기");
+  assert.equal(dayPlan(1, 13)?.stage, 1);
+  assert.deepEqual([1, 4, 5, 8, 9, 12].map(stageOf), [1, 1, 2, 2, 3, 3]);
+});
+
+test("★★·★★★ 는 만나기 없이 어렵게 — 소문자·섞기, 앞 장 글자, 판이 는다", () => {
+  const find = { kind: "find-letter", letters: ["E", "F"], show: "upper", rounds: 3 } as const;
+  const before = ["A", "B", "C", "D"];
+  assert.deepEqual(hardenSpec(find, 0, before), find);
+  assert.deepEqual(hardenSpec(find, 1, before), { ...find, letters: ["C", "D", "E", "F"], show: "lower", rounds: 4 });
+  assert.deepEqual(hardenSpec(find, 2, before), { ...find, letters: ["A", "B", "C", "D", "E", "F"], show: "mix", rounds: 5 });
+  assert.deepEqual(hardenSpec({ kind: "trace", chars: ["E", "e"] }, 1, before), { kind: "trace", chars: ["e"] });
+  assert.deepEqual(hardenSpec({ kind: "song", letters: ["E"] }, 2, before), { kind: "song", letters: ["E"] });
+  for (const c of CHAPTERS) {
+    for (let d = 5; d < DAYS_PER_CHAPTER; d++) {
+      const plan = dayPlan(c.no, d);
+      assert.ok(plan);
+      assert.equal(meetsOn(plan.activities).length, 0, `${c.no}장 미션 ${d} 에 만나기`);
+    }
+  }
+});
+
+test("영어 놀이 칸 — 미션마다 하나, 글자가 둘 이상일 때부터, 도장 퀴즈 날엔 없다 · 다음 글자는 이어진 글자로만", () => {
+  for (const c of CHAPTERS) {
+    c.days.forEach((acts, d) => {
+      const games = acts.filter((a) => a.kind === "game");
+      if (d + 1 === DAYS_PER_CHAPTER) assert.equal(games.length, 0);
+      else if (c.no === 1 && d === 0) assert.equal(games.length, 0, "첫날은 글자가 하나뿐");
+      else {
+        assert.equal(games.length, 1, `${c.no}장 미션 ${d + 1}`);
+        assert.notEqual(games[0].kind === "game" && games[0].id, "board");
+      }
+      for (const a of acts) {
+        if (a.kind !== "next-letter") continue;
+        const at = a.letters.map((l) => ALPHABET.indexOf(l));
+        at.forEach((n, i) => assert.ok(i === 0 || n === at[i - 1] + 1, `${c.no}장 미션 ${d + 1} 다음 글자가 끊김: ${a.letters.join("")}`));
+      }
+    });
+  }
+});
+
+test("나라 — 장마다 다른 나라, 우주나라·그림책나라는 없다, 그림과 인사말이 있다", () => {
+  assert.equal(LANDS.length, CHAPTERS.length);
+  assert.equal(new Set(CHAPTERS.map((c) => landOf(c.no).id)).size, CHAPTERS.length);
+  assert.deepEqual(LANDS.filter((l) => ["space", "picturebook"].includes(l.id)), []);
+  const manifest = JSON.parse(readFileSync(new URL("../content/image-manifest.json", import.meta.url), "utf8")) as Record<string, string>;
+  const lines = allLineTexts();
+  for (const l of LANDS) {
+    assert.ok(manifest[`land:${l.id}`], `${l.name} 바탕`);
+    assert.ok(manifest[`friend:${l.id}`], `${l.name} 친구`);
+    assert.ok(l.hello.includes(l.friend) && lines.includes(l.hello), `${l.name} 인사말`);
+  }
+  // 장이 나라보다 많아지면 처음부터 다시 돈다
+  assert.equal(landOf(LANDS.length + 1).id, LANDS[0].id);
+});
+
+test("통과 기준 — 첫 두 장 50%, 그 뒤 70%", () => {
+  assert.deepEqual([1, 2, 3, 8].map(passRateOf), [0.5, 0.5, 0.7, 0.7]);
 });
 
 test("놀이터 놀이는 모두 과정 안에서 처음 나온 날이 있다 · 아는 글자가 적으면 A·B·C 로 채운다", () => {

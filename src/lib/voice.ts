@@ -2,7 +2,7 @@
  * 목소리 — 미리 구운 Typecast 음성 파일이 있으면 그 파일을, 없으면 기기 기본 음성(speechSynthesis)으로 읽는다.
  * 파일 목록은 content/voice-manifest.json: { "sua": { "잘했어!": "voice/sua/3f2a….mp3" }, "en": { "apple": "voice/en/….mp3" } } (scripts/typecast.mts 가 만든다).
  * 말마다 언어를 가른다(lib/voices isEnglish): 한글이 있으면 한국어 — 한글나라 설정의 성우(lib/family, 세 앱이 같은 목소리), 그 성우 파일이 없으면 다른 성우,
- *   영어(글자 이름·단어)면 원어민 묶음 "en". 파일이 없으면 기기 음성 — 한국어는 ko-KR, 영어는 미국식 en-US.
+ *   영어(글자 이름·단어)면 클로이 묶음 "en". 파일이 없으면 기기 음성 — 한국어는 ko-KR, 영어는 미국식 en-US.
  * say() 를 새로 부르면 앞에 말하던 것은 끊는다 — 아이가 빨리 눌러도 소리가 겹치지 않게.
  */
 

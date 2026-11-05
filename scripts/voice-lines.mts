@@ -9,9 +9,10 @@
 
 import { writeFileSync } from "node:fs";
 import { ALPHABET, WORDS } from "../src/curriculum/alphabet.ts";
+import { LANDS } from "../src/curriculum/lands.ts";
 import { allLineTexts, LINES } from "../src/curriculum/lines.ts";
 
-const fixed = new Set<string>(Object.values(LINES).flatMap((v) => (typeof v === "string" ? [v] : [...v])));
+const fixed = new Set<string>([...Object.values(LINES).flatMap((v) => (typeof v === "string" ? [v] : [...v])), ...LANDS.map((l) => l.hello)]);
 const meanings = new Set(WORDS.map((w) => w.ko));
 const letters = new Set(ALPHABET);
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { HandHint, IDLE_HINT_MS } from "@/components/play/HandHint";
 import { useEffect, useState, type CSSProperties } from "react";
 import { Glyph } from "@/components/Art";
 import { SpeakerButton } from "@/components/ui";
@@ -111,6 +112,7 @@ export function Pop({ rounds, assess, onDone }: { rounds: PopRound[]; assess: bo
           );
         })}
       </div>
+      <HandHint from={`section button[aria-label="${caseOf(hits[0].letter, hits[0].show)}"]`} to={`section button[aria-label="${caseOf(hits[0].letter, hits[0].show)}"]`} on={idx === 0 && !assess && popped.length === 0} delay={IDLE_HINT_MS} />
     </ActivityFrame>
   );
 }

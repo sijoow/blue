@@ -4,7 +4,9 @@ import { useRouter } from "next/navigation";
 import type { ReactNode } from "react";
 import { StickerIcon, Guide } from "@/components/Art";
 import { Icon } from "@/components/Icon";
+import { LandBackdrop } from "@/components/map/World";
 import { Backdrop, StickerCount, UiIcon, type Scene } from "@/components/ui";
+import type { Land } from "@/curriculum/lands";
 import { usePlayClock } from "@/lib/play";
 import { useSaved } from "@/lib/store";
 import { stopVoice } from "@/lib/voice";
@@ -18,7 +20,9 @@ export function ModeShell({
   icon,
   iconId,
   scene,
+  land,
   onBack,
+  bleed = false,
   children,
 }: {
   title: string;
@@ -26,7 +30,11 @@ export function ModeShell({
   /** 힉스필드 아이콘 이름(image-manifest "icon:<iconId>") — 그림이 있으면 이모지 대신 */
   iconId?: string;
   scene?: Scene;
+  /** 바탕을 장소 대신 나라 그림으로(지도) */
+  land?: Land["id"];
   onBack?: () => void;
+  /** 내용이 머리줄 밑까지 화면을 꽉 채운다(지도) */
+  bleed?: boolean;
   children: ReactNode;
 }) {
   const router = useRouter();
@@ -34,7 +42,7 @@ export function ModeShell({
   usePlayClock();
   return (
     <main className="relative flex h-dvh flex-col overflow-hidden">
-      <Backdrop scene={scene} />
+      {land ? <LandBackdrop id={land} /> : <Backdrop scene={scene} />}
       <header className="relative z-10 flex items-center justify-between gap-4 px-5 pt-4 portrait:gap-2 portrait:px-3 portrait:pt-safe">
         <button
           type="button"
@@ -55,7 +63,7 @@ export function ModeShell({
         <StickerCount n={saved?.progress.stickers ?? 0} />
       </header>
       {/* 내용이 화면보다 크면 잘리지 않고 스크롤 — 낮은 화면(폰 가로·주소창)에서 아래가 끊기지 않게 */}
-      <section className="relative z-0 min-h-0 flex-1 overflow-x-hidden overflow-y-auto">{children}</section>
+      <section className={bleed ? "absolute inset-0 z-0 overflow-hidden" : "relative z-0 min-h-0 flex-1 overflow-x-hidden overflow-y-auto"}>{children}</section>
     </main>
   );
 }

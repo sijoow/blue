@@ -1,5 +1,6 @@
 "use client";
 
+import { OriginalPlay } from "@/components/games/OriginalPlay";
 import type { BuiltActivity } from "@/lib/rounds";
 import { FindLetter } from "./activities/FindLetter";
 import { MatchCase } from "./activities/MatchCase";
@@ -42,5 +43,7 @@ export function ActivityHost({ built, assess, onDone }: { built: BuiltActivity; 
       return <NextLetter rounds={built.rounds} assess={assess} onDone={onDone} />;
     case "trace":
       return <Trace chars={built.chars} onDone={onDone} />;
+    case "game":
+      return <OriginalPlay built={built.game} onDone={onDone} />;
   }
 }

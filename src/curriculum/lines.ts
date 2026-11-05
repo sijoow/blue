@@ -2,7 +2,7 @@
  * 아이에게 들려주는 말 — 한곳에 모아 둔다. 음성을 미리 구울 때 이 목록을 그대로 뽑아 간다(scripts/voice-lines.mts).
  * 말은 두 가지 목소리로 나뉜다(lib/voice 가 한글이 있는지로 가른다):
  *   한국어 안내  수아(Typecast) — 아래 LINES
- *   영어        원어민(미국식, 2026-10-27 사용자) — 글자 이름("A")·단어("apple")는 따로 한 줄씩 읽는다.
+ *   영어        클로이(Typecast 영어 성우, 2026-11-05 사용자) — 글자 이름("A")·단어("apple")는 따로 한 줄씩 읽는다.
  *   한국어 문장 안에 글자 이름을 넣지 않는다 — 한국어 목소리가 "Z"를 "제트"로 읽어 버린다. 글자는 늘 영어 목소리로 따로.
  * 아이 이름(curriculum/child)이 든 말은 이름을 부르는 아이 맞춤 말 — 이름을 바꾸면 다시 굽는다.
  * 칭찬·다시 하기는 한글나라·숫자놀이와 같은 문장 — 이미 구운 음성을 그대로 빌려 쓴다(npm run voice:reuse).
@@ -11,6 +11,7 @@
 
 import { CHILD } from "./child.ts";
 import { ALPHABET, WORDS } from "./alphabet.ts";
+import { LANDS } from "./lands.ts";
 import { COUNT_EN, NAMES } from "./originals.ts";
 
 const { call, nick } = CHILD;
@@ -24,7 +25,7 @@ export const LINES = {
   doneToday: `오늘 영어는 끝! ${call}, 내일 또 만나!`,
   stampPass: `도장 쾅! ${nick} 정말 대단해!`,
   stampPractice: "조금 더 공부하고 다시 도전하자!",
-  stampMoveOn: "잘했어! 다음 장으로 가 보자!",
+  stampMoveOn: "잘했어! 다음 나라로 가 보자!",
   stickers: "스티커를 모았어!",
   letterNew: "새 알파벳을 만났어!",
   locked: "조금 더 놀면 열려!",
@@ -69,7 +70,13 @@ export const LINES = {
   medalGold: "금메달! 하나도 안 틀렸어!",
   medalSilver: "은메달! 아주 잘했어!",
   medalBronze: "동메달! 다음엔 더 잘할 수 있어!",
-  review: "지난 날을 다시 해 볼까?",
+  review: "지난 미션을 다시 해 볼까?",
+
+  // 오늘의 길·지도(2026-11-05)
+  path: "반짝이는 칸을 눌러 봐!",
+  pathNext: "잘했어! 다음 칸으로 가자!",
+  pathArrive: "끝까지 왔어! 마지막 칸을 눌러 봐!",
+  map: "우리가 어디까지 왔는지 볼까?",
 
   // 영어 놀이(오리지널, 2026-10-28) — 영어 낱말(이름·수·Bingo!)은 따로 한 줄씩(englishTexts)
   games: `${call}, 어떤 영어 놀이를 해 볼까?`,
@@ -114,5 +121,5 @@ export function englishTexts(): string[] {
 /** 모든 말을 한 줄씩 — 음성 파일 목록을 뽑을 때 쓴다(한국어·영어는 voice-lines 가 가른다) */
 export function allLineTexts(): string[] {
   const fixed = Object.values(LINES).flatMap((v) => (typeof v === "string" ? [v] : [...v]));
-  return [...fixed, ...WORDS.map((w) => w.ko), ...englishTexts()];
+  return [...fixed, ...LANDS.map((l) => l.hello), ...WORDS.map((w) => w.ko), ...englishTexts()];
 }

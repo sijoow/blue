@@ -6,7 +6,7 @@
  * 순수 파일 — node --test 가 그대로 읽는다.
  */
 
-import { CHAPTERS, chapterOf, isStampDay } from "../curriculum/course.ts";
+import { CHAPTERS, chapterOf, DAYS_PER_CHAPTER, isStampDay, PRACTICE_DAYS } from "../curriculum/course.ts";
 import { EVERY_DAY } from "./hangul.ts";
 import { daysBefore, localDay, type Progress, type Settings } from "./progress.ts";
 
@@ -102,10 +102,13 @@ export function planAhead(p: Progress, studyDays: readonly number[], today: stri
     while (!isStudyDay(on, days)) on = addDays(on, 1);
     const title = chapterOf(chapter)?.title ?? "";
     if (practice) {
-      // 추가 학습 1~5일 → 다음은 도장 퀴즈
+      // 추가 학습(★ 네 미션) → 다음은 도장 퀴즈
       out.push({ on, chapter, day, practice: true, stamp: false, title });
       day += 1;
-      if (isStampDay(day)) practice = false;
+      if (day > PRACTICE_DAYS) {
+        day = DAYS_PER_CHAPTER;
+        practice = false;
+      }
     } else {
       out.push({ on, chapter, day, practice: false, stamp: isStampDay(day), title });
       if (isStampDay(day)) {

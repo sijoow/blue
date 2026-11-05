@@ -1,5 +1,6 @@
 "use client";
 
+import { HandHint, IDLE_HINT_MS } from "@/components/play/HandHint";
 import { useEffect, useState } from "react";
 import { WordArt } from "@/components/Art";
 import { MarkedWord } from "@/components/play/activities/Book";
@@ -113,6 +114,7 @@ export function HideGame({ game, onDone }: { game: HideBoard; onDone: OnDone }) 
           );
         })}
       </div>
+      <HandHint from={`section button[aria-label="덤불"]:has(img[alt="${wordOf(target).en}"])`} to={`section button[aria-label="덤불"]:has(img[alt="${wordOf(target).en}"])`} on={t === 0 && found.length === 0 && !busy} delay={IDLE_HINT_MS} />
     </div>
   );
 }

@@ -7,9 +7,10 @@ import { ALPHABET } from "@/curriculum/alphabet";
 import type { Family, Orientation } from "@/lib/hangul";
 import { lockOrientation } from "@/lib/orientation";
 import { currentSession, daysBefore, initialProgress, progressRate, restartAt, type DayStat, type DoneRecord, type Progress } from "@/lib/progress";
+import { landOf } from "@/curriculum/lands";
 import { WEEKDAYS } from "@/lib/schedule";
-import type { Saved } from "@/lib/store";
 import { VOICES } from "@/lib/voices";
+import type { Saved } from "@/lib/store";
 
 /*
  * 부모·관리자 화면 조각 — 내 진도(부모 페이지)와 아이 진도(관리자 화면)가 같은 조각을 쓴다.
@@ -81,7 +82,7 @@ export function ProgressSummary({ progress, today }: { progress: Progress; today
       {chapter ? (
         <>
           <p className="text-2xl">
-            {chapter.no}장 {chapter.title} · {session?.practice ? `연습 놀이 (도장 ${progress.tries}번 못 받음)` : `${progress.day}일째`}
+            {chapter.no}장 {landOf(chapter.no).name} · {chapter.title} · {session?.practice ? `추가 학습 (도장 ${progress.tries}번 못 받음)` : `미션 ${progress.day}`}
           </p>
           <p className="mt-1 text-ink-soft">{chapter.goal}</p>
         </>
@@ -173,7 +174,7 @@ export function StampCard({ history, stamps }: { history: DoneRecord[]; stamps: 
   return (
     <Card title="장별 도장">
       {tests.length === 0 ? (
-        <p className="text-ink-soft">아직 도장 놀이(6일째)를 한 장이 없어요.</p>
+        <p className="text-ink-soft">아직 도장 퀴즈를 한 장이 없어요.</p>
       ) : (
         <table className="w-full text-left">
           <thead className="text-ink-soft">
@@ -203,7 +204,7 @@ export function StampCard({ history, stamps }: { history: DoneRecord[]; stamps: 
 
 function recordLabel(r: DoneRecord): string {
   if (r.practice) return `${r.chapter}장 연습 놀이`;
-  return `${r.chapter}장 ${r.day}일째${r.stamp ? " · 도장 놀이" : ""}`;
+  return `${r.chapter}장 미션 ${r.day}${r.stamp ? " · 도장 퀴즈" : ""}`;
 }
 
 /** 오늘의 놀이 기록 — 최근 30개 */

@@ -1,5 +1,6 @@
 "use client";
 
+import { HandHint } from "@/components/play/HandHint";
 import { useMemo } from "react";
 import { Glyph, WordArt } from "@/components/Art";
 import { SpeakerButton } from "@/components/ui";
@@ -78,6 +79,7 @@ export function MissingLetter({ rounds, assess, onDone }: { rounds: MissingRound
           );
         })}
       </div>
+      <HandHint from={`section [role=button][aria-label="${round.answer}"]`} to={"[data-drop=slot]"} on={c.idx === 0 && !assess} />
       <DragGhost drag={drag}>{(l) => <LetterTile ch={letterOf(l).lower} tone="butter" />}</DragGhost>
     </ActivityFrame>
   );

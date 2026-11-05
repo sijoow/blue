@@ -1,5 +1,6 @@
 "use client";
 
+import { HandHint } from "@/components/play/HandHint";
 import { useEffect, useState } from "react";
 import { Glyph } from "@/components/Art";
 import { SpeakerButton } from "@/components/ui";
@@ -146,6 +147,7 @@ export function NameGame({ rounds, onDone }: { rounds: NameRound[]; onDone: OnDo
           ),
         )}
       </div>
+      <HandHint from={`section [role=button][aria-label="${spell[0]}"]`} to={"[data-drop=\"s:0\"]"} on={r === 0 && slots.every((s) => s === null)} />
       <DragGhost drag={drag}>{(t) => <LetterTile ch={round.tiles[t]} tone="lilac" />}</DragGhost>
     </div>
   );

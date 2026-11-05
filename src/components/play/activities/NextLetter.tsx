@@ -1,5 +1,6 @@
 "use client";
 
+import { HandHint, IDLE_HINT_MS } from "@/components/play/HandHint";
 import { useMemo } from "react";
 import { Glyph } from "@/components/Art";
 import { SpeakerButton } from "@/components/ui";
@@ -38,6 +39,7 @@ export function NextLetter({ rounds, assess, onDone }: { rounds: SeqRound[]; ass
           </ChoiceCard>
         ))}
       </div>
+      <HandHint from={`section button[aria-label="${round.answer}"]`} to={`section button[aria-label="${round.answer}"]`} on={c.idx === 0 && !assess} delay={IDLE_HINT_MS} />
     </ActivityFrame>
   );
 }

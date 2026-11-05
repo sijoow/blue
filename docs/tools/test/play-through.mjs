@@ -40,9 +40,8 @@ async function drag(fromSel, toSel) {
   await mouse("mouseReleased", b[0], b[1]);
   return true;
 }
-/** 지금 놀이 순서 표시에서 몇 번째 놀이인지(✓ 수) — 그날 마지막 놀이를 끝내 보상 화면이면 99 */
-const step = () =>
-  ev(`/오늘의 영어 끝|도장 퀴즈 끝/.test(document.body.innerText) ? 99 : [...document.querySelectorAll('ol[aria-label="오늘의 영어 순서"] li')].filter((li) => li.textContent.includes("✓")).length`);
+/** 칸 하나를 끝내면 길로 돌아온다(지금 칸 표시가 사라진다) — 놀이 중이면 0, 끝났으면 99 */
+const step = () => ev(`document.querySelector('[aria-label="지금 칸"]') ? 0 : 99`);
 const kindNow = () => ev(`document.querySelector("section")?.innerText.slice(0, 40) ?? ""`);
 
 await send("Page.enable");
@@ -139,9 +138,9 @@ const CASES = [
   ["match-case", "/play?preview=c1d2&step=4&auto=1"],
   ["say", "/play?preview=c1d3&step=4&auto=1"],
   ["missing-letter", "/play?preview=c1d4&step=4&auto=1"],
-  ["pop", "/play?preview=c1d5&step=3&auto=1"],
-  ["next-letter", "/play?preview=c2d5&step=5&auto=1"],
-  ["quiz", "/play?preview=c2d6&auto=1"],
+  ["pop", "/play?preview=c1d1&step=5&auto=1"],
+  ["next-letter", "/play?preview=c3d1&step=7&auto=1"],
+  ["quiz", "/play?preview=c2d13&auto=1"],
 ];
 for (const [kind, path] of CASES.filter(([k]) => !ONLY || ONLY.split(",").includes(k))) {
   await send("Page.navigate", { url: `http://localhost:6500${path}` });

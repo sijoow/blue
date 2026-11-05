@@ -80,6 +80,7 @@
   --animate-merge-out: merge-out 0.35s ease-in both;
   --animate-leave-up: leave-up 0.6s ease-in both;
   --animate-swim: swim 4.6s ease-in-out infinite alternate;
+  --animate-walk: walk 0.42s ease-in-out infinite;
 
   /* 주사위 윷놀이 큰 주사위 — 하늘에서 쿵 떨어져 한 번 튀고, 도로로로 세 번 굴러가다(90도씩) 가운데에 반듯하게 멈춘다 */
   @keyframes die-tumble {
@@ -230,6 +231,15 @@
     }
   }
   /* 글자 낚시 — 물고기가 제자리에서 좌우로 천천히 헤엄치며 살짝 오르내린다(4살이 잡기 쉽게 멀리 가지 않는다) */
+  @keyframes walk {
+    0%,
+    100% {
+      transform: translateY(0) rotate(-2deg);
+    }
+    50% {
+      transform: translateY(-9%) rotate(2deg);
+    }
+  }
   @keyframes swim {
     0% {
       transform: translate(-10%, 0) rotate(-4deg);

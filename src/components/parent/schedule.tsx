@@ -114,7 +114,7 @@ export function ScheduleCard({
 
   const session = currentSession(progress);
   const chapter = chapterOf(session?.plan.chapter ?? progress.chapter);
-  const nowValue = session ? (session.practice ? `${session.plan.chapter}장 연습` : `${session.plan.chapter}장 ${session.plan.day}일째`) : "다 했어요";
+  const nowValue = session ? (session.practice ? `${session.plan.chapter}장 연습` : `${session.plan.chapter}장 미션 ${session.plan.day}`) : "다 했어요";
   const nowSub = chapter?.title ?? "모든 장을 마쳤어요";
 
   const next = plan.slice(0, 7);
@@ -219,10 +219,10 @@ export function ScheduleCard({
               다른 놀이만
             </li>
             <li className="flex items-center gap-1">
-              <span className="rounded-full bg-peach/70 px-1.5 text-xs text-ink">3일</span>할 놀이
+              <span className="rounded-full bg-peach/70 px-1.5 text-xs text-ink">3</span>할 미션
             </li>
             <li className="flex items-center gap-1">
-              <span className="rounded-full bg-peach/70 px-1.5 text-xs text-ink ring-2 ring-butter-deep">6일</span>도장 놀이
+              <span className="rounded-full bg-peach/70 px-1.5 text-xs text-ink ring-2 ring-butter-deep">13</span>도장 퀴즈
             </li>
             <li className="flex items-center gap-1">
               <span className="h-4 w-4 rounded-md bg-paper-deep/50" />
@@ -268,7 +268,7 @@ export function ScheduleCard({
                 전체 과정은 <b className="text-ink">{longDate(courseEnd)}</b>쯤 끝나요.
               </>
             )}
-            <span className="block text-sm">도장 놀이를 모두 받는다고 보고 계산했어요. 연습 놀이가 생기면 하루씩 뒤로 밀려요.{settings.oneADay ? "" : " 지금은 '하루 한 번'이 꺼져 있어서 더 빨리 갈 수도 있어요."}</span>
+            <span className="block text-sm">하루에 미션 하나씩, 도장을 모두 받는다고 보고 계산했어요. 추가 학습이 생기면 뒤로 밀려요.{settings.oneADay ? "" : " 지금은 '하루 한 번'이 꺼져 있어서 더 빨리 갈 수도 있어요."}</span>
           </p>
         </div>
 

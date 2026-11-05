@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { CHAPTERS, dayPlan, medalOf, TOTAL_DAYS } from "../curriculum/course.ts";
+import { CHAPTERS, dayPlan, DAYS_PER_CHAPTER, medalOf, PRACTICE_DAYS, TOTAL_DAYS } from "../curriculum/course.ts";
 import { ALPHABET } from "../curriculum/alphabet.ts";
 import { familyFromHangul, normalizeFamily } from "./hangul.ts";
 import {
@@ -16,6 +16,8 @@ import {
   normalizeSettings,
   progressRate,
   restartAt,
+  runOf,
+  stepRun,
   STICKER_FREE,
   type Progress,
 } from "./progress.ts";
@@ -46,7 +48,7 @@ test("처음 — 1장 1일, 글자는 그날 끝내면 들어온다", () => {
 
 test("도장 놀이 통과 → 도장 + 다음 장", () => {
   let p = initialProgress();
-  for (let i = 0; i < 5; i++) p = play(p).next;
+  for (let i = 0; i < DAYS_PER_CHAPTER - 1; i++) p = play(p).next;
   assert.equal(currentSession(p)?.plan.stamp, true);
   const { next, moved, record } = play(p, 0.9);
   assert.equal(moved, "stamp");
@@ -56,15 +58,15 @@ test("도장 놀이 통과 → 도장 + 다음 장", () => {
   assert.equal(next.day, 1);
 });
 
-test("도장 퀴즈 실패 → 업체처럼 6일치 더(추가 학습 1~5일 → 도장 퀴즈) → 또 실패면 다음 장(도장 없이)", () => {
+test("도장 퀴즈 실패 → 추가 학습(★ 네 미션) → 도장 퀴즈 → 또 실패면 다음 장(도장 없이)", () => {
   let p = initialProgress();
-  for (let i = 0; i < 5; i++) p = play(p).next;
-  let r = play(p, 0.5);
+  for (let i = 0; i < DAYS_PER_CHAPTER - 1; i++) p = play(p).next;
+  let r = play(p, 0.4);
   assert.equal(r.moved, "practice");
   assert.equal(r.next.practice, true);
   assert.equal(r.next.day, 1);
-  assert.equal(r.next.best["1"], 0.5);
-  for (let d = 1; d <= 5; d++) {
+  assert.equal(r.next.best["1"], 0.4);
+  for (let d = 1; d <= PRACTICE_DAYS; d++) {
     const ref = currentSession(r.next);
     assert.equal(ref?.practice, true, `추가 학습 ${d}일째`);
     assert.equal(ref?.plan.day, d);
@@ -74,14 +76,14 @@ test("도장 퀴즈 실패 → 업체처럼 6일치 더(추가 학습 1~5일 →
   }
   assert.equal(r.next.practice, false);
   assert.equal(currentSession(r.next)?.plan.stamp, true);
-  // 추가 학습 중에도 진도율은 그 장 5일을 마친 것으로
-  assert.equal(progressRate(r.next).done, 5);
-  r = play(r.next, 0.7);
+  // 추가 학습 뒤에도 진도율은 그 장 도장 앞까지 마친 것으로
+  assert.equal(progressRate(r.next).done, DAYS_PER_CHAPTER - 1);
+  r = play(r.next, 0.3);
   assert.equal(r.moved, "chapter");
   assert.equal(r.next.chapter, 2);
   assert.deepEqual(r.next.stamps, []);
   assert.equal(r.next.tries, 0);
-  assert.equal(r.next.best["1"], 0.7);
+  assert.equal(r.next.best["1"], 0.4);
 });
 
 test("도장 퀴즈 메달 — 80 미만 동 · 80 이상 은 · 100 금", () => {
@@ -91,11 +93,11 @@ test("도장 퀴즈 메달 — 80 미만 동 · 80 이상 은 · 100 금", () =>
   assert.equal(medalOf(1), "gold");
 });
 
-test("지난 날 다시 하기 — 진도는 그대로, 지난 도장 퀴즈면 가장 좋은 결과와 도장만 바뀐다", () => {
+test("지난 미션 다시 하기 — 진도는 그대로, 지난 도장 퀴즈면 가장 좋은 결과와 도장만 바뀐다", () => {
   let p = initialProgress();
-  for (let i = 0; i < 5; i++) p = play(p).next;
-  p = play(p, 0.5).next; // 1장 도장 못 받음 → 추가 학습
-  const stampPlan = dayPlan(1, 6);
+  for (let i = 0; i < DAYS_PER_CHAPTER - 1; i++) p = play(p).next;
+  p = play(p, 0.4).next; // 1장 도장 못 받음 → 추가 학습
+  const stampPlan = dayPlan(1, DAYS_PER_CHAPTER);
   assert.ok(stampPlan);
   const r = finishReview(p, stampPlan, { correct: 10, total: 10, activities: 1 }, DAY);
   assert.equal(r.next.best["1"], 1);
@@ -109,22 +111,42 @@ test("지난 날 다시 하기 — 진도는 그대로, 지난 도장 퀴즈면 
 
 test("추가 학습에서는 글자가 다시 들어오지 않는다 · 기록에 추가 학습이라고 남는다", () => {
   let p = initialProgress();
-  for (let i = 0; i < 5; i++) p = play(p).next;
+  for (let i = 0; i < DAYS_PER_CHAPTER - 1; i++) p = play(p).next;
   p = play(p, 0).next;
   const r = play(p);
   assert.equal(r.record.practice, true);
   assert.deepEqual(r.next.letters, ["A", "B", "C", "D"]);
 });
 
-test("하루 한 번 — 하나 더 열기", () => {
+test("하루 한 번 — 처음엔 꺼짐, 켜면 하나 더 열기로 더 한다", () => {
   const p = play(initialProgress()).next;
-  assert.equal(canPlayToday(p, DEFAULT_SETTINGS, DAY), false);
-  assert.equal(canPlayToday({ ...p, extraOn: DAY }, DEFAULT_SETTINGS, DAY), true);
-  assert.equal(canPlayToday(p, { ...DEFAULT_SETTINGS, oneADay: false }, DAY), true);
-  assert.equal(canPlayToday(p, DEFAULT_SETTINGS, "2026-10-28"), true);
+  const once = { ...DEFAULT_SETTINGS, oneADay: true };
+  assert.equal(canPlayToday(p, DEFAULT_SETTINGS, DAY), true);
+  assert.equal(canPlayToday(p, once, DAY), false);
+  assert.equal(canPlayToday({ ...p, extraOn: DAY }, once, DAY), true);
+  assert.equal(canPlayToday(p, once, "2026-10-28"), true);
   // '하나 더'를 쓰고 나면 닫힌다
   const again = play({ ...p, extraOn: DAY }).next;
   assert.equal(again.extraOn, null);
+});
+
+test("오늘의 길 — 칸을 깨면 저장되고, 나갔다 와도 그 칸부터, 미션을 마치면 비운다", () => {
+  let p = initialProgress();
+  const ref = currentSession(p);
+  assert.ok(ref);
+  assert.equal(runOf(p, ref).done, 0);
+  p = stepRun(p, ref, { correct: 2, total: 3 }, 1000);
+  p = stepRun(p, ref, { correct: 1, total: 1 }, 2000);
+  const run = runOf(normalizeProgress(JSON.parse(JSON.stringify(p))), ref);
+  assert.equal(run.done, 2);
+  assert.deepEqual(run.score, { correct: 3, total: 4, activities: 2 });
+  assert.equal(run.startedAt, 1000);
+  // 다른 미션의 길은 처음부터
+  assert.equal(runOf({ ...p, run: { ...p.run!, key: "c1d2" } }, ref).done, 0);
+  const next = completeSession(p, ref, run.score, DAY).next;
+  assert.equal(next.run, null);
+  assert.equal(next.day, 2);
+  assert.equal(normalizeProgress({ run: { key: "엉뚱", done: 2, score: {} } }).run, null);
 });
 
 test("과정을 끝까지 — 마지막 날 뒤엔 할 판이 없다", () => {
@@ -186,7 +208,7 @@ test("한글나라 설정 받기 — 없는 값은 기본값", () => {
 });
 
 test("스케줄 — 공부 요일마다 하루씩, 도장 날 표시", () => {
-  const p = initialProgress();
+  const p = { ...initialProgress(), day: DAYS_PER_CHAPTER - 5 };
   // 2026-10-27 은 화요일 — 월·수·금만 공부하면 수요일부터
   const plan = planAhead(p, [1, 3, 5], DAY, 7);
   assert.deepEqual(
@@ -197,6 +219,10 @@ test("스케줄 — 공부 요일마다 하루씩, 도장 날 표시", () => {
   assert.equal(plan[5].stamp, true);
   assert.equal(plan[6].chapter, 2);
   assert.equal(streakOf(new Set(["2026-10-26", "2026-10-27"]), DAY, [0, 1, 2, 3, 4, 5, 6]), 2);
+  // 추가 학습 네 미션 뒤에 도장 퀴즈
+  const again = planAhead({ ...initialProgress(), practice: true }, [0, 1, 2, 3, 4, 5, 6], DAY, PRACTICE_DAYS + 1);
+  assert.deepEqual(again.map((d) => d.day), [1, 2, 3, 4, DAYS_PER_CHAPTER]);
+  assert.deepEqual(again.map((d) => d.stamp), [false, false, false, false, true]);
 });
 
 test("화면 보기 — 영어교실에서 고른 것만 남고, 모르는 값·옛 설정은 null(한글나라 설정을 따름)", () => {
@@ -205,4 +231,10 @@ test("화면 보기 — 영어교실에서 고른 것만 남고, 모르는 값·
   assert.equal(normalizeSettings({ orientation: "landscape" }).orientation, "landscape");
   assert.equal(normalizeSettings({ orientation: "portrait" }).orientation, "portrait");
   assert.equal(normalizeSettings({ orientation: "sideways" }).orientation, null);
+});
+
+test("하루 한 번 설정 — 예전(v1)에 저장된 값은 한 번 꺼지고, 그 뒤로 부모가 켠 값은 그대로", () => {
+  assert.equal(DEFAULT_SETTINGS.oneADay, false);
+  assert.equal(normalizeSettings({ v: 1, oneADay: true }).oneADay, false);
+  assert.equal(normalizeSettings({ v: 2, oneADay: true }).oneADay, true);
 });

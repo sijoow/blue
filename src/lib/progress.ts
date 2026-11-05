@@ -1,8 +1,8 @@
 /**
- * 진도 — 「오늘의 영어」(장·날·도장) + 놀이터·만난 글자·하루 기록. 규칙은 우리가 정했다(course.ts 머리말):
- *   · 하루에 한 번(부모가 '하나 더 열기'로 더 열 수 있다, 설정에서 끌 수도 있다)
- *   · 6일째 도장 퀴즈 — 첫 시도 정답 80% 이상이면 도장. 결과는 동(80 미만)·은(80 이상)·금(100), 장마다 가장 좋은 결과(best)가 남는다
- *   · 못 받으면 업체처럼 추가 학습 — 그 장 1~5일을 한 번 더(practice, day 1~5) → 도장 퀴즈 한 번 더 → 그래도 못 받으면 다음 장
+ * 진도 — 「오늘의 영어」(장·미션·도장) + 놀이터·만난 글자·하루 기록. 규칙은 우리가 정했다(course.ts 머리말):
+ *   · 미션 하나 = 오늘의 길 10칸(run — 한 칸씩 저장, 나갔다 와도 그 칸부터). 하루 제한은 처음엔 꺼짐(설정에서 켜면 하루에 한 번, 부모가 '하나 더 열기')
+ *   · 장 끝 도장 퀴즈 — 첫 시도 정답이 기준(course passRateOf) 이상이면 도장. 결과는 동(80 미만)·은(80 이상)·금(100), 장마다 가장 좋은 결과(best)가 남는다
+ *   · 못 받으면 추가 학습 — 그 장 ★ 네 미션을 한 번 더(practice, day 1~4) → 도장 퀴즈 한 번 더 → 그래도 못 받으면 다음 장
  *   · 지난 날은 언제든 다시 할 수 있다(review — 진도는 그대로, 지난 도장 퀴즈면 best 만 바뀐다)
  *   · 스티커(보상) — 놀이 하나 1장 + 하루 끝 3장 + 도장 5장, 놀이터는 놀이마다 하루 첫 판만 1장. 쓰지 않고 쌓인다
  *   · 글자는 그 글자를 만나는 날(meet 놀이)을 끝내면 단어장에 들어온다
@@ -10,7 +10,7 @@
  * 순수 파일 — node --test 가 그대로 읽는다.
  */
 
-import { CHAPTERS, chapterOf, DAYS_PER_CHAPTER, dayPlan, lettersBefore, meetsOn, PASS_RATE, practicePlan, STAMP_TRIES, TOTAL_DAYS } from "../curriculum/course.ts";
+import { CHAPTERS, chapterOf, DAYS_PER_CHAPTER, dayPlan, lettersBefore, meetsOn, passRateOf, PRACTICE_DAYS, practicePlan, STAMP_TRIES, TOTAL_DAYS } from "../curriculum/course.ts";
 import { inOrder } from "../curriculum/alphabet.ts";
 import type { DayPlan } from "../curriculum/types.ts";
 
@@ -77,14 +77,25 @@ export interface Progress {
   games: Record<string, GameStat>;
   /** 처음으로 무엇이든 한 날 — 스케줄의 '온 지 며칠째' */
   firstOn: string | null;
+  /** 오늘의 길 — 지금 미션(세션 key)에서 몇 칸까지 깼는지. 미션을 다 마치면(completeSession) null */
+  run: DayRun | null;
 }
 
-/** 영어교실만의 설정 — 공부 요일·성우는 한글나라 설정을 따른다(lib/hangul). 화면 보기는 여기서 고르면 그걸, 아니면 한글나라 것 */
+export interface DayRun {
+  key: string;
+  /** 깬 칸 수 */
+  done: number;
+  score: SessionResult;
+  /** 첫 칸을 시작한 때(ms) — 미션 걸린 시간 */
+  startedAt: number;
+}
+
+/** 영어교실만의 설정 — 공부 요일은 한글나라 설정을 따른다(lib/hangul). 화면 보기는 여기서 고르면 그걸, 아니면 한글나라 것 */
 export interface Settings {
-  v: 1;
+  v: 2;
   /** 화면 보기 — 부모 페이지에서 고른 것(2026-10-28 사용자). null 이면 한글나라 설정 그대로(한글나라 DB 에는 쓰지 않는다) */
   orientation: "portrait" | "landscape" | null;
-  /** 하루 한 번만 (마스터 아이디는 제한 없음) */
+  /** 하루 한 번만 (마스터 아이디는 제한 없음). 처음엔 꺼짐 — 숫자놀이처럼 미션을 이어서 할 수 있다(2026-11-05). v1 에 저장된 값은 한 번 꺼진다 */
   oneADay: boolean;
   /** 영어교실을 시작한 날을 부모가 고쳤으면 그 날 — null 이면 처음 한 날(progress.firstOn) */
   startOn: string | null;
@@ -122,10 +133,11 @@ export function initialProgress(chapter = 1): Progress {
     best: {},
     games: {},
     firstOn: null,
+    run: null,
   };
 }
 
-export const DEFAULT_SETTINGS: Settings = { v: 1, orientation: null, oneADay: true, startOn: null };
+export const DEFAULT_SETTINGS: Settings = { v: 2, orientation: null, oneADay: false, startOn: null };
 
 /** 지금 할 하루 — 연습 놀이가 끼어 있으면 그것. 과정을 다 마쳤으면 null */
 export function currentSession(p: Progress): SessionRef | null {
@@ -150,7 +162,7 @@ export function reached(p: Progress, chapter: number, day = 1): boolean {
 export function passedOf(plan: DayPlan, r: SessionResult): boolean | null {
   if (!plan.stamp) return null;
   if (r.total === 0) return true;
-  return r.correct / r.total >= PASS_RATE;
+  return r.correct / r.total >= passRateOf(plan.chapter);
 }
 
 export function stickersFor(plan: DayPlan, r: SessionResult): number {
@@ -199,9 +211,9 @@ export function completeSession(p: Progress, ref: SessionRef, r: SessionResult, 
   let best = p.best;
   let moved: "day" | "practice" | "stamp" | "chapter";
   if (ref.practice) {
-    // 추가 학습 하루를 마쳤다 — 5일째까지 마치면 다음 판은 도장 퀴즈 한 번 더
-    const day = Math.min(p.day + 1, DAYS_PER_CHAPTER);
-    place = { ...place, day, practice: day < DAYS_PER_CHAPTER };
+    // 추가 학습 하나를 마쳤다 — ★ 네 미션을 다 하면 다음 판은 도장 퀴즈 한 번 더
+    const again = p.day < PRACTICE_DAYS;
+    place = { ...place, day: again ? p.day + 1 : DAYS_PER_CHAPTER, practice: again };
     moved = "practice";
   } else if (ref.plan.stamp) {
     best = withBest(p.best, p.chapter, r);
@@ -213,7 +225,7 @@ export function completeSession(p: Progress, ref: SessionRef, r: SessionResult, 
       place = nextChapter(p);
       moved = "chapter";
     } else {
-      // 업체처럼 6일치를 더 — 그 장 1일째부터 추가 학습
+      // 그 장 ★ 네 미션을 처음부터 추가 학습
       place = { ...place, day: 1, practice: true, tries: p.tries + 1 };
       moved = "practice";
     }
@@ -233,8 +245,25 @@ export function completeSession(p: Progress, ref: SessionRef, r: SessionResult, 
     // 오늘 이미 한 번 했다면 이번 판은 '하나 더'를 쓴 것 — 다 썼으니 닫는다
     extraOn: p.lastPlayedOn === today ? null : p.extraOn,
     lastPlayedOn: today,
+    run: null,
   };
   return { next: logPlay(next, today, { ms: r.ms ?? 0, acts: r.activities, earned }), record, moved };
+}
+
+const EMPTY_SCORE: SessionResult = { correct: 0, total: 0, activities: 0 };
+
+/** 지금 미션의 길 — 저장된 길이 다른 미션 것이면 처음부터 */
+export function runOf(p: Progress, ref: SessionRef | null): { done: number; score: SessionResult; startedAt: number } {
+  const r = p.run;
+  if (!ref || !r || r.key !== ref.key) return { done: 0, score: EMPTY_SCORE, startedAt: 0 };
+  return { done: Math.min(r.done, ref.plan.activities.length), score: r.score, startedAt: r.startedAt };
+}
+
+/** 오늘의 길 한 칸을 깼다 — 점수를 더해 둔다. now 는 첫 칸이면 시작한 때로 남는다 */
+export function stepRun(p: Progress, ref: SessionRef, got: { correct: number; total: number }, now: number): Progress {
+  const cur = runOf(p, ref);
+  const score: SessionResult = { correct: cur.score.correct + got.correct, total: cur.score.total + got.total, activities: cur.score.activities + 1 };
+  return { ...p, run: { key: ref.key, done: cur.done + 1, score, startedAt: cur.startedAt || now } };
 }
 
 /** 도장 퀴즈 결과를 장마다 가장 좋은 것으로 */
@@ -286,7 +315,7 @@ export function progressRate(p: Progress): { done: number; total: number; rate: 
 
 /** 부모가 시작 장을 바꾸면 오늘의 영어 진도만 새로 — 스티커·기록·글자·도장은 남긴다. 앞 장 글자는 만난 것으로 */
 export function restartAt(p: Progress, chapter: number): Progress {
-  return { ...p, chapter, day: 1, practice: false, tries: 0, lastPlayedOn: null, extraOn: null, letters: inOrder([...p.letters, ...lettersBefore(chapter)]) };
+  return { ...p, chapter, day: 1, practice: false, tries: 0, lastPlayedOn: null, extraOn: null, run: null, letters: inOrder([...p.letters, ...lettersBefore(chapter)]) };
 }
 
 /** 장이 다 끝났나 */
@@ -344,7 +373,7 @@ export function normalizeProgress(raw: unknown): Progress {
     v: 1,
     chapter,
     day,
-    practice: o.practice === true && chapter <= CHAPTERS.length && day < DAYS_PER_CHAPTER,
+    practice: o.practice === true && chapter <= CHAPTERS.length && day <= PRACTICE_DAYS,
     tries: isInt(o.tries, 0, STAMP_TRIES) ? o.tries : 0,
     stickers: isInt(o.stickers, 0, 10_000_000) ? o.stickers : 0,
     history,
@@ -358,6 +387,20 @@ export function normalizeProgress(raw: unknown): Progress {
     ) as Record<string, number>,
     games,
     firstOn: isDay(o.firstOn) ? o.firstOn : (seen[0] ?? null),
+    run: runFrom(o.run),
+  };
+}
+
+function runFrom(raw: unknown): DayRun | null {
+  const r = obj(raw);
+  const sc = obj(r?.score);
+  if (!r || !sc || typeof r.key !== "string" || !/^c\d+(?:x\d+)?d\d+$/.test(r.key) || !isInt(r.done, 0, 30)) return null;
+  const n = (v: unknown) => (isInt(v, 0, 10_000) ? v : 0);
+  return {
+    key: r.key,
+    done: r.done,
+    score: { correct: n(sc.correct), total: n(sc.total), activities: n(sc.activities) },
+    startedAt: typeof r.startedAt === "number" && Number.isFinite(r.startedAt) && r.startedAt >= 0 ? r.startedAt : 0,
   };
 }
 
@@ -365,9 +408,10 @@ export function normalizeSettings(raw: unknown): Settings {
   const o = obj(raw);
   if (!o) return DEFAULT_SETTINGS;
   return {
-    v: 1,
+    v: 2,
     orientation: o.orientation === "portrait" || o.orientation === "landscape" ? o.orientation : null,
-    oneADay: typeof o.oneADay === "boolean" ? o.oneADay : DEFAULT_SETTINGS.oneADay,
+    // v1 에 저장된 하루 한 번은 한 번 꺼진다 — 그 뒤로 부모가 켠 값은 그대로
+    oneADay: o.v === 2 && typeof o.oneADay === "boolean" ? o.oneADay : DEFAULT_SETTINGS.oneADay,
     startOn: isDay(o.startOn) ? o.startOn : null,
   };
 }

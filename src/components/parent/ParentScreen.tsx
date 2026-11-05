@@ -6,6 +6,7 @@ import { Icon } from "@/components/Icon";
 import { KIND_LABEL } from "@/components/play/kindIcon";
 import { Splash, toneStyle, UiIcon } from "@/components/ui";
 import { CHAPTERS, DAYS_PER_CHAPTER, isStampDay, LEVEL_NAMES } from "@/curriculum/course";
+import { landOf } from "@/curriculum/lands";
 import { LINES } from "@/curriculum/lines";
 import { logout, useAuth } from "@/lib/auth";
 import { pullFamily, useFamily } from "@/lib/family";
@@ -127,12 +128,12 @@ export default function ParentScreen() {
             {CHAPTERS.map((c) => (
               <div key={c.no}>
                 <p className="mb-1.5 text-ink-soft">
-                  {c.no}장 {c.title} <span className="text-sm">({c.code})</span>
+                  {c.no}장 {landOf(c.no).name} · {c.title} <span className="text-sm">({c.code})</span>
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {Array.from({ length: DAYS_PER_CHAPTER }, (_, i) => i + 1).map((d) => (
                     <Link key={d} href={`/play?preview=c${c.no}d${d}`} className={`rounded-xl px-3 py-2 ${isStampDay(d) ? "bg-butter" : "bg-paper"}`} title={c.days[d - 1].map((a) => KIND_LABEL[a.kind]).join(" · ")}>
-                      {d}일 {isStampDay(d) && <Icon emoji="⭐" />}
+                      {isStampDay(d) ? "도장" : d} {isStampDay(d) && <Icon emoji="⭐" />}
                     </Link>
                   ))}
                   <Link href={`/play?preview=c${c.no}p`} className="rounded-xl bg-lilac/60 px-3 py-2">
@@ -144,21 +145,21 @@ export default function ParentScreen() {
           </div>
         </Card>
 
-        <Card title={`전체 과정표 (${CHAPTERS.length}장 · ${CHAPTERS.length * DAYS_PER_CHAPTER}일)`}>
+        <Card title={`전체 과정표 (${CHAPTERS.length}장 · 미션 ${CHAPTERS.length * DAYS_PER_CHAPTER}개)`}>
           <p className="mb-3 text-base text-ink-soft">
-            토도영어 데일리 코스의 레벨·유닛 순서를 따라요 — 레벨 A({LEVEL_NAMES.A}) A1~A4 → 레벨 B({LEVEL_NAMES.B}) B1~B4. 장 하나가 유닛 하나, 하루에 새 글자 하나를 만나고 6일째 도장 놀이가 그 유닛 확인이에요.
+            토도영어 데일리 코스의 레벨·유닛 순서를 따라요 — 레벨 A({LEVEL_NAMES.A}) A1~A4 → 레벨 B({LEVEL_NAMES.B}) B1~B4. 장 하나가 유닛 하나이고 나라 하나예요(보이스동화의 나라). 미션 13개 — ★ 넷에서 새 글자를 하나씩 만나고 ★★·★★★ 로 조금씩 어려워지며, 마지막 도장 퀴즈가 그 유닛 확인이에요. 미션 하나는 오늘의 길 10칸이에요. 도장 기준은 첫 두 장 50%, 그 뒤 70%예요.
           </p>
           <ol className="grid gap-3 lg:grid-cols-2">
             {CHAPTERS.map((c) => (
               <li key={c.no}>
                 <details>
                   <summary className="cursor-pointer">
-                    <b>{c.no}장</b> <span className="rounded-md bg-paper px-1.5 text-sm font-bold">{c.code}</span> {c.title} <span className="text-ink-soft">— {c.goal}</span>
+                    <b>{c.no}장</b> <span className="rounded-md bg-paper px-1.5 text-sm font-bold">{c.code}</span> {landOf(c.no).name} · {c.title} <span className="text-ink-soft">— {c.goal}</span>
                   </summary>
                   <ul className="ml-5 mt-1 list-disc text-base text-ink-soft">
                     {c.days.map((acts, i) => (
                       <li key={i}>
-                        {i + 1}일{isStampDay(i + 1) ? "(도장)" : ""}: {acts.map((a) => (a.kind === "meet" ? `${KIND_LABEL.meet} ${a.letter}` : KIND_LABEL[a.kind])).join(" · ")}
+                        미션 {i + 1}{isStampDay(i + 1) ? "(도장)" : ""}: {acts.map((a) => (a.kind === "meet" ? `${KIND_LABEL.meet} ${a.letter}` : KIND_LABEL[a.kind])).join(" · ")}
                       </li>
                     ))}
                   </ul>
@@ -171,7 +172,7 @@ export default function ParentScreen() {
         <SyncCard />
 
         <Card title="목소리">
-          <p>한국어 안내는 한글나라 설정의 성우(지금 {VOICES.find((v) => v.id === family.voice)?.name}), 영어(글자 이름·단어)는 원어민 목소리(미국식)예요. 구워 둔 음성 파일이 없는 말은 기기 기본 음성으로 읽어요.</p>
+          <p>한국어 안내는 한글나라 설정의 성우(지금 {VOICES.find((v) => v.id === family.voice)?.name}), 영어(글자 이름·단어)는 클로이(영어 성우)예요. 구워 둔 음성 파일이 없는 말은 기기 기본 음성으로 읽어요.</p>
           <div className="mt-3 flex flex-wrap items-center gap-3">
             <button
               type="button"
@@ -189,7 +190,7 @@ export default function ParentScreen() {
               </span>
             )}
           </div>
-          <p className="mt-3 text-sm text-ink-soft">음성: Typecast(타입캐스트) — 한국어는 한글나라와 같은 성우, 영어 성우는 고르는 중(그전엔 기기 영어 음성)</p>
+          <p className="mt-3 text-sm text-ink-soft">음성: Typecast(타입캐스트) — 한글은 수아(한글나라·숫자놀이와 같은 성우), 영어는 클로이</p>
         </Card>
       </div>
     </main>

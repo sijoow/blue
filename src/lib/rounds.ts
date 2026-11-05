@@ -7,6 +7,7 @@
 
 import { ALPHABET, inOrder, letterIndex, letterOf, letterSpot, wordOf, WORDS, type WordOf } from "../curriculum/alphabet.ts";
 import type { ActivitySpec, CaseShow, DayPlan } from "../curriculum/types.ts";
+import { buildOriginal, type BuiltOriginal } from "./originals.ts";
 
 export type Rng = () => number;
 
@@ -99,11 +100,12 @@ export type BuiltActivity =
   | { kind: "word-pick"; rounds: WordRound[] }
   | { kind: "pop"; rounds: PopRound[] }
   | { kind: "next-letter"; rounds: SeqRound[] }
-  | { kind: "trace"; chars: string[] };
+  | { kind: "trace"; chars: string[] }
+  | { kind: "game"; game: BuiltOriginal };
 
 /** 점수를 세는 놀이인지 — 도장 퀴즈 날에는 이것만 나온다 */
 export function isScored(kind: ActivitySpec["kind"]): boolean {
-  return kind !== "meet" && kind !== "trace" && kind !== "song" && kind !== "book" && kind !== "say";
+  return kind !== "meet" && kind !== "trace" && kind !== "song" && kind !== "book" && kind !== "say" && kind !== "game";
 }
 
 /** 목록을 한 바퀴씩 섞어 가며 count 개 — 판마다 고루 나오고, 같은 것이 연달아 나오지 않게 */
@@ -269,6 +271,8 @@ export function buildActivity(spec: ActivitySpec, rng: Rng): BuiltActivity {
       return { kind: "next-letter", rounds: seqRounds(spec, rng) };
     case "trace":
       return { kind: "trace", chars: [...spec.chars] };
+    case "game":
+      return { kind: "game", game: buildOriginal(spec.id, spec.letters, rng) };
   }
 }
 

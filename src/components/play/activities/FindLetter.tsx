@@ -1,5 +1,6 @@
 "use client";
 
+import { HandHint, IDLE_HINT_MS } from "@/components/play/HandHint";
 import { useMemo } from "react";
 import { Glyph } from "@/components/Art";
 import { SpeakerButton } from "@/components/ui";
@@ -28,6 +29,7 @@ export function FindLetter({ rounds, assess, onDone }: { rounds: LetterRound[]; 
           </ChoiceCard>
         ))}
       </div>
+      <HandHint from={`section button[aria-label="${caseOf(round.target, round.show)}"]`} to={`section button[aria-label="${caseOf(round.target, round.show)}"]`} on={c.idx === 0 && !assess} delay={IDLE_HINT_MS} />
     </ActivityFrame>
   );
 }

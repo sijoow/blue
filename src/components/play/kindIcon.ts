@@ -1,4 +1,5 @@
-import type { ActivityKind } from "@/curriculum/types";
+import { originalOf } from "@/curriculum/originals";
+import type { ActivityKind, ActivitySpec } from "@/curriculum/types";
 
 /** 놀이 종류마다 아이 눈에 보이는 아이콘 — 오늘의 영어 순서 표시. 그림 "icon:play:<놀이>" 가 생기면 그 그림(components/Icon) */
 export const KIND_ICON: Record<ActivityKind, string> = {
@@ -14,6 +15,7 @@ export const KIND_ICON: Record<ActivityKind, string> = {
   pop: "🎈",
   "next-letter": "➡️",
   trace: "✏️",
+  game: "🎲",
 };
 
 /** 놀이 이름 — 부모 페이지 미리 보기·놀이터와 같은 말 */
@@ -30,4 +32,20 @@ export const KIND_LABEL: Record<ActivityKind, string> = {
   pop: "글자 방울",
   "next-letter": "다음 글자",
   trace: "따라 쓰기",
+  game: "영어 놀이",
 };
+
+/** 길 칸 하나의 이름·그림 — 영어 놀이는 그 놀이 이름으로 */
+export interface PathCell {
+  label: string;
+  iconId: string;
+  emoji: string;
+}
+
+export function cellOf(a: ActivitySpec): PathCell {
+  if (a.kind === "game") {
+    const o = originalOf(a.id);
+    return { label: o?.title ?? KIND_LABEL.game, iconId: "menu:games", emoji: KIND_ICON.game };
+  }
+  return { label: KIND_LABEL[a.kind], iconId: `play:${a.kind}`, emoji: KIND_ICON[a.kind] };
+}

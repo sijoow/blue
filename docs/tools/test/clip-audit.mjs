@@ -46,6 +46,8 @@ const AUDIT = `(() => {
     const cs = getComputedStyle(el);
     if (cs.visibility === "hidden" || Number(cs.opacity) < 0.05 || cs.display === "none") continue;
     if (el.closest("[aria-hidden=true]")) continue;
+    // 접힌 <details> 안은 안 보인다(크기는 재지지만 그려지지 않는다)
+    if (el.closest("details:not([open])") && !el.closest("summary")) continue;
     let why = null;
     let a = el.parentElement;
     for (; a; a = a.parentElement) {
@@ -74,7 +76,7 @@ await send("Page.navigate", { url: "http://localhost:6500/" });
 await sleep(2500);
 await ev(`fetch("/api/auth/login",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({id:"fe",password:"1234"})}).then(r=>r.json()).then(j=>(localStorage.setItem("haon-english:auth",JSON.stringify(j)),true))`);
 
-// 들어가 볼 화면 — [이름, 주소, 그다음 누를 것들] (영어교실 화면, 2026-10-28 하루 = 노래 → 그림책 → 활동)
+// 들어가 볼 화면 — [이름, 주소, 그다음 누를 것들] (영어교실 화면, 2026-11-05 미션 13개 · 미션마다 오늘의 길 10칸)
 // 오늘의 영어 속 화면은 미리 보기로 바로 연다: /play?preview=c<장>d<날>&step=<몇 번째 놀이>&auto=1 (진도에 안 남고 판 고정)
 const FLOWS = [
   ["home", "/", []],
@@ -89,22 +91,32 @@ const FLOWS = [
   ["parent", "/parent", []],
   ["play-ready", "/play", []],
   ["review-ready", "/play?review=c1d1", []],
-  // 장 번호 = 업체 유닛(1~4장 = A1~A4, 5~8장 = B1~B4). 하루 = 노래(0) · 그림책(1) · 활동
+  // 장 번호 = 업체 유닛(1~4장 = A1~A4, 5~8장 = B1~B4). step = 그 미션의 몇 번째 칸(0부터)
   ["play-song", "/play?preview=c1d2&auto=1", []],
   ["play-book", "/play?preview=c1d1&step=1&auto=1", [["sel", "button[aria-label='다음 쪽']"]]],
   ["play-meet", "/play?preview=c1d1&step=2&auto=1", [["sel", "button[aria-label^='대문자']"], ["sel", "button[aria-label^='소문자']"]]],
   ["play-find", "/play?preview=c1d1&step=3&auto=1", []],
   ["play-word", "/play?preview=c1d3&step=3&auto=1", []],
   ["play-say", "/play?preview=c1d3&step=4&auto=1", []],
-  ["play-trace", "/play?preview=c1d1&step=5&auto=1", []],
+  ["play-trace", "/play?preview=c1d1&step=9&auto=1", []],
   ["play-match", "/play?preview=c1d4&step=3&auto=1", []],
   ["play-missing", "/play?preview=c1d4&step=4&auto=1", []],
-  ["play-pop", "/play?preview=c1d5&step=3&auto=1", []],
-  ["play-next", "/play?preview=c2d5&step=5&auto=1", []],
+  ["play-pop", "/play?preview=c1d1&step=5&auto=1", []],
+  ["play-next", "/play?preview=c3d1&step=7&auto=1", []],
+  ["play-game", "/play?preview=c1d2&step=8&auto=1", []],
   ["play-meet-x", "/play?preview=c7d1&step=2&auto=1", [["sel", "button[aria-label^='대문자']"], ["sel", "button[aria-label^='소문자']"]]],
-  ["play-quiz", "/play?preview=c2d6&auto=1", []],
-  ["play-quiz-q", "/play?preview=c2d6&auto=1", [["text", "시작!"]]],
-  ["play-quiz-all", "/play?preview=c8d6&auto=1", []],
+  ["play-quiz", "/play?preview=c2d13&auto=1", []],
+  ["play-quiz-q", "/play?preview=c2d13&auto=1", [["text", "시작!"]]],
+  ["play-quiz-all", "/play?preview=c8d13&auto=1", []],
+  // 오늘의 길·지도(2026-11-05)
+  ["path-arrive", "/play", []],
+  ["path-preview", "/play?preview=c1d2", []],
+  ["path-land-7", "/play?preview=c7d2", []],
+  ["path-stamp", "/play?preview=c1d13", []],
+  ["path-mid", "/play?preview=c1d2&step=6", []],
+  ["map", "/map", []],
+  ["map-panel", "/map", [["sel", "button[aria-label^='1장']"]]],
+  ["map-panel-8", "/map", [["sel", "button[aria-label^='8장']"]]],
   // 영어 놀이(오리지널, 2026-10-28)
   ["games", "/games", []],
   ["game-bingo", "/games", [["text", "빙고랑 빙고!"]]],

@@ -1,5 +1,6 @@
 "use client";
 
+import { HandHint } from "@/components/play/HandHint";
 import { useEffect, useState } from "react";
 import { Glyph } from "@/components/Art";
 import { letterOf } from "@/curriculum/alphabet";
@@ -113,6 +114,7 @@ export function MatchCase({ rounds, assess, onDone }: { rounds: MatchRound[]; as
           );
         })}
       </div>
+      <HandHint from={`section [role=button][aria-label="${round.top[0]}"]`} to={`[data-drop="m:${round.top[0]}"]`} on={idx === 0 && !assess && placed.length === 0} />
       <DragGhost drag={drag}>{(l) => <LetterTile ch={l} tone="sky" />}</DragGhost>
     </ActivityFrame>
   );

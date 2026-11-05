@@ -15,14 +15,8 @@ import { seededRng } from "@/lib/rounds";
 import { sfx } from "@/lib/sfx";
 import { readSaved, updateSaved, useSaved } from "@/lib/store";
 import { pick, say, stopVoice } from "@/lib/voice";
-import type { OnDone } from "../play/types";
 import { OriginalArt } from "./art";
-import { BingoGame } from "./BingoGame";
-import { BoardGame } from "./BoardGame";
-import { FishGame } from "./FishGame";
-import { HideGame } from "./HideGame";
-import { MailGame } from "./MailGame";
-import { NameGame } from "./NameGame";
+import { OriginalPlay } from "./OriginalPlay";
 
 /*
  * 영어 놀이 — 우리가 같이 만든 오리지널 영어 게임 여섯(curriculum/originals). 진도와 상관없이 늘 열려 있고, 글자·단어는 만난 글자로.
@@ -35,23 +29,6 @@ type Phase = { name: "list" } | { name: "playing"; game: Original; built: BuiltO
 function freshOriginal(id: OriginalId, known: readonly string[]): { built: BuiltOriginal; startedAt: number } {
   const now = Date.now();
   return { built: buildOriginal(id, known, seededRng(now)), startedAt: now };
-}
-
-function Play({ built, onDone }: { built: BuiltOriginal; onDone: OnDone }) {
-  switch (built.id) {
-    case "bingo":
-      return <BingoGame board={built.board} onDone={onDone} />;
-    case "mail":
-      return <MailGame rounds={built.rounds} onDone={onDone} />;
-    case "name":
-      return <NameGame rounds={built.rounds} onDone={onDone} />;
-    case "hide":
-      return <HideGame game={built.game} onDone={onDone} />;
-    case "fish":
-      return <FishGame rounds={built.rounds} onDone={onDone} />;
-    case "board":
-      return <BoardGame game={built.game} onDone={onDone} />;
-  }
 }
 
 export default function GamesScreen() {
@@ -78,7 +55,7 @@ export default function GamesScreen() {
   if (phase.name === "playing") {
     return (
       <ModeShell title={phase.game.title} icon={phase.game.icon} iconId="menu:games" scene="free" onBack={() => setPhase({ name: "list" })}>
-        <Play
+        <OriginalPlay
           built={phase.built}
           onDone={() => {
             const ms = Math.min(Date.now() - phase.startedAt, 30 * 60_000);

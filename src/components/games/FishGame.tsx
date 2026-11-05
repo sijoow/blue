@@ -1,5 +1,6 @@
 "use client";
 
+import { HandHint } from "@/components/play/HandHint";
 import { useEffect, useState } from "react";
 import { SpeakerButton, usePortrait } from "@/components/ui";
 import { caseOf } from "@/curriculum/alphabet";
@@ -117,6 +118,7 @@ export function FishGame({ rounds, onDone }: { rounds: FishRound[]; onDone: OnDo
           );
         })}
       </div>
+      <HandHint from={'section span[aria-label="낚싯바늘"]'} to={`[data-drop="f:${round.target}"]`} on={r === 0 && !caught && !missed} />
       <DragGhost drag={drag}>{() => <Hook height={hookH} />}</DragGhost>
     </div>
   );

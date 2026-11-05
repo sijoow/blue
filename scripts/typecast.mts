@@ -1,7 +1,7 @@
 /**
- * Typecast 음성 굽기 — scripts/voice-lines.json 의 말을 성우 목소리 MP3 로 만든다(영어교실은 수아만 — 한글나라와 같은 성우).
- * 영어(글자 이름·단어)도 수아(2026-10-28 사용자: "성우 그대로 수아로") — --voice en 으로 굽고 영어 모드(language eng)로 읽힌다.
- *   글자 이름은 철자 그대로 보내면 "A" 가 관사 "어"로 읽힐 수 있어서 이름 철자("ay", "bee")를 보낸다(SPOKEN_EN). 파일 목록의 키는 화면 글자 그대로("A").
+ * Typecast 음성 굽기 — scripts/voice-lines.json 의 말을 성우 목소리 MP3 로 만든다.
+ * 법칙(2026-11-05 사용자): 한글은 수아(한글나라·숫자놀이와 같은 성우), 영어는 클로이(영어 성우, ssfm-v31) — 수아를 영어 모드로 돌렸더니 S 가 "에스"처럼 났다.
+ *   글자 이름도 화면 글자 그대로 보낸다("A") — 예전 철자("ay")는 "아이"로 읽혔다. U·Z 만 예외(SPOKEN_EN) — U 는 그대로 보내면 "아우"로 읽혔고, Z 는 미국식 "지"를 사용자가 듣고 고른 철자로.
  * API: POST https://api.typecast.ai/v1/text-to-speech · 헤더 X-API-KEY · 응답은 오디오 바이너리 · 1글자 = 1크레딧
  * 요청 모양은 보이스동화(Desktop/Dong src/lib/typecast.ts)에서 실제로 써 온 것을 따른다:
  *   감정은 느낌표 말에만 낮게(0.5 — 높으면 음색까지 하이톤), 빠르기는 1 이 아닐 때만 보낸다.
@@ -9,14 +9,14 @@
  * 먼저 npm run voice:reuse 로 한글나라에 이미 구운 같은 말을 빌려 오면 구울 말이 줄어든다.
  *
  *   npm run voice:lines                                   말 목록 새로 뽑기 (먼저)
- *   npm run voice:list                                    API 보이스 목록에서 민정·수아 찾기 — 크레딧 안 씀
+ *   npm run voice:list                                    API 보이스 목록에서 민정·수아·클로이 찾기 — 크레딧 안 씀
  *   npm run voice:make -- --test                          짧은 말·긴 말을 섞은 12줄 견적 (성우마다)
  *   npm run voice:make -- --test --yes                    그 12줄 실제로 굽기
  *   npm run voice:make -- --voice sua --yes               나머지 전부 (이미 구운 줄은 건너뜀)
- *   npm run voice:make -- --voice en --yes                영어 글자 이름·단어(수아 목소리, 영어 모드)
+ *   npm run voice:make -- --voice en --yes                영어 글자 이름·단어(클로이)
  *   --voice sua|minjeong|en|all (기본 sua) · --limit N · --yes 없으면 견적만
  *
- * .env.local: TYPECAST_API_KEY · TYPECAST_VOICE_MINJEONG · TYPECAST_VOICE_SUA (voice_id, 비우면 한국어 이름으로 찾음)
+ * .env.local: TYPECAST_API_KEY · TYPECAST_VOICE_MINJEONG · TYPECAST_VOICE_SUA · TYPECAST_VOICE_EN (voice_id, 비우면 한국어 이름으로 찾음)
  * 결과: public/voice/<성우>/<해시>.mp3 + src/content/voice-manifest.json (한 줄마다 저장 — 끊겨도 이어서)
  *       실패한 줄은 scripts/voice-failures.json (그 말은 앱에서 기기 음성으로 읽힌다)
  */
@@ -27,24 +27,20 @@ import { isEnglish } from "../src/lib/voices.ts";
 
 const ROOT = new URL("../", import.meta.url);
 const API = "https://api.typecast.ai";
-const MODEL = "ssfm-v30";
 const CONCURRENCY = 2;
 /** 이번 달 사용량이 이 선을 넘으면 굽지 않는다 — 보이스동화와 같은 안전선(라이트 20만 중 19만) */
 const SAFE_LIMIT = Number(process.env.TYPECAST_SAFE_LIMIT ?? 190_000);
 
 const VOICE_KEYS = {
-  minjeong: { name: "민정", env: "TYPECAST_VOICE_MINJEONG", tempo: 1, language: "kor" },
-  sua: { name: "수아", env: "TYPECAST_VOICE_SUA", tempo: 1, language: "kor" },
-  // 영어 묶음 — 같은 수아 목소리를 영어 모드로(앱 lib/voice 가 영어 말은 이 묶음에서 찾는다). 4살이 따라 듣게 조금 천천히
-  en: { name: "수아", env: "TYPECAST_VOICE_SUA", tempo: 0.9, language: "eng" },
+  minjeong: { name: "민정", env: "TYPECAST_VOICE_MINJEONG", tempo: 1, language: "kor", model: "ssfm-v30" },
+  sua: { name: "수아", env: "TYPECAST_VOICE_SUA", tempo: 1, language: "kor", model: "ssfm-v30" },
+  // 영어 묶음 — 클로이(앱 lib/voice 가 영어 말은 이 묶음에서 찾는다). 4살이 따라 듣게 조금 천천히
+  en: { name: "클로이", env: "TYPECAST_VOICE_EN", tempo: 0.9, language: "eng", model: "ssfm-v31" },
 } as const;
 type VoiceKey = keyof typeof VOICE_KEYS;
 
-/** 글자 이름 → 읽을 철자(미국식). 단어는 그대로 보낸다 */
-const SPOKEN_EN: Record<string, string> = {
-  A: "ay", B: "bee", C: "see", D: "dee", E: "ee", F: "eff", G: "gee", H: "aitch", I: "eye", J: "jay", K: "kay", L: "el", M: "em",
-  N: "en", O: "oh", P: "pee", Q: "cue", R: "ar", S: "ess", T: "tee", U: "you", V: "vee", W: "double you", X: "ex", Y: "why", Z: "zee",
-};
+/** 그대로 보내면 잘못 읽는 영어 — 읽을 철자(사용자가 듣고 고른 것). 파일 목록의 키는 화면 글자 그대로("U") */
+const SPOKEN_EN: Record<string, string> = { U: "You.", Z: "zeee" };
 const spokenOf = (k: VoiceKey, text: string) => (VOICE_KEYS[k].language === "eng" ? (SPOKEN_EN[text] ?? text) : text);
 
 /** 시험 굽기 — 아주 짧은 말(단어 뜻 한두 글자)이 거부되는지 먼저 본다 */
@@ -77,7 +73,7 @@ function arg(name: string): string | undefined {
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 async function listVoices(key: string): Promise<ApiVoice[]> {
-  const res = await fetch(`${API}/v3/voices?model=${MODEL}`, { headers: { "X-API-KEY": key } });
+  const res = await fetch(`${API}/v3/voices`, { headers: { "X-API-KEY": key } });
   if (!res.ok) throw new Error(`보이스 목록 ${res.status} ${(await res.text()).slice(0, 200)}`);
   return (await res.json()) as ApiVoice[];
 }
@@ -99,7 +95,7 @@ function resolveVoice(voices: ApiVoice[], v: VoiceKey): ApiVoice {
   const want = process.env[VOICE_KEYS[v].env];
   if (want) {
     const hit = voices.find((x) => x.voice_id === want);
-    if (!hit) throw new Error(`${VOICE_KEYS[v].env}=${want} 를 ${MODEL} 목록에서 못 찾았어요`);
+    if (!hit) throw new Error(`${VOICE_KEYS[v].env}=${want} 를 보이스 목록에서 못 찾았어요`);
     return hit;
   }
   const hits = voices.filter((x) => x.voice_name.kor === VOICE_KEYS[v].name);
@@ -123,12 +119,12 @@ function hashOf(text: string) {
   return createHash("sha1").update(text).digest("hex").slice(0, 16);
 }
 
-async function speak(key: string, voice: ApiVoice, text: string, tempo: number, language: string): Promise<Buffer> {
-  const emotions = voice.models.find((m) => m.version === MODEL)?.emotions ?? [];
+async function speak(key: string, voice: ApiVoice, text: string, tempo: number, language: string, model: string): Promise<Buffer> {
+  const emotions = voice.models.find((m) => m.version === model)?.emotions ?? [];
   const body: Record<string, unknown> = {
     voice_id: voice.voice_id,
     text,
-    model: MODEL,
+    model,
     language,
     output: { audio_format: "mp3", ...(tempo !== 1 ? { audio_tempo: tempo } : {}) },
   };
@@ -204,7 +200,7 @@ async function make(key: string) {
         const text = p.todo[next++];
         try {
           const file = `voice/${p.k}/${hashOf(text)}.mp3`;
-          writeFileSync(new URL(file, new URL("public/", ROOT)), await speak(key, voice, spokenOf(p.k, text), VOICE_KEYS[p.k].tempo, VOICE_KEYS[p.k].language));
+          writeFileSync(new URL(file, new URL("public/", ROOT)), await speak(key, voice, spokenOf(p.k, text), VOICE_KEYS[p.k].tempo, VOICE_KEYS[p.k].language, VOICE_KEYS[p.k].model));
           manifest[p.k][text] = file;
           writeFileSync(manifestPath(), JSON.stringify(manifest, null, 2) + "\n");
         } catch (e) {
@@ -237,11 +233,10 @@ async function main() {
   if (cmd === "list") {
     if (!key) return;
     const voices = await listVoices(key);
-    const mine = voices.filter((v) => ["민정", "수아"].includes(v.voice_name.kor) || Object.values(VOICE_KEYS).some((k) => process.env[k.env] === v.voice_id));
-    console.log(`${MODEL} 보이스 ${voices.length}개 중 민정·수아:`);
+    const mine = voices.filter((v) => ["민정", "수아", "클로이"].includes(v.voice_name.kor) || Object.values(VOICE_KEYS).some((k) => process.env[k.env] === v.voice_id));
+    console.log(`보이스 ${voices.length}개 중 민정·수아·클로이:`);
     for (const v of mine) {
-      const emotions = v.models.find((m) => m.version === MODEL)?.emotions ?? [];
-      console.log(`  ${v.voice_name.kor} (${v.voice_name.eng}) ${v.voice_id} · ${v.gender ?? "-"}/${v.age ?? "-"} · 감정 ${emotions.join(",")}`);
+      console.log(`  ${v.voice_name.kor} (${v.voice_name.eng}) ${v.voice_id} · ${v.gender ?? "-"}/${v.age ?? "-"} · 모델 ${v.models.map((m) => m.version).join(",")}`);
     }
     if (mine.length === 0) console.log("  없어요 — studio.typecast.ai/developers/api/voices 에서 확인해 주세요.");
     const used = await usedThisMonth(key);

@@ -1,5 +1,6 @@
 "use client";
 
+import { HandHint } from "@/components/play/HandHint";
 import { useEffect, useState } from "react";
 import { WordArt } from "@/components/Art";
 import { SpeakerButton, usePortrait } from "@/components/ui";
@@ -134,6 +135,7 @@ export function MailGame({ rounds, onDone }: { rounds: MailRound[]; onDone: OnDo
           );
         })}
       </div>
+      <HandHint from={"section span[role=button]"} to={`[data-drop="box:${item.letter}"]`} on={r === 0 && i === 0 && waiting} />
       <DragGhost drag={drag}>{(it) => <ItemArt it={it} width={itemW} />}</DragGhost>
     </div>
   );

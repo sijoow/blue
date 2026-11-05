@@ -1,5 +1,6 @@
 "use client";
 
+import { HandHint, IDLE_HINT_MS } from "@/components/play/HandHint";
 import { useEffect, useState } from "react";
 import { Family, WordArt } from "@/components/Art";
 import { MarkedWord } from "@/components/play/activities/Book";
@@ -118,6 +119,7 @@ export function BingoGame({ board, onDone }: { board: BingoBoard; onDone: OnDone
           </div>
         </div>
       )}
+      <HandHint from={`section button[aria-label="${wordOf(call).en}"]`} to={`section button[aria-label="${wordOf(call).en}"]`} on={idx === 0 && !busy} delay={IDLE_HINT_MS} />
     </div>
   );
 }
