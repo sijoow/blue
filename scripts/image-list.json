@@ -1,5 +1,5 @@
 {
-  "total": 106,
+  "total": 115,
   "guide": [
     {
       "key": "guide",
@@ -514,6 +514,36 @@
       "what": "놀이 아이콘: 도장 퀴즈"
     },
     {
+      "key": "icon:play:puzzle",
+      "kind": "icon",
+      "now": "🔤",
+      "what": "놀이 아이콘: 글자 퍼즐"
+    },
+    {
+      "key": "icon:play:bridge",
+      "kind": "icon",
+      "now": "🌉",
+      "what": "놀이 아이콘: 다리 잇기"
+    },
+    {
+      "key": "icon:play:same-letter",
+      "kind": "icon",
+      "now": "🔍",
+      "what": "놀이 아이콘: 같은 글자"
+    },
+    {
+      "key": "icon:play:pair",
+      "kind": "icon",
+      "now": "🃏",
+      "what": "놀이 아이콘: 그림 짝꿍"
+    },
+    {
+      "key": "icon:play:bubble",
+      "kind": "icon",
+      "now": "💬",
+      "what": "놀이 아이콘: 말풍선"
+    },
+    {
       "key": "icon:medal:gold",
       "kind": "icon",
       "now": "🥇",
@@ -574,6 +604,30 @@
       "kind": "scene",
       "now": "🎤",
       "what": "놀이터 카드 장면: 따라 말하기"
+    },
+    {
+      "key": "scene:free:puzzle",
+      "kind": "scene",
+      "now": "🔤",
+      "what": "놀이터 카드 장면: 글자 퍼즐"
+    },
+    {
+      "key": "scene:free:bridge",
+      "kind": "scene",
+      "now": "🌉",
+      "what": "놀이터 카드 장면: 다리 잇기"
+    },
+    {
+      "key": "scene:free:same-letter",
+      "kind": "scene",
+      "now": "🔍",
+      "what": "놀이터 카드 장면: 같은 글자"
+    },
+    {
+      "key": "scene:free:pair",
+      "kind": "scene",
+      "now": "🃏",
+      "what": "놀이터 카드 장면: 그림 짝꿍"
     },
     {
       "key": "scene:games:bingo",

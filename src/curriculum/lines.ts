@@ -13,6 +13,7 @@ import { CHILD } from "./child.ts";
 import { ALPHABET, WORDS } from "./alphabet.ts";
 import { LANDS } from "./lands.ts";
 import { COUNT_EN, NAMES } from "./originals.ts";
+import { storyTexts } from "./stories.ts";
 
 const { call, nick } = CHILD;
 
@@ -38,6 +39,13 @@ export const LINES = {
   meetWordsEnd: "이 글자로 끝나는 말이야. 눌러 봐!",
 
   findLetter: "잘 듣고 글자를 찾아 봐!",
+  // 업체 레벨 A 놀이를 우리 그림으로(2026-11-06)
+  puzzle: "글자 조각을 알맞은 자리에 끼워 봐!",
+  bridge: "빈칸에 글자를 넣어서 다리를 이어 줘!",
+  bridgeDone: "다리가 이어졌어! 건너가자!",
+  same: "똑같은 글자를 찾아서 옆에 놓아 봐!",
+  pair: "똑같은 그림끼리 짝을 지어 봐!",
+  bubble: "말풍선을 눌러 봐!",
   whereIs: "어디 있을까?",
   matchCase: "대문자를 끌어서 짝꿍 소문자에 놓아 봐!",
   matchPair: "짝꿍이야!",
@@ -62,6 +70,7 @@ export const LINES = {
   songIntro: "노래를 불러 볼까?",
   bookIntro: "그림책을 읽어 볼까?",
   bookEnd: "다 읽었다! 재미있었지?",
+  storyIntro: "이야기 그림책이야! 같이 읽어 볼까?",
   sayIntro: "잘 듣고 따라 말해 봐!",
   sayTurn: `${nick} 차례! 마이크를 누르고 말해 봐!`,
   sayListen: `${nick} 목소리야!`,
@@ -115,7 +124,7 @@ export const BINGO_SHOUT = "Bingo!";
 
 /** 영어로 읽는 말 — 글자 이름(대문자 하나)과 단어, 영어 놀이의 이름·수·외침 */
 export function englishTexts(): string[] {
-  return [...ALPHABET, ...WORDS.map((w) => w.en), ...NAMES.map((n) => n.en), ...COUNT_EN, BINGO_SHOUT];
+  return [...ALPHABET, ...WORDS.map((w) => w.en), ...NAMES.map((n) => n.en), ...COUNT_EN, BINGO_SHOUT, ...storyTexts()];
 }
 
 /** 모든 말을 한 줄씩 — 음성 파일 목록을 뽑을 때 쓴다(한국어·영어는 voice-lines 가 가른다) */

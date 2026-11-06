@@ -1,4 +1,4 @@
-import { originalOf } from "@/curriculum/originals";
+import { originalOf } from "../../curriculum/originals.ts";
 import type { ActivityKind, ActivitySpec } from "@/curriculum/types";
 
 /** 놀이 종류마다 아이 눈에 보이는 아이콘 — 오늘의 영어 순서 표시. 그림 "icon:play:<놀이>" 가 생기면 그 그림(components/Icon) */
@@ -16,6 +16,11 @@ export const KIND_ICON: Record<ActivityKind, string> = {
   "next-letter": "➡️",
   trace: "✏️",
   game: "🎲",
+  puzzle: "🔤",
+  bridge: "🌉",
+  "same-letter": "🔍",
+  pair: "🃏",
+  bubble: "💬",
 };
 
 /** 놀이 이름 — 부모 페이지 미리 보기·놀이터와 같은 말 */
@@ -33,6 +38,11 @@ export const KIND_LABEL: Record<ActivityKind, string> = {
   "next-letter": "다음 글자",
   trace: "따라 쓰기",
   game: "영어 놀이",
+  puzzle: "글자 퍼즐",
+  bridge: "다리 잇기",
+  "same-letter": "같은 글자",
+  pair: "그림 짝꿍",
+  bubble: "말풍선",
 };
 
 /** 길 칸 하나의 이름·그림 — 영어 놀이는 그 놀이 이름으로 */

@@ -1,7 +1,7 @@
 [
  {
   "size": "412x780",
-  "name": "play-word",
+  "name": "books",
   "n": 0,
   "page": {
    "scrollH": 780,
@@ -12,7 +12,62 @@
  },
  {
   "size": "412x780",
-  "name": "play-quiz-q",
+  "name": "play-book",
+  "n": 0,
+  "page": {
+   "scrollH": 780,
+   "H": 780,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "412x780",
+  "name": "play-story",
+  "n": 0,
+  "page": {
+   "scrollH": 780,
+   "H": 780,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "412x780",
+  "name": "play-story-pair",
+  "n": 0,
+  "page": {
+   "scrollH": 780,
+   "H": 780,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "412x780",
+  "name": "play-story-long",
+  "n": 0,
+  "page": {
+   "scrollH": 780,
+   "H": 780,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "412x780",
+  "name": "play-story-title",
+  "n": 0,
+  "page": {
+   "scrollH": 780,
+   "H": 780,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "412x780",
+  "name": "play-story-end",
   "n": 0,
   "page": {
    "scrollH": 780,
@@ -23,7 +78,7 @@
  },
  {
   "size": "900x412",
-  "name": "play-word",
+  "name": "books",
   "n": 0,
   "page": {
    "scrollH": 412,
@@ -34,11 +89,220 @@
  },
  {
   "size": "900x412",
-  "name": "play-quiz-q",
+  "name": "play-book",
   "n": 0,
   "page": {
    "scrollH": 412,
    "H": 412,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "900x412",
+  "name": "play-story",
+  "n": 0,
+  "page": {
+   "scrollH": 412,
+   "H": 412,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "900x412",
+  "name": "play-story-pair",
+  "n": 0,
+  "page": {
+   "scrollH": 412,
+   "H": 412,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "900x412",
+  "name": "play-story-long",
+  "n": 0,
+  "page": {
+   "scrollH": 412,
+   "H": 412,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "900x412",
+  "name": "play-story-title",
+  "n": 0,
+  "page": {
+   "scrollH": 412,
+   "H": 412,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "900x412",
+  "name": "play-story-end",
+  "n": 0,
+  "page": {
+   "scrollH": 412,
+   "H": 412,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "1280x800",
+  "name": "books",
+  "n": 0,
+  "page": {
+   "scrollH": 800,
+   "H": 800,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "1280x800",
+  "name": "play-book",
+  "n": 0,
+  "page": {
+   "scrollH": 800,
+   "H": 800,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "1280x800",
+  "name": "play-story",
+  "n": 0,
+  "page": {
+   "scrollH": 800,
+   "H": 800,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "1280x800",
+  "name": "play-story-pair",
+  "n": 0,
+  "page": {
+   "scrollH": 800,
+   "H": 800,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "1280x800",
+  "name": "play-story-long",
+  "n": 0,
+  "page": {
+   "scrollH": 800,
+   "H": 800,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "1280x800",
+  "name": "play-story-title",
+  "n": 0,
+  "page": {
+   "scrollH": 800,
+   "H": 800,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "1280x800",
+  "name": "play-story-end",
+  "n": 0,
+  "page": {
+   "scrollH": 800,
+   "H": 800,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "360x640",
+  "name": "books",
+  "n": 0,
+  "page": {
+   "scrollH": 640,
+   "H": 640,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "360x640",
+  "name": "play-book",
+  "n": 0,
+  "page": {
+   "scrollH": 640,
+   "H": 640,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "360x640",
+  "name": "play-story",
+  "n": 0,
+  "page": {
+   "scrollH": 640,
+   "H": 640,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "360x640",
+  "name": "play-story-pair",
+  "n": 0,
+  "page": {
+   "scrollH": 640,
+   "H": 640,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "360x640",
+  "name": "play-story-long",
+  "n": 0,
+  "page": {
+   "scrollH": 640,
+   "H": 640,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "360x640",
+  "name": "play-story-title",
+  "n": 0,
+  "page": {
+   "scrollH": 640,
+   "H": 640,
+   "docScrolls": false
+  },
+  "items": []
+ },
+ {
+  "size": "360x640",
+  "name": "play-story-end",
+  "n": 0,
+  "page": {
+   "scrollH": 640,
+   "H": 640,
    "docScrolls": false
   },
   "items": []

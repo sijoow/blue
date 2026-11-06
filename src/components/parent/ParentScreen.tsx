@@ -8,6 +8,7 @@ import { Splash, toneStyle, UiIcon } from "@/components/ui";
 import { CHAPTERS, DAYS_PER_CHAPTER, isStampDay, LEVEL_NAMES } from "@/curriculum/course";
 import { landOf } from "@/curriculum/lands";
 import { LINES } from "@/curriculum/lines";
+import { storyOf } from "@/curriculum/stories";
 import { logout, useAuth } from "@/lib/auth";
 import { pullFamily, useFamily } from "@/lib/family";
 import { updateSaved, useSaved, useToday } from "@/lib/store";
@@ -159,7 +160,7 @@ export default function ParentScreen() {
                   <ul className="ml-5 mt-1 list-disc text-base text-ink-soft">
                     {c.days.map((acts, i) => (
                       <li key={i}>
-                        미션 {i + 1}{isStampDay(i + 1) ? "(도장)" : ""}: {acts.map((a) => (a.kind === "meet" ? `${KIND_LABEL.meet} ${a.letter}` : KIND_LABEL[a.kind])).join(" · ")}
+                        미션 {i + 1}{isStampDay(i + 1) ? "(도장)" : ""}: {acts.map((a) => (a.kind === "meet" ? `${KIND_LABEL.meet} ${a.letter}` : a.kind === "book" && a.story ? `이야기 「${storyOf(a.story)?.title ?? a.story}」` : KIND_LABEL[a.kind])).join(" · ")}
                       </li>
                     ))}
                   </ul>

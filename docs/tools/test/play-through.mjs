@@ -42,6 +42,26 @@ async function drag(fromSel, toSel) {
 }
 /** 칸 하나를 끝내면 길로 돌아온다(지금 칸 표시가 사라진다) — 놀이 중이면 0, 끝났으면 99 */
 const step = () => ev(`document.querySelector('[aria-label="지금 칸"]') ? 0 : 99`);
+
+/** 따라 쓰기 판의 획을 차례대로 긋는다 — svg 의 data-strokes(판 좌표)를 화면 좌표로 바꿔 펜 머리부터 끝까지 */
+async function traceBoard() {
+  for (let t = 0; t < 8; t++) {
+    const info = await ev(`(() => { const s = document.querySelector("svg[data-strokes]"); if (!s) return null; s.scrollIntoView({ block: "nearest" }); const r = s.getBoundingClientRect(); return { ...JSON.parse(s.dataset.strokes), now: Number(s.dataset.strokeNow), r: [r.left, r.top, r.width, r.height] }; })()`);
+    if (!info || info.now >= info.strokes.length) return;
+    const [L, T, W, H] = info.r;
+    const pts = [];
+    const st = info.strokes[info.now];
+    for (let i = 1; i < st.length; i++) {
+      const [a, b] = [st[i - 1], st[i]];
+      const n = Math.max(1, Math.ceil(Math.hypot(b[0] - a[0], b[1] - a[1]) / 3));
+      for (let k = i === 1 ? 0 : 1; k <= n; k++) pts.push([L + ((a[0] + ((b[0] - a[0]) * k) / n) / info.w) * W, T + ((a[1] + ((b[1] - a[1]) * k) / n) / info.h) * H]);
+    }
+    await mouse("mousePressed", pts[0][0], pts[0][1]);
+    for (const p of pts.slice(1)) await mouse("mouseMoved", p[0], p[1]);
+    await mouse("mouseReleased", pts[pts.length - 1][0], pts[pts.length - 1][1]);
+    await sleep(250);
+  }
+}
 const kindNow = () => ev(`document.querySelector("section")?.innerText.slice(0, 40) ?? ""`);
 
 await send("Page.enable");
@@ -84,6 +104,9 @@ async function playOne(kind) {
         await drag(`section span[role="button"][aria-label="${l}"]`, `[data-drop="slot"]`);
         await sleep(2600);
       }
+    } else if (kind === "trace") {
+      await traceBoard();
+      await sleep(4500);
     } else if (kind === "song") {
       // 다 부를 때까지 기다렸다가 「좋아!」
       await ev(`[...document.querySelectorAll("section button")].find((b) => b.textContent.includes("좋아"))?.click()`);
@@ -114,6 +137,34 @@ async function playOne(kind) {
         if (hit) await sleep(1200);
       }
       await sleep(3000);
+    } else if (kind === "bubble") {
+      await ev(`document.querySelector("section button[aria-label='말풍선']")?.click()`);
+      await sleep(4500);
+    } else if (kind === "puzzle" || kind === "bridge") {
+      const pre = (await ev(`document.querySelector('[data-drop^="p:"]') ? "p" : "b"`)) ?? "p";
+      const pieces = await ev(`[...document.querySelectorAll('section span[role="button"]')].map((x) => x.getAttribute("aria-label"))`);
+      for (const l of pieces ?? []) {
+        if (!(await ev(`!!document.querySelector('[data-drop="${pre}:${l}"]')`))) continue;
+        await drag(`section span[role="button"][aria-label="${l}"]`, `[data-drop="${pre}:${l}"]`);
+        await sleep(1300);
+      }
+      await sleep(pre === "b" ? 4500 : 2500);
+    } else if (kind === "same-letter") {
+      const t = await ev(`document.querySelector("[data-target]")?.getAttribute("data-target")`);
+      if (t) await drag(`section span[role="button"][aria-label="${t}"]`, `[data-drop="same"]`);
+      await sleep(3200);
+    } else if (kind === "pair") {
+      const cards = await ev(`[...document.querySelectorAll("section [data-card]")].filter((x) => x.getAttribute("data-drop")).map((x) => [x.getAttribute("data-card"), x.getAttribute("aria-label")])`);
+      const seen = new Map();
+      for (const [i, w] of cards ?? []) {
+        if (!seen.has(w)) {
+          seen.set(w, i);
+          continue;
+        }
+        await drag(`section [data-card="${seen.get(w)}"]`, `section [data-card="${i}"]`);
+        await sleep(1400);
+      }
+      await sleep(2500);
     } else {
       // 보기 고르기 — 차례로 눌러 본다(틀린 보기는 흐려지고, 맞으면 다음 판)
       const n = await ev(`[...document.querySelectorAll("section button.squish[aria-label]")].filter((b) => b.getAttribute("aria-label") !== "다시 듣기").length`);
@@ -132,21 +183,33 @@ async function playOne(kind) {
 const CASES = [
   ["song", "/play?preview=c1d1&auto=1"],
   ["book", "/play?preview=c1d1&step=1&auto=1"],
+  // 이야기 그림책(★★★ 둘째·넷째 미션 첫 칸) — 넘기는 법은 단어 그림책과 같다
+  ["book-story", "/play?preview=c1d10&auto=1"],
+  ["book-story-8", "/play?preview=c8d12&auto=1"],
   ["meet", "/play?preview=c1d1&step=2&auto=1"],
-  ["find-letter", "/play?preview=c1d1&step=3&auto=1"],
-  ["word-pick", "/play?preview=c1d1&step=4&auto=1"],
-  ["match-case", "/play?preview=c1d2&step=4&auto=1"],
-  ["say", "/play?preview=c1d3&step=4&auto=1"],
-  ["missing-letter", "/play?preview=c1d4&step=4&auto=1"],
-  ["pop", "/play?preview=c1d1&step=5&auto=1"],
-  ["next-letter", "/play?preview=c3d1&step=7&auto=1"],
+  ["bubble", "/play?preview=c1d1&step=3&auto=1"],
+  ["find-letter", "/play?preview=c1d1&step=4&auto=1"],
+  ["same-letter", "/play?preview=c1d1&step=5&auto=1"],
+  ["pop", "/play?preview=c1d1&step=6&auto=1"],
+  ["pair", "/play?preview=c1d2&step=4&auto=1"],
+  ["match-case", "/play?preview=c1d2&step=5&auto=1"],
+  ["word-pick", "/play?preview=c1d3&step=4&auto=1"],
+  ["say", "/play?preview=c1d3&step=5&auto=1"],
+  ["puzzle", "/play?preview=c1d4&step=4&auto=1"],
+  ["bridge", "/play?preview=c1d4&step=5&auto=1"],
+  ["missing-letter", "/play?preview=c6d4&step=4&auto=1"],
+  ["next-letter", "/play?preview=c8d1&step=5&auto=1"],
+  ["puzzle-hard", "/play?preview=c3d12&step=2&auto=1"],
+  ["bridge-hard", "/play?preview=c3d12&step=3&auto=1"],
   ["quiz", "/play?preview=c2d13&auto=1"],
+  ["trace", "/play?preview=c1d1&step=7&auto=1"],
+  ["trace-lower", "/play?preview=c7d4&step=7&auto=1"],
 ];
 for (const [kind, path] of CASES.filter(([k]) => !ONLY || ONLY.split(",").includes(k))) {
   await send("Page.navigate", { url: `http://localhost:6500${path}` });
   await sleep(3500);
   const t0 = Date.now();
-  const ok = await playOne(kind);
+  const ok = await playOne(kind.replace(/-(hard|lower|story(-8)?)$/, ""));
   const s = await send("Page.captureScreenshot", { format: "png" });
   const name = `${kind}-${path.replace(/[^a-z0-9]+/gi, "_")}`;
   writeFileSync(new URL(`./${name}.png`, OUT), Buffer.from(s.data, "base64"));

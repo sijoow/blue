@@ -81,6 +81,49 @@
   --animate-leave-up: leave-up 0.6s ease-in both;
   --animate-swim: swim 4.6s ease-in-out infinite alternate;
   --animate-walk: walk 0.42s ease-in-out infinite;
+  /* 이야기 그림책(play/activities/Story) — 깡총 · 도리도리 · 달려 들어오기 · 살랑살랑 · 커지기 */
+  --animate-hop: hop 0.7s ease-in-out 0.3s 3 both;
+  --animate-no: shake 0.5s ease-in-out 0.5s 3;
+  --animate-run-in: run-in 1.2s cubic-bezier(0.3, 1.1, 0.5, 1) both;
+  --animate-peek: wiggle 0.9s ease-in-out infinite;
+  --animate-grow: grow 1s cubic-bezier(0.2, 1.5, 0.4, 1) both;
+  @keyframes hop {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-22%) rotate(-5deg);
+    }
+    60% {
+      transform: translateY(-22%) rotate(4deg);
+    }
+  }
+  @keyframes run-in {
+    0% {
+      transform: translateX(110%);
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    70% {
+      transform: translateX(-6%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes grow {
+    0% {
+      transform: scale(0.3);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 
   /* 주사위 윷놀이 큰 주사위 — 하늘에서 쿵 떨어져 한 번 튀고, 도로로로 세 번 굴러가다(90도씩) 가운데에 반듯하게 멈춘다 */
   @keyframes die-tumble {

@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Glyph } from "@/components/Art";
+import { Glyph, WordArt } from "@/components/Art";
 import { ModeShell } from "@/components/ModeShell";
+import { MarkedWord } from "@/components/play/activities/Book";
 import { traceLines } from "@/components/play/activities/Trace";
-import { TraceBoard, useBoardKey } from "@/components/TraceBoard";
+import { StrokeBoard, strokeBoardWidth } from "@/components/StrokeBoard";
 import { Splash, SquishButton, UiIcon } from "@/components/ui";
 import { ALPHABET, letterOf } from "@/curriculum/alphabet";
 import { LINES } from "@/curriculum/lines";
@@ -17,15 +18,15 @@ import { useSaved } from "@/lib/store";
 import { pick, say, stopVoice } from "@/lib/voice";
 
 /*
- * 알파벳 쓰기 — 글자를 골라 대문자 → 소문자 차례로 손가락으로 따라 쓴다(판은 한글나라 TraceBoard, 손끝 펜 그대로).
- * 만난 글자만 열린다(마스터는 다). 한 판 쓸 때마다 칭찬 + 하루 리포트에 활동 하나.
+ * 알파벳 쓰기 — 글자를 골라 대문자 → 소문자 차례로 획 길을 따라 쓴다(components/StrokeBoard — 업체 Letter Writing 처럼 화살표 차례대로,
+ * 길 밖으로는 칠해지지 않아 지우기가 없다, 2026-11-06). 다 쓰면 그 글자 단어 카드. 만난 글자만 열린다(마스터는 다). 한 판 쓸 때마다 칭찬 + 하루 리포트에 활동 하나.
  */
 
 export default function WriteScreen() {
   const saved = useSaved();
   const master = useIsMaster();
   const [picked, setPicked] = useState<{ letter: string; lower: boolean } | null>(null);
-  const [key, erase] = useBoardKey();
+  const [round, setRound] = useState(0);
   const [done, setDone] = useState(false);
   const menu = menuOf("write");
 
@@ -47,6 +48,7 @@ export default function WriteScreen() {
     sfx.pop();
     setPicked({ letter, lower });
     setDone(false);
+    setRound((r) => r + 1);
     const ch = lower ? letterOf(letter).lower : letter;
     void say(lower ? traceLines(ch) : [LINES.trace, ...traceLines(ch)]);
   };
@@ -54,34 +56,43 @@ export default function WriteScreen() {
   if (picked) {
     const l = letterOf(picked.letter);
     const ch = picked.lower ? l.lower : l.upper;
+    const word = l.words[0];
     const nextLetter = ALPHABET.slice(ALPHABET.indexOf(picked.letter) + 1).find((u) => known.has(u));
     return (
       <ModeShell title={`${l.upper}${l.lower} 쓰기`} icon={menu.icon} iconId="menu:write" scene="write" onBack={() => setPicked(null)}>
         <div className="flex min-h-full items-center justify-center-safe gap-8 px-6 py-4 portrait:flex-col portrait:gap-5 portrait:px-4">
-          <TraceBoard
-            key={`${ch}-${key}`}
-            text={ch}
-            width="min(66vh, calc(60*var(--vw)))"
+          <StrokeBoard
+            key={`${ch}-${round}`}
+            ch={ch}
+            width={strokeBoardWidth(ch)}
             onSuccess={() => {
               setDone(true);
               sfx.cheer();
               recordPlay({ acts: 1 });
-              void say(pick(LINES.praise));
+              void say([l.upper, word.en, pick(LINES.praise)]);
             }}
           />
           <div className="flex flex-col items-center gap-4 portrait:flex-row portrait:flex-wrap portrait:justify-center">
             <span className="rounded-full bg-card px-6 py-2 text-3xl shadow-[0_5px_0_var(--paper-deep)]">{picked.lower ? LINES.lower : LINES.upper}</span>
-            <SquishButton
-              tone="butter"
-              className="whitespace-nowrap rounded-full px-7 py-4 text-3xl"
-              onClick={() => {
-                sfx.tick();
-                setDone(false);
-                erase();
-              }}
-            >
-              {done ? "한 번 더" : "지우기"}
-            </SquishButton>
+            {done && (
+              <span className="flex animate-pop-in flex-col items-center rounded-[1.8rem] bg-white px-5 py-3 shadow-[0_8px_0_var(--paper-deep)]">
+                <WordArt id={word.id} size="min(16vh, calc(12*var(--vw)))" />
+                <MarkedWord word={word} />
+              </span>
+            )}
+            {done && (
+              <SquishButton
+                tone="butter"
+                className="whitespace-nowrap rounded-full px-7 py-4 text-3xl"
+                onClick={() => {
+                  sfx.tick();
+                  setDone(false);
+                  setRound((r) => r + 1);
+                }}
+              >
+                한 번 더
+              </SquishButton>
+            )}
             {done && !picked.lower && (
               <button type="button" className="cta flex items-center gap-2 rounded-full px-7 py-4 text-3xl font-extrabold" onClick={() => choose(picked.letter, true)}>
                 <Glyph ch={l.lower} /> <UiIcon name="next" />

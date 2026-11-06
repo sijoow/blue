@@ -3,7 +3,8 @@
  *   레벨 A(A~P) 유닛 1~4 → 레벨 B(Q~Z) 유닛 1~3 + 유닛 4 복습. 장 하나 = 유닛 하나.
  *   유닛 목표·순서는 업체 공개 교사용 페이지(todoclassroom.com/todoenglish/curri) 그대로, 놀이·화면·캐릭터는 우리 것(앱을 옮기지 않는다).
  * 장 안 구성은 형제 앱을 따른다(2026-11-05 사용자: 숫자놀이·한글나라 구성) — 미션 13개 = ★ 넷(아래 표) → ★★ 넷 → ★★★ 넷(같은 놀이를 한 단계씩 어렵게, curriculum/level) → 도장 퀴즈.
- *   8장 × 13 = 104 미션. 미션 하나 = 오늘의 길 10칸 — 노래·그림책(업체 하루의 영상·책 자리) → 놀이 → 영어 놀이 한 판 → 따라 쓰기. 15~20분쯤(업체 하루와 같다).
+ *   8장 × 13 = 104 미션. 미션 하나 = 오늘의 길 8칸(2026-11-06 사용자 폰의 업체 하루 5~9칸을 보고 10칸에서 줄임) — 노래·그림책(업체 하루의 영상·책 자리) → 만나기 → 말풍선 →
+ *   놀이 → 영어 놀이 한 판 → 따라 쓰기. 놀이에 업체 레벨 A 놀이 넷(글자 퍼즐·다리 잇기·같은 글자·그림 짝꿍, docs/todoenglish-levelA.md)을 우리 그림으로 넣었다.
  *   새 글자는 ★ 에서 하루에 하나씩, 앞 글자를 되풀이한다(나선형). 표에 적지 않은 칸은 그날까지 만난 글자로 짧게 채운다(fillDay).
  * 도장 퀴즈(업체의 유닛 테스트 자리) — 단어 미리 보기 → 10문항. 통과는 첫 두 장 50%, 그 뒤 70%(한글나라와 같다 — 기준은 글을 모르는 네 살).
  *   결과는 업체처럼 세 단계(80 미만 동 · 80 이상 은 · 100 금)이고 지난 장 퀴즈는 언제든 다시 풀 수 있다(가장 좋은 결과가 남는다).
@@ -11,9 +12,10 @@
  * 순수 파일 — node --test 가 그대로 읽는다.
  */
 
-import { ALPHABET, letterOf } from "./alphabet.ts";
+import { ALPHABET, inOrder, letterOf, wordOf } from "./alphabet.ts";
 import { hardenSpec } from "./level.ts";
 import type { OriginalId } from "./originals.ts";
+import { storyOfChapter, storyWords } from "./stories.ts";
 import type { ActivitySpec, CaseShow, Chapter, DayPlan, Level } from "./types.ts";
 
 /** 단계 하나의 미션 수 · 장 하나의 단계 수 — 그 뒤에 도장 퀴즈 */
@@ -21,7 +23,7 @@ export const DAYS_PER_STAGE = 4;
 export const STAGES = 3;
 export const DAYS_PER_CHAPTER = DAYS_PER_STAGE * STAGES + 1;
 /** 미션 하나의 칸 수(도장 퀴즈 날 빼고) */
-export const DAY_MISSIONS = 10;
+export const DAY_MISSIONS = 8;
 /** 추가 학습 — ★ 네 미션을 다시 */
 export const PRACTICE_DAYS = DAYS_PER_STAGE;
 /** 첫 두 장은 쉬운 판 — 판을 줄이고 통과 기준을 낮춘다(한글나라 1~2단원과 같다) */
@@ -60,6 +62,11 @@ const next = (letters: string, rounds = 4): ActivitySpec => ({ kind: "next-lette
 const trace = (letters: string): ActivitySpec => ({ kind: "trace", chars: L(letters).flatMap((u) => [u, letterOf(u).lower]) });
 /** 적은 글자 그대로 따라 쓰기 — "bd" → b d (헷갈리는 소문자 복습) */
 const traceOnly = (chars: string): ActivitySpec => ({ kind: "trace", chars: L(chars) });
+const puzzle = (letters: string, max = 4): ActivitySpec => ({ kind: "puzzle", letters: L(letters), max });
+const bridge = (letters: string, max = 4): ActivitySpec => ({ kind: "bridge", letters: L(letters), max });
+const same = (letters: string, rounds = 4, choices = 2): ActivitySpec => ({ kind: "same-letter", letters: L(letters), rounds, choices });
+const pair = (letters: string): ActivitySpec => ({ kind: "pair", letters: L(letters) });
+const bubble = (letter: string): ActivitySpec => ({ kind: "bubble", letter });
 
 /** 도장 퀴즈 — 이 장 글자 + 앞 장 글자 조금(업체 후기: 이전 레벨 단어도 나온다) */
 const stamp = (letters: string, before: string): ActivitySpec[] => [{ kind: "quiz", letters: L(letters), review: L(before.slice(-4)), rounds: QUIZ_ROUNDS }];
@@ -79,12 +86,12 @@ function unit4(cur: string, before: string): UnitTable {
   const [a, b, c, d] = L(cur);
   return {
     written: [
-      [song(a), book(a), meet(a), find(a, "upper", 3), word(a, 3), trace(a)],
-      [song(a + b), book(b), meet(b), find(a + b, "upper"), match(a + b), trace(b)],
-      [song(a + b + c), book(c), meet(c), word(a + b + c), sayIt(a + b + c), trace(c)],
-      [song(cur), book(d), meet(d), match(cur), missing(cur), trace(d)],
+      [song(a), book(a), meet(a), bubble(a), find(a, "upper", 3), same(a, 2), trace(a)],
+      [song(a + b), book(b), meet(b), bubble(b), pair(a + b), match(a + b), trace(b)],
+      [song(a + b + c), book(c), meet(c), bubble(c), word(a + b + c), sayIt(a + b + c), trace(c)],
+      [song(cur), book(d), meet(d), bubble(d), puzzle(cur), bridge(cur), trace(d)],
     ],
-    pool: [find(cur, "mix"), pop(cur), sayIt(cur), ...(before ? [next(recent(before + cur))] : [])],
+    pool: [find(cur, "mix"), same(cur), pop(cur), pair(cur), missing(cur), puzzle(cur), sayIt(cur), bridge(cur), ...(before ? [next(recent(before + cur))] : [])],
     stampDay: stamp(cur, before),
   };
 }
@@ -94,12 +101,12 @@ function unit3(cur: string, before: string): UnitTable {
   const [a, b, c] = L(cur);
   return {
     written: [
-      [song(a), book(a), meet(a), find(a, "upper", 3), word(a, 3), trace(a)],
-      [song(a + b), book(b), meet(b), find(a + b, "upper"), match(a + b), trace(b)],
-      [song(cur), book(c), meet(c), word(cur), sayIt(cur), trace(c)],
-      [song(cur), book(cur), match(cur), missing(cur), pop(cur), traceOnly(cur.toLowerCase())],
+      [song(a), book(a), meet(a), bubble(a), find(a, "upper", 3), same(a, 2), trace(a)],
+      [song(a + b), book(b), meet(b), bubble(b), pair(a + b), match(a + b), trace(b)],
+      [song(cur), book(c), meet(c), bubble(c), sayIt(cur), bridge(cur), trace(c)],
+      [song(cur), book(cur), puzzle(cur), match(cur), missing(cur), traceOnly(cur.toLowerCase())],
     ],
-    pool: [find(cur, "mix"), word(cur), sayIt(cur), next(recent(before + cur))],
+    pool: [find(cur, "mix"), same(cur), word(cur), pair(cur), puzzle(cur), sayIt(cur), bridge(cur), next(recent(before + cur))],
     stampDay: stamp(cur, before),
   };
 }
@@ -110,14 +117,21 @@ const upTo = (last: string): string => ABC.slice(0, ABC.indexOf(last) + 1);
 /** 전체 복습(레벨 B 유닛 4) — 새 글자 없이 알파벳을 세 묶음으로, 넷째 날은 모양이 헷갈리는 소문자(b·d·p·q, m·n·u·w) */
 const REVIEW_UNIT: UnitTable = {
   written: [
-    [song("ABCDEFGHI"), book("ABCDEFGHI"), next("ABCDEFGHI"), find("ABCDEFGHI", "mix"), match("ABCDEFGHI"), traceOnly("bd")],
-    [song("JKLMNOPQR"), book("JKLMNOPQR"), next("JKLMNOPQR"), find("JKLMNOPQR", "mix"), pop("JKLMNOPQR"), missing("JKLMNOPQR")],
-    [song("STUVWXYZ"), book("STUVWXYZ"), next("STUVWXYZ"), find("STUVWXYZ", "mix"), match("STUVWXYZ"), word("STUVWXYZ")],
-    [song("BDPQ"), find("BDPQ", "lower"), match("BDPQ"), pop("MNUW"), sayIt("BDPQ"), traceOnly("pq")],
+    [song("ABCDEFGHI"), book("ABCDEFGHI"), bridge("ABCDEFGHI", 5), find("ABCDEFGHI", "mix"), match("ABCDEFGHI"), traceOnly("bd")],
+    [song("JKLMNOPQR"), book("JKLMNOPQR"), puzzle("JKLMNOPQR", 5), find("JKLMNOPQR", "mix"), pop("JKLMNOPQR"), missing("JKLMNOPQR")],
+    [song("STUVWXYZ"), book("STUVWXYZ"), next("STUVWXYZ"), same("STUVWXYZ"), pair("STUVWXYZ"), word("STUVWXYZ")],
+    [song("BDPQ"), bubble("B"), find("BDPQ", "lower"), same("BDPQ", 4, 3), pop("MNUW"), match("BDPQ"), traceOnly("pq")],
   ],
-  pool: [next(ABC), pop(ABC), missing(ABC), word(ABC)],
+  pool: [next(ABC), pop(ABC), missing(ABC), word(ABC), puzzle(ABC, 5), pair(ABC)],
   stampDay: [{ kind: "quiz", letters: L(ABC), review: [], rounds: QUIZ_ROUNDS }],
 };
+
+/** 이야기 그림책 칸 — 그 장 이야기(curriculum/stories), 글자는 이야기에 나오는 단어의 글자 */
+function storyBook(chapter: number): ActivitySpec | null {
+  const s = storyOfChapter(chapter);
+  if (!s) return null;
+  return { kind: "book", letters: inOrder(storyWords(s).map((id) => wordOf(id).letter)), story: s.id };
+}
 
 /** 길에 끼는 영어 놀이 — 주사위 말판은 한 판이 길어서 뺀다 */
 const GUESTS: readonly OriginalId[] = ["bingo", "mail", "hide", "fish", "name"];
@@ -131,11 +145,19 @@ function fitToKnown(a: ActivitySpec, known: ReadonlySet<string>, easy: boolean):
     case "word-pick":
     case "pop":
     case "next-letter":
-    case "say": {
+    case "say":
+    case "same-letter": {
       const letters = a.letters.filter((l) => known.has(l));
       // 짝꿍·다음 글자는 글자가 둘은 있어야 한다
       if (letters.length < (a.kind === "match-case" || a.kind === "next-letter" ? 2 : 1)) return null;
       return { ...a, letters, rounds: Math.min(a.rounds, easy ? 1 : 2) };
+    }
+    // 판 수가 글자 수로 정해지는 놀이 — 글자가 둘은 있어야 판이 된다
+    case "puzzle":
+    case "bridge":
+    case "pair": {
+      const letters = a.letters.filter((l) => known.has(l));
+      return letters.length >= 2 ? { ...a, letters } : null;
     }
     default:
       return null;
@@ -143,7 +165,7 @@ function fitToKnown(a: ActivitySpec, known: ReadonlySet<string>, easy: boolean):
 }
 
 /**
- * 미션 하나 10칸 — 표에 적은 놀이 뒤에 채움 칸, 영어 놀이 한 판, 맨 끝은 따라 쓰기.
+ * 미션 하나 8칸 — 표에 적은 놀이 뒤에 채움 칸, 영어 놀이 한 판, 맨 끝은 따라 쓰기.
  * 채움 칸은 그날 없는 놀이 먼저, 모자라면 되풀이한다(업체 원칙: 같은 개념을 여러 놀이로 반복). 바로 앞 칸과 같은 놀이는 피한다.
  */
 function fillDay(acts: readonly ActivitySpec[], pool: readonly ActivitySpec[], known: ReadonlySet<string>, easy: boolean, guest: ActivitySpec | null): ActivitySpec[] {
@@ -171,15 +193,18 @@ function staged(c: { no: number; level: Level; code: string; title: string; goal
   const guestOf = (day: number, known: readonly string[]): ActivitySpec => ({ kind: "game", id: GUESTS[(c.no * 3 + day) % GUESTS.length], letters: [...known] });
   const metBy = (i: number) => [...before, ...unit.written.slice(0, i + 1).flatMap((acts) => acts.flatMap((a) => (a.kind === "meet" ? [a.letter] : [])))];
   const pool = [...unit.pool, ...unit.written.flat()];
+  // 채움 칸은 날마다 다른 놀이부터 — 같은 놀이만 늘 채워지지 않게(미션 번호만큼 돌린다)
+  const from = (day: number) => [...pool.slice((day * 3) % pool.length), ...pool.slice(0, (day * 3) % pool.length)];
 
   // ★ — 글자를 처음 만나는 날. 첫날은 글자가 하나뿐이라 영어 놀이를 끼우지 않는다
   const star = unit.written.map((acts, i) => {
     const known = metBy(i);
-    return fillDay(acts.map(cap), pool, new Set(known), easy, known.length >= 2 ? guestOf(i + 1, known) : null);
+    return fillDay(acts.map(cap), from(i), new Set(known), easy, known.length >= 2 ? guestOf(i + 1, known) : null);
   });
   // ★★·★★★ — 만나기를 빼고 어렵게. 그림책과 노래는 번갈아 하나씩(업체 하루: 영상 또는 책)
   // 복습 장은 이미 알파벳 전체라 앞 장 글자를 더 섞지 않는다
   const widen = c.meets.length ? before : [];
+  const story = storyBook(c.no);
   // ★★ 부터는 이 장 글자를 다 아니까 장 글자 전체로 논다(그림책은 그날 글자, 다음 글자는 이어진 글자 그대로)
   const whole = (a: ActivitySpec): ActivitySpec => {
     if (!c.meets.length) return a;
@@ -191,6 +216,10 @@ function staged(c: { no: number; level: Level; code: string; title: string; goal
       case "word-pick":
       case "pop":
       case "say":
+      case "same-letter":
+      case "pair":
+      case "puzzle":
+      case "bridge":
         return { ...a, letters: [...c.meets] };
       default:
         return a;
@@ -202,7 +231,9 @@ function staged(c: { no: number; level: Level; code: string; title: string; goal
       // 그림책이 없는 날(복습 장 넷째 날)은 노래를 남긴다 — 어느 미션이든 노래나 그림책으로 시작
       const drop = step === 2 && acts.some((a) => a.kind === "book") ? "song" : "book";
       const base = acts.filter((a) => a.kind !== "meet" && a.kind !== drop);
-      return fillDay(base.map(h), pool.map(h), new Set(all), easy, guestOf(step * DAYS_PER_STAGE + i + 1, all));
+      const day = fillDay(base.map(h), from(step * DAYS_PER_STAGE + i).map(h), new Set(all), easy, guestOf(step * DAYS_PER_STAGE + i + 1, all));
+      // ★★★ 둘째·넷째 미션은 그 장 이야기 그림책으로 시작 — 첫 칸(그림책·노래 자리)을 바꾼다(업체 그림책 = 그날 단어로 만든 반복 이야기)
+      return step === 2 && story && (i === 1 || i === 3) ? [story, ...day.slice(1)] : day;
     });
   return { ...c, days: [...star, ...up(1), ...up(2), unit.stampDay] };
 }

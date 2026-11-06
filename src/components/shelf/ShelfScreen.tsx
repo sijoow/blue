@@ -5,10 +5,13 @@ import { Glyph, WordArt } from "@/components/Art";
 import { DoneBurst, ModeShell } from "@/components/ModeShell";
 import { Book } from "@/components/play/activities/Book";
 import { Song } from "@/components/play/activities/Song";
+import { Story, StoryCoverArt } from "@/components/play/activities/Story";
 import { MenuCard, Splash } from "@/components/ui";
-import { letterOf } from "@/curriculum/alphabet";
+import { ALPHABET, letterOf } from "@/curriculum/alphabet";
+import { CHAPTERS } from "@/curriculum/course";
 import { LINES } from "@/curriculum/lines";
 import { menuOf, SHELF, type Shelf } from "@/curriculum/menus";
+import { STORIES, type Story as StoryData } from "@/curriculum/stories";
 import { useIsMaster } from "@/lib/auth";
 import { finishGame, knownLetters, localDay } from "@/lib/progress";
 import { sfx } from "@/lib/sfx";
@@ -16,10 +19,18 @@ import { readSaved, updateSaved, useSaved } from "@/lib/store";
 import { pick, say, stopVoice } from "@/lib/voice";
 
 type Kind = "songs" | "books";
-type Phase = { name: "list" } | { name: "open"; shelf: Shelf; startedAt: number } | { name: "done"; shelf: Shelf; earned: number };
+/** 책장 칸 하나 — 이야기 그림책이면 story */
+type Entry = Shelf & { story?: StoryData };
+
+/** 이야기 그림책 칸 — 그 장 글자를 다 만나면 열린다(복습 장 이야기는 알파벳 전체) */
+const STORY_SHELF: readonly Entry[] = STORIES.map((s) => {
+  const meets = CHAPTERS.find((c) => c.no === s.chapter)?.meets ?? [];
+  return { id: `story:${s.id}`, title: s.title, letters: meets.length ? meets : ALPHABET, story: s };
+});
+type Phase = { name: "list" } | { name: "open"; shelf: Entry; startedAt: number } | { name: "done"; shelf: Entry; earned: number };
 
 /** 펼치기 — 시작 시각을 지금으로. 누를 때만 부른다(렌더 중에 부르지 않는다) */
-function opened(shelf: Shelf): Phase {
+function opened(shelf: Entry): Phase {
   return { name: "open", shelf, startedAt: Date.now() };
 }
 
@@ -45,9 +56,9 @@ export default function ShelfScreen({ kind }: { kind: Kind }) {
 
   if (!saved) return <Splash />;
   const known = new Set(knownLetters(saved.progress));
-  const isOpen = (s: Shelf) => master || s.letters.every((l) => known.has(l));
+  const isOpen = (s: Entry) => master || s.letters.every((l) => known.has(l));
 
-  const open = (s: Shelf) => {
+  const open = (s: Entry) => {
     sfx.wake();
     if (!isOpen(s)) {
       sfx.boop();
@@ -68,7 +79,13 @@ export default function ShelfScreen({ kind }: { kind: Kind }) {
     };
     return (
       <ModeShell title={`${phase.shelf.title} ${menu.title}`} icon={menu.icon} iconId={`menu:${kind}`} scene="free" onBack={() => setPhase({ name: "list" })}>
-        {kind === "songs" ? <Song letters={[...phase.shelf.letters]} onDone={finish} /> : <Book letters={[...phase.shelf.letters]} onDone={finish} />}
+        {kind === "songs" ? (
+          <Song letters={[...phase.shelf.letters]} onDone={finish} />
+        ) : phase.shelf.story ? (
+          <Story id={phase.shelf.story.id} onDone={finish} />
+        ) : (
+          <Book letters={[...phase.shelf.letters]} onDone={finish} />
+        )}
       </ModeShell>
     );
   }
@@ -76,6 +93,22 @@ export default function ShelfScreen({ kind }: { kind: Kind }) {
   return (
     <ModeShell title={menu.title} icon={menu.icon} iconId={`menu:${kind}`} scene="free">
       <div className="mx-auto grid max-w-5xl grid-cols-2 gap-4 p-5 pb-8 sm:grid-cols-3 lg:grid-cols-4 portrait:gap-3 portrait:p-3">
+        {kind === "books" && <h2 className="col-span-full w-fit rounded-full bg-white/90 px-4 py-1 font-display text-xl text-ink shadow-sm">이야기 그림책</h2>}
+        {kind === "books" &&
+          STORY_SHELF.map((s) => (
+            <MenuCard
+              key={s.id}
+              tone="peach"
+              artClassName="aspect-[4/3]"
+              art={s.story && <StoryCoverArt story={s.story} size="min(13vh, 5.2rem)" />}
+              title={s.title}
+              sub={s.story?.ko}
+              locked={!isOpen(s)}
+              lockText="글자를 다 만나면 열려요"
+              onClick={() => open(s)}
+            />
+          ))}
+        {kind === "books" && <h2 className="col-span-full mt-2 w-fit rounded-full bg-white/90 px-4 py-1 font-display text-xl text-ink shadow-sm">단어 그림책</h2>}
         {SHELF.map((s) => {
           const ok = isOpen(s);
           const first = letterOf(s.letters[0]);

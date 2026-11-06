@@ -58,6 +58,8 @@ const AUDIT = `(() => {
         if (outside(ar, view)) why = "스크롤 상자가 화면 밖: " + a.className.slice(0, 60);
         // 가운데 정렬 + 스크롤: 위로 넘친 것은 스크롤로도 못 올라간다
         else if (a.scrollTop === 0 && r.top < ar.top - 3 && a.scrollTop + r.top - ar.top < -3) why = "위로 넘쳐 못 올라감: " + a.className.slice(0, 60);
+        // 세로로만 스크롤하는 상자 — 옆으로 넘친 것은 그대로 잘린다
+        else if (/(hidden|clip)/.test(acs.overflowX) && (r.right > ar.right + 3 || r.left < ar.left - 3)) why = "옆으로 잘림: " + a.className.slice(0, 60);
         break;
       }
       if (hides(acs) && outside(r, a.getBoundingClientRect())) { why = "상자에 잘림: " + a.className.slice(0, 60); break; }
@@ -94,16 +96,31 @@ const FLOWS = [
   // 장 번호 = 업체 유닛(1~4장 = A1~A4, 5~8장 = B1~B4). step = 그 미션의 몇 번째 칸(0부터)
   ["play-song", "/play?preview=c1d2&auto=1", []],
   ["play-book", "/play?preview=c1d1&step=1&auto=1", [["sel", "button[aria-label='다음 쪽']"]]],
+  // 이야기 그림책(★★★ 둘째·넷째 미션 첫 칸, 2026-11-06) — 표지 · 둘(세로는 대각선) · 두 줄 문장 · 끝
+  ["play-story", "/play?preview=c1d10&auto=1", []],
+  ["play-story-pair", "/play?preview=c1d10&auto=1", [["sel", "button[aria-label='다음 쪽']"]]],
+  ["play-story-long", "/play?preview=c6d12&auto=1", [["sel", "button[aria-label='다음 쪽']"], ["sel", "button[aria-label='다음 쪽']"], ["sel", "button[aria-label='다음 쪽']"], ["sel", "button[aria-label='다음 쪽']"]]],
+  ["play-story-title", "/play?preview=c7d10&auto=1", []],
+  ["play-story-end", "/play?preview=c8d10&auto=1", [["sel", "button[aria-label='다음 쪽']"], ["sel", "button[aria-label='다음 쪽']"], ["sel", "button[aria-label='다음 쪽']"], ["sel", "button[aria-label='다음 쪽']"], ["sel", "button[aria-label='다음 쪽']"], ["sel", "button[aria-label='다음 쪽']"], ["sel", "button[aria-label='다음 쪽']"]]],
   ["play-meet", "/play?preview=c1d1&step=2&auto=1", [["sel", "button[aria-label^='대문자']"], ["sel", "button[aria-label^='소문자']"]]],
-  ["play-find", "/play?preview=c1d1&step=3&auto=1", []],
-  ["play-word", "/play?preview=c1d3&step=3&auto=1", []],
-  ["play-say", "/play?preview=c1d3&step=4&auto=1", []],
-  ["play-trace", "/play?preview=c1d1&step=9&auto=1", []],
-  ["play-match", "/play?preview=c1d4&step=3&auto=1", []],
-  ["play-missing", "/play?preview=c1d4&step=4&auto=1", []],
-  ["play-pop", "/play?preview=c1d1&step=5&auto=1", []],
-  ["play-next", "/play?preview=c3d1&step=7&auto=1", []],
-  ["play-game", "/play?preview=c1d2&step=8&auto=1", []],
+  ["play-bubble", "/play?preview=c1d1&step=3&auto=1", []],
+  ["play-bubble-heard", "/play?preview=c1d1&step=3&auto=1", [["sel", "button[aria-label='말풍선']"]]],
+  ["play-find", "/play?preview=c1d1&step=4&auto=1", []],
+  ["play-same", "/play?preview=c1d1&step=5&auto=1", []],
+  ["play-pop", "/play?preview=c1d1&step=6&auto=1", []],
+  ["play-trace", "/play?preview=c1d1&step=7&auto=1", []],
+  ["play-pair", "/play?preview=c1d2&step=4&auto=1", []],
+  ["play-pair-4", "/play?preview=c1d6&step=2&auto=1", []],
+  ["play-match", "/play?preview=c1d2&step=5&auto=1", []],
+  ["play-game", "/play?preview=c1d2&step=6&auto=1", []],
+  ["play-word", "/play?preview=c1d3&step=4&auto=1", []],
+  ["play-say", "/play?preview=c1d3&step=5&auto=1", []],
+  ["play-puzzle", "/play?preview=c1d4&step=4&auto=1", []],
+  ["play-bridge", "/play?preview=c1d4&step=5&auto=1", []],
+  ["play-puzzle-6", "/play?preview=c3d12&step=2&auto=1", []],
+  ["play-bridge-6", "/play?preview=c3d12&step=3&auto=1", []],
+  ["play-missing", "/play?preview=c6d4&step=4&auto=1", []],
+  ["play-next", "/play?preview=c8d1&step=5&auto=1", []],
   ["play-meet-x", "/play?preview=c7d1&step=2&auto=1", [["sel", "button[aria-label^='대문자']"], ["sel", "button[aria-label^='소문자']"]]],
   ["play-quiz", "/play?preview=c2d13&auto=1", []],
   ["play-quiz-q", "/play?preview=c2d13&auto=1", [["text", "시작!"]]],
@@ -113,7 +130,7 @@ const FLOWS = [
   ["path-preview", "/play?preview=c1d2", []],
   ["path-land-7", "/play?preview=c7d2", []],
   ["path-stamp", "/play?preview=c1d13", []],
-  ["path-mid", "/play?preview=c1d2&step=6", []],
+  ["path-mid", "/play?preview=c1d2&step=5", []],
   ["map", "/map", []],
   ["map-panel", "/map", [["sel", "button[aria-label^='1장']"]]],
   ["map-panel-8", "/map", [["sel", "button[aria-label^='8장']"]]],

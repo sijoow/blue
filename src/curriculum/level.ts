@@ -24,7 +24,14 @@ export function hardenSpec(a: ActivitySpec, step: number, before: readonly strin
     case "next-letter":
       return { ...a, letters: wider(a.letters), rounds: a.rounds + step };
     case "say":
+    case "pair":
       return { ...a, letters: wider(a.letters) };
+    // 퍼즐은 빈 자리가, 다리는 길이가 는다(여섯까지 — 조각이 한 화면에 들어가게)
+    case "puzzle":
+    case "bridge":
+      return { ...a, letters: wider(a.letters), max: Math.min(6, a.max + step) };
+    case "same-letter":
+      return { ...a, letters: wider(a.letters), rounds: a.rounds + step, choices: Math.min(4, a.choices + 1) };
     case "trace": {
       // ★★ 는 헷갈리는 소문자만, ★★★ 는 대·소문자 둘 다 다시
       if (step !== 1) return a;

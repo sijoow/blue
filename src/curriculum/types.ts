@@ -13,8 +13,9 @@ export type CaseShow = "upper" | "lower" | "mix";
 export type ActivitySpec =
   /** 노래 — 글자 챈트("A, A, apple") 영상 자리(토도 하루 = 영상 → 책 → 활동). 점수 없음 */
   | { kind: "song"; letters: readonly string[] }
-  /** 그림책 — 표지 → 글자마다 단어 그림 쪽 → 끝. 쪽마다 글자 이름 → 단어를 읽어 준다. 점수 없음 */
-  | { kind: "book"; letters: readonly string[] }
+  /** 그림책 — 표지 → 글자마다 단어 그림 쪽 → 끝. 쪽마다 글자 이름 → 단어를 읽어 준다. 점수 없음.
+   *  story 를 주면 이야기 그림책(curriculum/stories — 그 장 단어로 만든 반복 이야기, ★★★ 둘째·넷째 미션) */
+  | { kind: "book"; letters: readonly string[]; story?: string }
   /** 알파벳 만나기 — 큰 글자·작은 글자 + 대표 단어 둘(누르면 영어 → 뜻) */
   | { kind: "meet"; letter: string }
   /** 따라 말하기 — 단어를 듣고 녹음, 내 목소리를 다시 듣고 한 번 더 들려준다(토도 마이크 활동 자리). 점수 없음 */
@@ -35,6 +36,17 @@ export type ActivitySpec =
   | { kind: "next-letter"; letters: readonly string[]; rounds: number }
   /** 따라 쓰기 — 쓸 글자 차례("A", "a") */
   | { kind: "trace"; chars: readonly string[] }
+  // ── 토도영어 레벨 A 놀이를 우리 그림으로(2026-11-06 사용자 폰에서 직접 보고, docs/todoenglish-levelA.md). 판은 두 글자씩 → 마지막 판은 모아서(lib/rounds groupRounds)
+  /** 글자 퍼즐 — A~Z 판의 빈 자리에 글자 조각을 끌어 넣기(업체 Alphabet Puzzle). max = 마지막 판의 빈 자리 수 */
+  | { kind: "puzzle"; letters: readonly string[]; max: number }
+  /** 다리 잇기 — 이어진 글자 다리의 빈칸에 글자를 끌어 넣어 차례 맞추기(업체 Break n Build). max = 다리 길이 */
+  | { kind: "bridge"; letters: readonly string[]; max: number }
+  /** 같은 글자 찾기 — 그루터기 위 글자와 같은 글자 조각을 옆 빈칸에(업체 Find The Pair). 글자 차례대로, choices = 보기 수 */
+  | { kind: "same-letter"; letters: readonly string[]; rounds: number; choices: number }
+  /** 그림 짝꿍 — 같은 그림 카드끼리 끌어 겹치기(업체 Literacy Matching) */
+  | { kind: "pair"; letters: readonly string[] }
+  /** 말풍선 — 누르면 글자 이름과 단어를 들려주고 끝(업체 하루 화면의 글자 말풍선) */
+  | { kind: "bubble"; letter: string }
   /** 영어 놀이 한 판 — 오늘의 길에 끼는 칸(점수 없음). letters 는 그날까지 만난 글자 */
   | { kind: "game"; id: OriginalId; letters: readonly string[] };
 

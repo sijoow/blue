@@ -36,6 +36,11 @@ export const GAMES: readonly Game[] = [
   { id: "pop", title: "글자 방울", icon: "🎈", tone: "lilac", spec: ({ known }) => ({ kind: "pop", letters: playLetters(known), rounds: 3 }) },
   { id: "next-letter", title: "다음 글자", icon: "➡️", tone: "peach", spec: ({ known }) => ({ kind: "next-letter", letters: playLetters(known), rounds: 4 }) },
   { id: "say", title: "따라 말하기", icon: "🎤", tone: "sky", spec: ({ known }) => ({ kind: "say", letters: playLetters(known), rounds: 4 }) },
+  // 업체 레벨 A 놀이를 우리 그림으로(2026-11-06)
+  { id: "puzzle", title: "글자 퍼즐", icon: "🔤", tone: "butter", spec: ({ known }) => ({ kind: "puzzle", letters: playLetters(known), max: 4 }) },
+  { id: "bridge", title: "다리 잇기", icon: "🌉", tone: "sky", spec: ({ known }) => ({ kind: "bridge", letters: playLetters(known), max: 4 }) },
+  { id: "same-letter", title: "같은 글자", icon: "🔍", tone: "mint", spec: ({ known }) => ({ kind: "same-letter", letters: playLetters(known), rounds: 4, choices: 3 }) },
+  { id: "pair", title: "그림 짝꿍", icon: "🃏", tone: "rose", spec: ({ known }) => ({ kind: "pair", letters: playLetters(known) }) },
 ];
 
 /** 놀이터 카드 아래 "A~H" — 이 놀이에 나오는 글자 범위 */

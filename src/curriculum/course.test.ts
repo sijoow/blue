@@ -72,7 +72,7 @@ test("글자는 업체 유닛 차례대로, 한 번씩, 하루에 하나씩 만�
 test("놀이마다 아직 안 만난 글자를 묻지 않는다 — 노래·그림책만 그날 만날 글자를 먼저 소개한다(업체 하루: 영상 → 책 → 활동)", () => {
   const known = new Set<string>();
   const asked = (a: ActivitySpec): string[] => {
-    if (a.kind === "meet") return [a.letter];
+    if (a.kind === "meet" || a.kind === "bubble") return [a.letter];
     if (a.kind === "trace") return a.chars.map((ch) => ch.toUpperCase());
     if (a.kind === "quiz") return [...a.letters, ...a.review];
     return [...a.letters];
@@ -161,6 +161,18 @@ test("나라 — 장마다 다른 나라, 우주나라·그림책나라는 없�
   }
   // 장이 나라보다 많아지면 처음부터 다시 돈다
   assert.equal(landOf(LANDS.length + 1).id, LANDS[0].id);
+});
+
+test("업체 레벨 A 놀이 넷과 말풍선이 과정에 있다 — 말풍선은 만나기 뒤, 미션마다 하나까지", () => {
+  for (const kind of ["puzzle", "bridge", "same-letter", "pair", "bubble"] as const) assert.ok(firstSeen(kind), `${kind} 가 과정에 없다`);
+  for (const c of CHAPTERS) {
+    c.days.forEach((acts, d) => {
+      const bubbles = acts.filter((a) => a.kind === "bubble");
+      assert.ok(bubbles.length <= 1, `${c.no}장 미션 ${d + 1} 말풍선 ${bubbles.length}`);
+      const meet = acts.findIndex((a) => a.kind === "meet");
+      if (meet >= 0 && bubbles.length) assert.ok(acts.findIndex((a) => a.kind === "bubble") > meet, "말풍선은 만난 뒤에");
+    });
+  }
 });
 
 test("통과 기준 — 첫 두 장 50%, 그 뒤 70%", () => {

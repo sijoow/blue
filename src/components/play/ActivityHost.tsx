@@ -2,16 +2,22 @@
 
 import { OriginalPlay } from "@/components/games/OriginalPlay";
 import type { BuiltActivity } from "@/lib/rounds";
+import { Bridge } from "./activities/Bridge";
+import { Bubble } from "./activities/Bubble";
 import { FindLetter } from "./activities/FindLetter";
 import { MatchCase } from "./activities/MatchCase";
 import { Meet } from "./activities/Meet";
 import { MissingLetter } from "./activities/MissingLetter";
 import { NextLetter } from "./activities/NextLetter";
+import { Pair } from "./activities/Pair";
+import { Puzzle } from "./activities/Puzzle";
+import { SameLetter } from "./activities/SameLetter";
 import { Book } from "./activities/Book";
 import { Pop } from "./activities/Pop";
 import { Quiz } from "./activities/Quiz";
 import { Say } from "./activities/Say";
 import { Song } from "./activities/Song";
+import { Story } from "./activities/Story";
 import { Trace } from "./activities/Trace";
 import { WordPick } from "./activities/WordPick";
 import type { OnDone } from "./types";
@@ -22,7 +28,7 @@ export function ActivityHost({ built, assess, onDone }: { built: BuiltActivity; 
     case "song":
       return <Song letters={built.letters} onDone={onDone} />;
     case "book":
-      return <Book letters={built.letters} onDone={onDone} />;
+      return built.story ? <Story id={built.story} onDone={onDone} /> : <Book letters={built.letters} onDone={onDone} />;
     case "say":
       return <Say rounds={built.rounds} onDone={onDone} />;
     case "quiz":
@@ -45,5 +51,15 @@ export function ActivityHost({ built, assess, onDone }: { built: BuiltActivity; 
       return <Trace chars={built.chars} onDone={onDone} />;
     case "game":
       return <OriginalPlay built={built.game} onDone={onDone} />;
+    case "puzzle":
+      return <Puzzle rounds={built.rounds} assess={assess} onDone={onDone} />;
+    case "bridge":
+      return <Bridge rounds={built.rounds} assess={assess} onDone={onDone} />;
+    case "same-letter":
+      return <SameLetter rounds={built.rounds} assess={assess} onDone={onDone} />;
+    case "pair":
+      return <Pair rounds={built.rounds} assess={assess} onDone={onDone} />;
+    case "bubble":
+      return <Bubble letter={built.letter} onDone={onDone} />;
   }
 }

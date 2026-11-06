@@ -1,6 +1,6 @@
 {
-  "total": 106,
-  "credits": 55.5,
+  "total": 115,
+  "credits": 60,
   "refs": [
     "refs/gen/bluey.png",
     "refs/gen/family.png",
@@ -1374,6 +1374,86 @@
       "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a small shiny gold trophy cup, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
     },
     {
+      "key": "icon:play:puzzle",
+      "what": "놀이 아이콘: 글자 퍼즐",
+      "file": "img/icons/play-puzzle.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a small wooden alphabet puzzle board with one empty letter-shaped hole and a colourful wooden letter piece beside it, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:play:bridge",
+      "what": "놀이 아이콘: 다리 잇기",
+      "file": "img/icons/play-bridge.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a short sky-blue bridge made of square stepping blocks over a little river, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:play:same-letter",
+      "what": "놀이 아이콘: 같은 글자",
+      "file": "img/icons/play-same-letter.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a magnifying glass looking at two identical orange star shapes side by side on a little tree stump, clearly the same shape twice, no faces, no animals, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:play:pair",
+      "what": "놀이 아이콘: 그림 짝꿍",
+      "file": "img/icons/play-pair.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: two identical picture cards with a red apple, overlapping like a matching pair, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
+      "key": "icon:play:bubble",
+      "what": "놀이 아이콘: 말풍선",
+      "file": "img/icons/play-bubble.webp",
+      "refs": [
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "1:1",
+        "background": "transparent"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. A small app icon: a big round white speech bubble with a little tail, simple and bold. Use the reference images only for the drawing style. Draw only the object described — no characters, no people, no dogs unless described. No letters, no words, no numbers, no logos, no watermarks anywhere in the image. Centred with a small margin, fully transparent background, no ground, no shadow."
+    },
+    {
       "key": "icon:medal:gold",
       "what": "금메달",
       "file": "img/icons/medal-gold.webp",
@@ -1560,6 +1640,86 @@
         "background": "opaque"
       },
       "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Bluey speaking happily into a toy microphone while Bingo, Mum and Dad listen and clap. The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "scene:free:puzzle",
+      "what": "놀이터 카드 장면: 글자 퍼즐",
+      "file": "img/scenes/free-puzzle.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "4:3",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Bluey and Bingo pressing big colourful wooden puzzle pieces into a wooden puzzle board on the grass while Mum and Dad watch. The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "scene:free:bridge",
+      "what": "놀이터 카드 장면: 다리 잇기",
+      "file": "img/scenes/free-bridge.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "4:3",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Bluey walking proudly across a little bridge of sky-blue stepping blocks over a garden stream while Bingo cheers on the far side and Mum and Dad clap. The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "scene:free:same-letter",
+      "what": "놀이터 카드 장면: 같은 글자",
+      "file": "img/scenes/free-same-letter.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "4:3",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Bingo holding up two matching cards next to a tree stump, Bluey pointing excitedly, Mum and Dad smiling behind them. The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
+    },
+    {
+      "key": "scene:free:pair",
+      "what": "놀이터 카드 장면: 그림 짝꿍",
+      "file": "img/scenes/free-pair.webp",
+      "refs": [
+        "refs/gen/bluey.png",
+        "refs/gen/bingo.png",
+        "refs/gen/bandit.png",
+        "refs/gen/chilli.png",
+        "refs/gen/family.png"
+      ],
+      "params": {
+        "model": "gpt_image_2_5",
+        "quality": "medium",
+        "resolution": "1k",
+        "aspect_ratio": "4:3",
+        "background": "opaque"
+      },
+      "prompt": "Flat 2D children's TV cartoon in the exact drawing style of the reference images (the Australian show Bluey): clean simple rounded shapes, flat bright colours with one soft subtle shade, thin outlines in a slightly darker tone of each fill colour (never black outlines), no textures, no 3D, no gloss, warm sunny daylight. Characters are cartoon heeler dogs exactly like the reference images: big white oval eyes with round black pupils and a tiny white highlight, dark eyebrow markings, short muzzle with a black nose, simple mouth, rounded box-like body, short arms and legs, big pointed ears, a tail, simple paws (no human fingers). Bluey and Bingo matching big picture cards laid out on a picnic blanket, Mum and Dad kneeling beside them. The Heeler family of four, the main characters: Bluey and Bingo (two puppy sisters) with their Dad and Mum. Bluey: light blue puppy with navy ear tips, navy eyebrow markings and navy spots on the back, a tan muzzle, pale blue belly — exactly like the Bluey reference image. Bingo: orange puppy with a cream muzzle and cream belly, darker orange ear markings — exactly like the Bingo reference image. Dad (Bandit): tall navy-and-light-blue adult heeler with a tan muzzle and dark navy patches — exactly like the Bandit reference image. Mum (Chilli): tall light-orange adult heeler with a cream muzzle and brown ear markings — exactly like the Chilli reference image. Only the four Heeler family members (Bluey, Bingo, Dad and Mum). No other characters anywhere. Setting: a sunny Brisbane backyard like the reference poster — green lawn, a Queenslander house on stilts, palm trees and leafy tropical plants, colourful flowers, clear blue sky, simple shapes, minimal detail. No letters, no words, no numbers, no logos, no watermarks anywhere in the image."
     },
     {
       "key": "scene:games:bingo",

@@ -56,7 +56,7 @@ const icons: Entry[] = [
     ] as const
   ).map(([id, now, what]) => ({ key: `icon:ui:${id}`, kind: "icon" as const, now, what })),
   // 놀이 아이콘 — 오늘의 영어 순서 표시·놀이터 제목. 만나기(안내 친구)·따라 쓰기(쓰기 메뉴)·그림 고르기(apple)는 같은 뜻 그림을 쓴다(lib/assets UI_ART)
-  ...(["find-letter", "match-case", "missing-letter", "pop", "next-letter", "song", "book", "say", "quiz"] as const).map((id) => ({ key: `icon:play:${id}`, kind: "icon" as const, now: KIND_ICON[id], what: `놀이 아이콘: ${KIND_LABEL[id]}` })),
+  ...(["find-letter", "match-case", "missing-letter", "pop", "next-letter", "song", "book", "say", "quiz", "puzzle", "bridge", "same-letter", "pair", "bubble"] as const).map((id) => ({ key: `icon:play:${id}`, kind: "icon" as const, now: KIND_ICON[id], what: `놀이 아이콘: ${KIND_LABEL[id]}` })),
   // 도장 퀴즈 메달 — 업체 트로피 세 단계(80 미만 · 80 이상 · 100)
   ...(
     [

@@ -3,7 +3,7 @@ import { test } from "node:test";
 import { ALPHABET, letterOf, wordOf } from "../curriculum/alphabet.ts";
 import { CHAPTERS, DAYS_PER_CHAPTER, dayPlan } from "../curriculum/course.ts";
 import { GAMES } from "../curriculum/games.ts";
-import { buildActivity, buildSession, cycle, letterChoices, otherLetters, seededRng, wordGap } from "./rounds.ts";
+import { buildActivity, buildSession, cycle, groupRounds, inTurn, letterChoices, otherLetters, runOf, seededRng, wordGap } from "./rounds.ts";
 
 test("돌려 쓰기 — 고루 나오고 같은 것이 연달아 나오지 않는다", () => {
   const rng = seededRng(7);
@@ -31,6 +31,19 @@ test("글자 보기 — 정답이 꼭 있고 겹치지 않는다. 아는 글자�
   assert.deepEqual(otherLetters("Z", ["Z"], 2, seededRng(1)).sort(), ["X", "Y"]);
 });
 
+test("판 묶음 — 두 글자씩 → 마지막 판은 모아서(업체 레벨 A 흐름)", () => {
+  assert.deepEqual(groupRounds(["D", "A", "C", "B"]), [["A", "B"], ["C", "D"], ["A", "B", "C", "D"]]);
+  assert.deepEqual(groupRounds(["A", "B", "C"]), [["A", "B"], ["B", "C"], ["A", "B", "C"]]);
+  assert.deepEqual(groupRounds(["A", "B"]), [["A", "B"]]);
+  assert.deepEqual(groupRounds(["A"]), [["A"]]);
+  // 첫 바퀴는 알파벳 차례
+  assert.deepEqual(inTurn(["C", "A", "D", "B"], 4, seededRng(1)), ["A", "B", "C", "D"]);
+  assert.equal(inTurn(["A", "B"], 5, seededRng(1)).length, 5);
+  // 다리는 가장 긴 이어진 덩어리에서
+  assert.deepEqual(runOf(["B", "D", "P", "Q"], 4, seededRng(1)).length, 2);
+  assert.deepEqual(runOf(["A", "B", "C", "D", "E", "F"], 4, seededRng(2)).length, 4);
+});
+
 test("빈칸 단어 — 배우는 글자 자리를 비운다(X 는 끝)", () => {
   assert.deepEqual(wordGap("apple"), ["", "pple"]);
   assert.deepEqual(wordGap("box"), ["bo", ""]);
@@ -52,7 +65,7 @@ test("과정표의 모든 날을 판으로 만들 수 있다 — 정답이 보�
             break;
           case "match-case":
             for (const r of b.rounds) {
-              assert.ok(r.top.length >= 2 && r.top.length <= 3);
+              assert.ok(r.top.length >= 2 && r.top.length <= 4);
               assert.deepEqual([...r.top].sort(), [...r.bottom].sort());
               assert.ok(r.top.some((l, k) => r.bottom[k] !== l), "위아래 차례가 같으면 안 된다");
             }
@@ -88,6 +101,29 @@ test("과정표의 모든 날을 판으로 만들 수 있다 — 정답이 보�
             break;
           case "trace":
             assert.ok(b.chars.length >= 1 && b.chars.every((ch) => letterOf(ch.toUpperCase())));
+            break;
+          case "puzzle":
+            assert.ok(b.rounds.length >= 1);
+            for (const r of b.rounds) assert.ok(r.slots.length >= 1 && r.slots.length <= 6 && new Set(r.slots).size === r.slots.length);
+            break;
+          case "bridge":
+            for (const r of b.rounds) {
+              r.run.forEach((l, k) => k > 0 && assert.equal(ALPHABET.indexOf(l), ALPHABET.indexOf(r.run[k - 1]) + 1, "다리는 이어진 글자"));
+              assert.ok(r.gaps.length >= 1 && r.gaps.every((g) => r.run.includes(g) && r.pieces.includes(g)));
+              assert.ok(r.pieces.length <= r.gaps.length + 1);
+            }
+            break;
+          case "same-letter":
+            for (const r of b.rounds) assert.ok(r.choices.includes(r.target) && new Set(r.choices).size === r.choices.length && r.choices.length >= 2);
+            break;
+          case "pair":
+            for (const r of b.rounds) {
+              assert.ok(r.cards.length >= 2 && r.cards.length <= 8);
+              for (const w of r.cards) assert.equal(r.cards.filter((x) => x === w).length, 2, "카드는 두 장씩");
+            }
+            break;
+          case "bubble":
+            assert.ok(letterOf(b.letter));
             break;
           case "meet":
             assert.ok(letterOf(b.letter));

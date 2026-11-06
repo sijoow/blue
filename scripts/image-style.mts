@@ -111,6 +111,13 @@ export const PLAY_ICON: Record<string, string> = {
   book: "an open colourful picture book",
   say: "a friendly toy microphone",
   quiz: "a small shiny gold trophy cup",
+  // 업체 레벨 A 놀이를 우리 그림으로(2026-11-06) — GPT 로 생성
+  puzzle: "a small wooden alphabet puzzle board with one empty letter-shaped hole and a colourful wooden letter piece beside it",
+  bridge: "a short sky-blue bridge made of square stepping blocks over a little river",
+  // 처음엔 "카드 두 장"이라 블루이·빙고 얼굴 카드가 나왔다(11-06) — 캐릭터 없이 "똑같은 모양 둘"로
+  "same-letter": "a magnifying glass looking at two identical orange star shapes side by side on a little tree stump, clearly the same shape twice, no faces, no animals",
+  pair: "two identical picture cards with a red apple, overlapping like a matching pair",
+  bubble: "a big round white speech bubble with a little tail",
 };
 
 /** 도장 퀴즈 메달 — 업체 트로피 세 단계 자리. 숫자·글자 없이 */
@@ -141,6 +148,11 @@ export const GAME_SCENE: Record<string, string> = {
   pop: "Dad blowing big shiny soap bubbles while Bluey and Bingo jump to pop them and Mum laughs.",
   "next-letter": "The family walking in a line along garden stepping stones: Dad first, then Bluey, Bingo and Mum, Bluey pointing ahead.",
   say: "Bluey speaking happily into a toy microphone while Bingo, Mum and Dad listen and clap.",
+  // 업체 레벨 A 놀이를 우리 그림으로(2026-11-06) — 글자는 그리지 않는다(NO_TEXT), 모양만
+  puzzle: "Bluey and Bingo pressing big colourful wooden puzzle pieces into a wooden puzzle board on the grass while Mum and Dad watch.",
+  bridge: "Bluey walking proudly across a little bridge of sky-blue stepping blocks over a garden stream while Bingo cheers on the far side and Mum and Dad clap.",
+  "same-letter": "Bingo holding up two matching cards next to a tree stump, Bluey pointing excitedly, Mum and Dad smiling behind them.",
+  pair: "Bluey and Bingo matching big picture cards laid out on a picnic blanket, Mum and Dad kneeling beside them.",
 };
 
 /** 영어 놀이(오리지널) 카드 장면 — 주인공 가족이 그 놀이를 하는 모습. 카드·블록·편지에 글자를 그리지 않는다(생성기가 글자를 엉터리로 쓴다) */

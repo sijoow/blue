@@ -49,7 +49,8 @@ const go = async (path) => {
 };
 const clickText = (t) => ev(`(() => { const b = [...document.querySelectorAll("button")].find((x) => x.textContent.includes(${JSON.stringify(t)}) && !x.disabled); b?.click(); return !!b; })()`);
 const text = () => ev(`document.body.innerText`);
-const cellNow = () => ev(`document.querySelector('[aria-label="지금 칸"]')?.innerText.replace(/\\s+/g, " ") ?? ""`);
+// 칸 이름 앞의 아이콘이 그림이 아니라 이모지면 글자로 섞여 나온다 — 한글·영문 앞은 떼고 읽는다
+const cellNow = () => ev(`(document.querySelector('[aria-label="지금 칸"]')?.innerText ?? "").replace(/\\s+/g, " ").replace(/^[^가-힣A-Za-z]+/, "")`);
 let fails = 0;
 const check = (ok, what) => {
   console.log(`${ok ? "OK " : "실패"} ${what}`);
@@ -58,6 +59,27 @@ const check = (ok, what) => {
 /** 기기 진도를 고친다 — 서버는 막아 두었다 */
 const seed = (js) => ev(`(() => { const k = Object.keys(localStorage).find((x) => x.startsWith("haon-english:v1:")) ?? "haon-english:v1:fe"; const s = JSON.parse(localStorage.getItem(k) ?? '{"progress":{},"settings":{}}'); (${js})(s); localStorage.setItem(k, JSON.stringify(s)); return true; })()`);
 const reset = () => ev(`(() => { for (const k of Object.keys(localStorage)) if (k.startsWith("haon-english:v1:")) localStorage.removeItem(k); return true; })()`);
+
+
+/** 따라 쓰기 판의 획을 차례대로 긋는다 — svg 의 data-strokes(판 좌표)를 화면 좌표로 바꿔 펜 머리부터 끝까지 */
+async function traceBoard() {
+  for (let t = 0; t < 8; t++) {
+    const info = await ev(`(() => { const s = document.querySelector("svg[data-strokes]"); if (!s) return null; s.scrollIntoView({ block: "nearest" }); const r = s.getBoundingClientRect(); return { ...JSON.parse(s.dataset.strokes), now: Number(s.dataset.strokeNow), r: [r.left, r.top, r.width, r.height] }; })()`);
+    if (!info || info.now >= info.strokes.length) return;
+    const [L, T, W, H] = info.r;
+    const pts = [];
+    const st = info.strokes[info.now];
+    for (let i = 1; i < st.length; i++) {
+      const [a, b] = [st[i - 1], st[i]];
+      const n = Math.max(1, Math.ceil(Math.hypot(b[0] - a[0], b[1] - a[1]) / 3));
+      for (let k = i === 1 ? 0 : 1; k <= n; k++) pts.push([L + ((a[0] + ((b[0] - a[0]) * k) / n) / info.w) * W, T + ((a[1] + ((b[1] - a[1]) * k) / n) / info.h) * H]);
+    }
+    await mouse("mousePressed", pts[0][0], pts[0][1]);
+    for (const p of pts.slice(1)) await mouse("mouseMoved", p[0], p[1]);
+    await mouse("mouseReleased", pts[pts.length - 1][0], pts[pts.length - 1][1]);
+    await sleep(250);
+  }
+}
 
 /** 칸 하나를 아이처럼 끝까지 — 길로 돌아오면(지금 칸 표시가 사라지면) 끝 */
 async function playCell() {
@@ -90,6 +112,9 @@ async function playCell() {
         await drag(`section span[role="button"][aria-label="${l}"]`, `[data-drop="slot"]`);
         await sleep(2400);
       }
+    } else if (now.startsWith("따라 쓰기")) {
+      await traceBoard();
+      await sleep(4500);
     } else if (now.startsWith("노래")) {
       await clickText("좋아");
       await sleep(2000);
@@ -116,6 +141,34 @@ async function playCell() {
       for (let k = 0; k < n; k++) {
         const hit = await ev(`(() => { const b = [...document.querySelectorAll("section button[aria-label]")][${k}]; if (!b || b.getAttribute("aria-label").toUpperCase() !== ${JSON.stringify(target)}) return false; b.click(); return true; })()`);
         if (hit) await sleep(1000);
+      }
+      await sleep(2500);
+    } else if (now.startsWith("말풍선")) {
+      await ev(`document.querySelector("section button[aria-label='말풍선']")?.click()`);
+      await sleep(4500);
+    } else if (now.startsWith("글자 퍼즐") || now.startsWith("다리 잇기")) {
+      const pre = (await ev(`document.querySelector('[data-drop^="p:"]') ? "p" : "b"`)) ?? "p";
+      const pieces = await ev(`[...document.querySelectorAll('section span[role="button"]')].map((x) => x.getAttribute("aria-label"))`);
+      for (const l of pieces ?? []) {
+        if (!(await ev(`!!document.querySelector('[data-drop="${pre}:${l}"]')`))) continue;
+        await drag(`section span[role="button"][aria-label="${l}"]`, `[data-drop="${pre}:${l}"]`);
+        await sleep(1300);
+      }
+      await sleep(pre === "b" ? 4500 : 2500);
+    } else if (now.startsWith("같은 글자")) {
+      const t = await ev(`document.querySelector("[data-target]")?.getAttribute("data-target")`);
+      if (t) await drag(`section span[role="button"][aria-label="${t}"]`, `[data-drop="same"]`);
+      await sleep(3200);
+    } else if (now.startsWith("그림 짝꿍")) {
+      const cards = await ev(`[...document.querySelectorAll("section [data-card]")].filter((x) => x.getAttribute("data-drop")).map((x) => [x.getAttribute("data-card"), x.getAttribute("aria-label")])`);
+      const seen = new Map();
+      for (const [i, w] of cards ?? []) {
+        if (!seen.has(w)) {
+          seen.set(w, i);
+          continue;
+        }
+        await drag(`section [data-card="${seen.get(w)}"]`, `section [data-card="${i}"]`);
+        await sleep(1400);
       }
       await sleep(2500);
     } else {
@@ -161,8 +214,8 @@ if (steps.includes("mission")) {
   await ev(`document.querySelector('button[aria-label="3번째 칸"]')?.click()`);
   await sleep(500);
   check(!(await cellNow()), "앞 칸은 안 열린다");
-  // 따라 쓰기 앞 아홉 칸을 아이처럼
-  for (let i = 0; i < 9; i++) {
+  // 따라 쓰기 앞 일곱 칸을 아이처럼
+  for (let i = 0; i < 7; i++) {
     await ev(`document.querySelector("[data-path-now]")?.click()`);
     await sleep(1800);
     const name = await playCell();
@@ -172,15 +225,16 @@ if (steps.includes("mission")) {
   }
   // 다시 열어도 그 칸부터
   await go("/play");
-  check((await ev(`[...document.querySelectorAll('button[aria-label^="9번째 칸"]')].length`)) === 1, "다시 열어도 깬 칸이 남아 있다");
-  check((await ev(`document.querySelector("[data-path-now]")?.getAttribute("aria-label")`)) === "10번째 칸", "지금 칸은 10번째");
+  check((await ev(`[...document.querySelectorAll('button[aria-label^="7번째 칸"]')].length`)) === 1, "다시 열어도 깬 칸이 남아 있다");
+  check((await ev(`document.querySelector("[data-path-now]")?.getAttribute("aria-label")`)) === "8번째 칸", "지금 칸은 8번째");
   await ev(`document.querySelector("[data-path-now]")?.click()`);
   await sleep(2000);
   check((await cellNow()).startsWith("따라 쓰기"), "마지막 칸은 따라 쓰기");
   await shot("trace");
-  // 따라 쓰기는 진도를 심어 건너뛴다
-  await seed(`(s) => { s.progress.run.done = 10; s.progress.run.score.activities = 10; }`);
-  await go("/play");
+  // 따라 쓰기도 획을 따라 끝까지(획 쓰기 판, 2026-11-06)
+  const traced = await playCell();
+  check(traced !== null && !(await cellNow()), `8칸 끝: ${traced}`);
+  await sleep(2400);
   await shot("path-arrived");
   check((await ev(`!document.querySelector("[data-path-goal]")?.disabled`)) === true, "끝 칸이 열린다");
   await ev(`document.querySelector("[data-path-goal]")?.click()`);
